@@ -9,6 +9,7 @@ import { useState } from 'react';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
 import ClienForm from '../components/ClientForm';
+import MyWork from '../components/MyWork';
 
 
 export default function Home() {
@@ -46,7 +47,6 @@ export default function Home() {
     )
   })
   console.log(developer)
-
 
   return (
     <div className={ `${showClientForm ? 'fixed' : ''} bg-slate-50 min-h-fit scroll-smooth duration-150`}>
@@ -181,6 +181,9 @@ export default function Home() {
         </div>
       </div>
 
+      {/* Projects  */}
+      <MyWork/>
+      
       {/* footer area */}
       <Footer setShowClientForm={setShowClientForm}/>
     </div>

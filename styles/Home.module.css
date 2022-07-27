@@ -1,4 +1,5 @@
 
+
 .name:hover{
   animation: myAnim 1s ease 0s 1 normal forwards;
 }
@@ -33,6 +34,35 @@
 	}
 }
 
+.client_form {
+  animation: myAnim2 0.4s ease-out normal forwards;
+}
+
+@keyframes myAnim2 {
+	0% {
+		transform: scale(0.5);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+.client_form_text {
+  opacity: 0;
+  animation: myAnim3 2s ease-out normal forwards;
+}
+@keyframes myAnim3 {
+	50% {
+		transform: scale(0.5);
+    opacity: 0;
+	}
+
+	100% {
+		transform: scale(1);
+    opacity: 1;
+	}
+}
 
 /* .container {
   padding: 0 2rem;

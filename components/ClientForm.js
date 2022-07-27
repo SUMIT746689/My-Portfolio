@@ -1,16 +1,17 @@
 import Image from 'next/image';
 import React from 'react'
+import styles from '../styles/Home.module.css'
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 function ClienForm({setShowClientForm}) {
     
   return (
-    <div className='fixed h-screen bg-white z-50 overflow-x-hidden w-full object-cove backdrop-blur-sm bg-opacity-50'>
-        <div className='flex justify-center flex-col gap-6 p-2'>
-            <div className=' text-slate-900 m-auto pt-10 text-3xl text-center space-y-3 max-w-lg '>
+    <div className='fixed  h-screen bg-white z-50 overflow-x-hidden w-full object-cove backdrop-blur-sm bg-opacity-50'>
+        <div className={`${styles.client_form } flex justify-center flex-col gap-6 p-2`}>
+            <div className={ `${styles.client_form_text} text-slate-900 m-auto pt-10 text-3xl text-center space-y-3 max-w-lg `}>
                 I’m excited to learn about your project. Ready to get started?
             </div>
-            <form  className=' mx-auto m-0 p-4 h-fit w-5/6 max-w-3xl bg-white backdrop-blur-md rounded-lg shadow-md'>
+            <form  className=' mx-auto m-0 p-4 h-fit w-5/6 max-w-3xl bg-white backdrop-blur-md rounded-lg shadow-lg shadow-slate-700'>
                 <div className="relative grid p-3 md:grid-cols-2 md:gap-6 font-bold text-3xl sm:text-4xl right-0 text-slate-700">
                     <AiOutlineCloseCircle onClick={()=>setShowClientForm((value)=>!value)} className='absolute right-0 cursor-pointer'/>
                 </div>
@@ -61,7 +62,7 @@ function ClienForm({setShowClientForm}) {
                     <label htmlFor="message" className="block mb-2 text-sm sm:text-md lg:text-lg font-medium text-gray-900 dark:text-gray-400">Additional details</label>
                     <textarea id="message" rows="4" className="block p-2.5 w-full text-sm md:text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
                 </div>
-                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:text-md lg:text-lg w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:text-md lg:text-lg w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
             </form> 
         </div>
     </div>
