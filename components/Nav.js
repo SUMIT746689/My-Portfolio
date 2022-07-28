@@ -21,9 +21,9 @@ function Nav() {
           <Image src={logo} width='40px' height='40px' alt='Mehedi Portfolio' />
         </div>
         <ul className='w-1/2 font-semibold text-center flex justify-end uppercase text-base md:text-lg text-slate-900'>
-          <li className='cursor-pointer px-6 md:px-8 py-3 lg:px-12 lg:py-4 hover:bg-slate-300 duration-150 backdrop-blur-md '>Home</li>
-          <li className='cursor-pointer px-6 md:px-8 py-3 lg:px-12 lg:py-4 hover:bg-slate-300 duration-150 backdrop-blur-md '>About</li>
-          <li className='cursor-pointer px-6 md:px-8 py-3 lg:px-12 lg:py-4 hover:bg-slate-300 duration-150 backdrop-blur-md '>Contact</li>
+          <a href="#home"><li className='cursor-pointer px-6 md:px-8 py-3 lg:px-12 lg:py-4 hover:bg-slate-300 duration-150 backdrop-blur-md '>Home</li></a>
+          <a href='#about'><li className='cursor-pointer px-6 md:px-8 py-3 lg:px-12 lg:py-4 hover:bg-slate-300 duration-150 backdrop-blur-md '>About</li></a>
+          <a href='#contact'><li className='cursor-pointer px-6 md:px-8 py-3 lg:px-12 lg:py-4 hover:bg-slate-300 duration-150 backdrop-blur-md '>Contact</li></a>
         </ul>
       </nav>
 

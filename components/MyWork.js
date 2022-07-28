@@ -175,72 +175,37 @@ function MyWork() {
         </div>
         <div className='flex flex-wrap flex-grow justify-center align-middle gap-4 mt-10 '>
            {projects.length > 0 && projects.map ((project,index)=>(
-             <div key={index} className=' max-w-md shadow-md shadow-slate-900 rounded-2xl py-10 md:max-w-sm 2xl:max-w-md '>
-                <h1 className='text-slate-900 font-bold text-2xl my-2'>{project.name}</h1>
-                <h1 className='text-slate-800 font-medium text-lg px-6 mb-4 sm: h-20'>{project.title}</h1>
-                <div className='overflow-hidden rounded-2xl bg-slate-500 mx-6 mb bg-cover max-h-96'>
-                    <Image className='' src={'/total-solution.png'} width='400px' height='650px' alt='Total Solution'/>
-                </div>
-                <div className='text-left px-4 my-3'>
-                    <div className='flex flex-wrap gap-4 p-4 font-medium'>
-                        {project.website_url ? 
-                            <a className='flex justify-center text-center gap-4 text-sky-700' href={project.github_url}>
-                                <button className='transition duration-150 ease-in-out hover:scale-110 border-2 p-2 border-sky-700 rounded-lg flex gap-3 text-center'><CgWebsite className='mt-1'/> Website</button>
-                            </a>
-                        :''}
-                                                
-                        {project.github_url ? 
-                            
-                            <a className='flex justify-center text-center gap-4 text-sky-700' href={project.github_url}>
-                                <button className='transition duration-150 ease-in-out hover:scale-110 border-2 p-2 border-sky-700 rounded-lg flex gap-3 text-center'><VscGithub className='mt-1'/> Souce Code</button>
-                            </a>
-                        :''}
+             <div key={index} className='max-w-md  rounded-2xl py-10 md:max-w-sm 2xl:max-w-md '>
+                <div >
+                    {/* <div className='overflow-hidden rounded-2xl bg-slate-500 mx-6 mb bg-cover max-h-96'>
+                        <Image className='' src={'/total-solution.png'} width='400px' height='650px' alt='Total Solution'/>
+                    </div> */}
+                </div>   
+                <div className={`${index %2 === 0 ? 'text-left' : 'text-right'}`}>
+                    <h1 className='text-slate-900 font-bold text-xl px-7 my-2'>{project.name}</h1>
+                    <h1 className='text-slate-800 font-medium text-md px-7 '>{project.title}</h1>
+                    <div className='px-2 '>
+                    <div className='text-md font-bold text-slate-700 px-6 py-2'>
+                        Features:
                     </div>
-                    
-                </div>
-                
-                <div className='text-left px-4 my-3'>
-                    {
-                        project.tools_and_technologies?.length > 0 &&
-                        <div className='text-lg font-bold text-slate-700 px-6 py-4'>
-                            Tools and technologies:
-                        </div>
-                    }
-                    <div className='flex text-xl lg:2xl px-2 gap-4 flex-wrap'>
-                    {
-                        project.tools_and_technologies?.constructor === Array  
-                        && Object.keys(project.tools_and_technologies)?.length > 0 
-                        && project.tools_and_technologies.map((icon,index)=>(
-                            <span className='text-sky-600 ' key={index}>
-                                {icon[Object.keys(icon)]}
-                            </span>
-                        )) 
-                    }
+                    <div className=' px-10'>
+                        <ul className="list-disc text-sm list-outside marker:text-green-500 font-medium">
+                        {
+                            project.features && project.features.map((list_item,index)=>(
+                                <li key={index}>{list_item}</li>
+                            ))
+                        }
+                        </ul>
                     </div>
-                </div>
-
-                <div>
-                    <div className='text-left px-4 my-3'>
-                        <div className='text-lg font-bold text-slate-700 px-6 py-4'>
-                            Features:
-                        </div>
-                        <div className=' text-left px-6'>
-                            <ul role='list' className=" list-disc list-outside marker:text-green-600 font-medium">
-                            {
-                                project.features && project.features.map((list_item,index)=>(
-                                    <li key={index}>{list_item}</li>
-                                ))
-                            }
-                            </ul>
-                        </div>
                     </div>
-                    <div className='text-left px-4'> 
-                        {project.special_features && <div className='text-lg font-bold text-slate-700 px-6 py-4'>
+                    <div className='px-2'> 
+                        {project.special_features && <div className='text-md font-bold text-slate-700 px-6 py-2 mt-1'>
                             Special Features:
                         </div>
                         }
-                        <div className='text-left marker:text-green-600 px-6'>
-                            <ul  className="list-disc list-outside marker:bg-green-500 font-medium">
+                        <div className='px-10'>
+                            
+                        <ul className="list-disc text-sm list-outside marker:text-green-500 font-medium">
                             {
                                 project.special_features && project.special_features.map((list_item,index)=>(
                                     <li key={index}>{list_item}</li>
@@ -249,7 +214,44 @@ function MyWork() {
                             </ul>
                         </div>
                     </div>
+                    <div className=' px-4'>
+                        <div className='flex flex-wrap gap-4 px-4 pt-4 font-medium'>
+                            {project.website_url ? 
+                                <a className='flex justify-center text-center gap-4 text-sky-700' href={project.github_url}>
+                                    <button className='transition duration-150 ease-in-out hover:scale-110 border-2 p-2 border-sky-700 rounded-lg flex gap-3 text-center'><CgWebsite className='mt-1'/> Website</button>
+                                </a>
+                            :''}
+                                                    
+                            {project.github_url ? 
+                                
+                                <a className='flex justify-center text-center gap-4 text-sky-700' href={project.github_url}>
+                                    <button className='transition duration-150 ease-in-out hover:scale-110 border-2 p-2 border-sky-700 rounded-lg flex gap-3 text-center'><VscGithub className='mt-1'/> Souce Code</button>
+                                </a>
+                            :''}
+                        </div>
+                        
+                    </div>
+                    <div className=' my-3 px-7'>
+                        {
+                            project.tools_and_technologies?.length > 0 &&
+                            <div className='text-md font-bold text-slate-700 pb-2'>
+                                Tools and technologies:
+                            </div>
+                        }
+                        <div className='flex text-lg lg:2xl px-2 gap-4 flex-wrap'>
+                        {
+                            project.tools_and_technologies?.constructor === Array  
+                            && Object.keys(project.tools_and_technologies)?.length > 0 
+                            && project.tools_and_technologies.map((icon,index)=>(
+                                <span className='text-sky-700 ' key={index}>
+                                    {icon[Object.keys(icon)]}
+                                </span>
+                            )) 
+                        }
+                        </div>
+                    </div>
                 </div>
+            
             </div>
            ))}
         </div>

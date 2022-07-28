@@ -62,7 +62,7 @@ export default function Home() {
       {/* Nav bar component */}
       <Nav/>
 
-      <main className='h-screen flex flex-col justify-center align-middle sm:px-24 px-10'>
+      <main id='home' className='h-screen flex flex-col justify-center align-middle sm:px-24 px-10'>
         <div className='text-lg text-green-900 font-bold'>
           Hi, my name is 
         </div>
@@ -185,7 +185,7 @@ export default function Home() {
       <MyWork/>
       
       {/* footer area */}
-      <Footer setShowClientForm={setShowClientForm}/>
+      <Footer id='#contact' setShowClientForm={setShowClientForm}/>
     </div>
   )
 }
