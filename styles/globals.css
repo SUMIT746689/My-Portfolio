@@ -14,13 +14,13 @@ body {
 * {
   box-sizing: border-box;
 } */
-/* 
-@media (prefers-color-scheme: dark) {
+
+@media (prefers-color-scheme: #0A192F) {
   html {
-    color-scheme: dark;
+    color-scheme: #0A192F;
   }
   body {
     color: white;
-    background: black;
+    background: #0A192F;
   }
-} */
+} 
