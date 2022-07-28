@@ -6,12 +6,12 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 function ClienForm({setShowClientForm}) {
     
   return (
-    <div className='fixed  h-screen bg-white z-50 overflow-x-hidden w-full object-cove backdrop-blur-sm bg-opacity-50'>
+    <div className=' transition duration-300 ease-in-out fixed h-screen bg-white z-50 overflow-x-hidden w-full object-cove backdrop-blur-sm bg-opacity-50'>
         <div className={`${styles.client_form } flex justify-center flex-col gap-6 p-2`}>
-            <div className={ `${styles.client_form_text} text-slate-900 m-auto pt-10 text-3xl text-center space-y-3 max-w-lg `}>
+            <div className={ `${styles.client_form_text} text-slate-700 drop-shadow-sm shadow-black m-auto pt-10 text-3xl text-center space-y-3 max-w-lg `}>
                 I’m excited to learn about your project. Ready to get started?
             </div>
-            <form  className=' mx-auto m-0 p-4 h-fit w-5/6 max-w-3xl bg-white backdrop-blur-md rounded-lg shadow-lg shadow-slate-700'>
+            <form  className='mx-auto m-0 p-4 h-fit w-5/6 max-w-3xl bg-white backdrop-blur-md rounded-lg shadow-lg shadow-slate-700'>
                 <div className="relative grid p-3 md:grid-cols-2 md:gap-6 font-bold text-3xl sm:text-4xl right-0 text-slate-700">
                     <AiOutlineCloseCircle onClick={()=>setShowClientForm((value)=>!value)} className='absolute right-0 cursor-pointer'/>
                 </div>
