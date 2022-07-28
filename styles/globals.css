@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 
-
-
-html,
+/* html,
 body {
   padding: 0;
   margin: 0;
@@ -15,7 +13,7 @@ body {
 
 * {
   box-sizing: border-box;
-}
+} */
 /* 
 @media (prefers-color-scheme: dark) {
   html {

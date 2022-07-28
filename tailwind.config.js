@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      listStyleType : {
+        disc: 'disc'
+      },
       backdropBlur: {
         xs: '2px',
       },
