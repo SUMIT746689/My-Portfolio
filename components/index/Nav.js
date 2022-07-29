@@ -1,13 +1,13 @@
 import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import logo from '../asset/favicon.ico'
-import styles from '../styles/Home.module.css'
+import logo from '../../asset/favicon.ico'
+import styles from '../../styles/Home.module.css'
 import { FiFacebook ,FiGithub, FiLinkedin, FiInstagram, } from 'react-icons/fi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 import { BiMenuAltRight} from 'react-icons/bi';
 import { useState } from 'react';
-import Footer from '../components/Footer';
+import Footer from './Footer';
 
 function Nav() {
 

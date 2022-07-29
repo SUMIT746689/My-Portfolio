@@ -2,14 +2,16 @@ import Head from 'next/head'
 import Image from 'next/image'
 import logo from '../asset/favicon.ico'
 import styles from '../styles/Home.module.css'
-import { FiFacebook ,FiGithub, FiLinkedin, FiInstagram, } from 'react-icons/fi';
-import { AiOutlineCloseCircle } from 'react-icons/ai';
-import { BiMenuAltRight} from 'react-icons/bi';
-import { useState } from 'react';
-import Footer from '../components/Footer';
-import Nav from '../components/Nav';
-import ClienForm from '../components/ClientForm';
-import MyWork from '../components/MyWork';
+import { FiFacebook ,FiGithub, FiLinkedin, FiInstagram, } from 'react-icons/fi'
+import { AiOutlineCloseCircle } from 'react-icons/ai'
+import { BiMenuAltRight} from 'react-icons/bi'
+import { useState } from 'react'
+import Footer from '../components/index/Footer'
+import Nav from '../components/index/Nav'
+import ClienForm from '../components/index/ClientForm'
+import MyWork from '../components/index/MyWork'
+import Skills from '../components/index/Skills'
+import Main from '../components/index/Main'
 
 
 export default function Home() {
@@ -27,26 +29,7 @@ export default function Home() {
       { value===' ' ? ' ' : value}
     </div>
   )})
-
-  // my name animation 
-  const my_Name = ('Mehedi Hasan.').replace(' ','-').split('').map((value,index)=>{
-    return(
-      <p key={index} className={`${value ==='-' ?'opacity-0': ''} ${styles.name}`}>
-        {value}
-      </p>
-    )
-  })
-  console.log(my_Name)
-
-  //my next text animation
-  const developer = ('A.full.stack.or.MERN.stack.developer.').split('').map((value,index)=>{
-    return(
-      <p key={index} className={`${value ==='.' ?'opacity-0': ''} ${styles.name}`}>
-        {value}
-      </p>
-    )
-  })
-  console.log(developer)
+  // console.log(developer)
 
   return (
     <div className={ `${showClientForm ? 'fixed' : ''} bg-slate-50 min-h-fit scroll-smooth duration-150`}>
@@ -62,124 +45,11 @@ export default function Home() {
       {/* Nav bar component */}
       <Nav/>
 
-      <main id='home' className='h-screen flex flex-col justify-center align-middle sm:px-24 px-10'>
-        <div className='text-lg text-green-900 font-bold'>
-          Hi, my name is 
-        </div>
-        <div className='flex text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-900 my-3 sm:my-6'>
-          {my_Name}
-        </div>
-        <div className='flex flex-wrap text-3xl sm:text-4xl lg:text-6xl font-bold text-slate-600 '>
-          {developer}
-        </div>
-        <div className='font-bold text-base sm:text-lg max-w-xl my-5 sm:my-10 text-slate-900'>
-        I am a professional front-end and back-end developer. I believe in transparency and communication. I guide my clients with process and keep them updated with progress.
-        </div>
-      </main>
+      {/* front page */}
+      <Main/>
 
       {/* About my skills */}
-      <div className='relative'>
-        <div className='relative bg-cyan-700 flex justify-center font-light text-xl text-gray-100 px-4 pt-14 pb-40  min-w-min'>
-          <div className=' text-center max-w-2xl'>
-            {`Since beginning my journey as a freelance designer over 11 years I'm quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.`}
-          </div>
-        </div>
-      </div>
-      <div className='relative -top-28 min-h-fit flex flex-col justify-center mx-auto sm:flex-row -top-50 bg-slate-50 p-4 w-10/12 rounded-3xl shadow-md shadow-slate-700'>
-        <div className='text-center border-b sm:border-b-0 sm:border-r border-gray-500 mt-6'>
-          <div className='text-center'>
-            <Image className='bg-slate-200 rounded-full' src='/front-end.webp' width='100px' height='100px' alt='Front-End' />
-          </div>
-          <div className='text-pink-700 text-xl font-semibold pt-8 pb-4'>
-            Front-end Developer
-          </div>
-          <div className='text-slate-900 font-medium px-4 pb-8'>
-            I like to code things from scratch, and enjoy bringing ideas to life in the browser.
-          </div>
-          <div>
-            <div className=' text-pink-900 text-lg font-medium '> Languages:</div>
-            <div className='flex flex-col text-slate-900 font-medium px-4 pb-8 pt-2'> 
-              <span>HTML5</span>
-              <span>CSS3</span>
-              <span>JavaScript</span>
-              
-            </div>
-          </div>
-          <div className=' text-pink-900 text-lg font-medium '>
-            Tools, Framewokrs Or Libraries:
-          </div>
-          <div className='flex flex-col text-slate-900 font-medium px-4 pb-8 pt-2'>
-            <span>ReactJs</span>
-            <span>Redux</span>
-            <span>NextJs</span>
-            <span>TailwindCSS</span>
-            <span>Bootstrap</span>
-          </div>
-        </div>
-
-        
-        <div className=' text-center sm:border-0 sm:border-r border-b border-gray-500 mt-8'>
-          <div className='text-center'>
-            <Image className='bg-slate-200 rounded-full' src='/back-end.webp' width='100px' height='100px' alt='Front-End' />
-          </div>
-          <div  className='text-pink-700 text-xl font-semibold pt-8 pb-4'>
-            Back-end Developer
-          </div>
-          <div className='text-slate-900 font-medium px-4 pb-8'>
-            I like to code things from scratch, and enjoy bringing ideas to life in the browser.
-          </div>
-          <div>
-            <div className=' text-pink-900 text-lg font-medium '>
-              Languages:
-            </div>
-            <div className='flex flex-col text-slate-900 font-medium px-4 pb-8 pt-2'>
-              JavaScript
-            </div>
-          </div>
-          <div className=' text-pink-900 text-lg font-medium '>
-            Runtime or Framewokrs:
-          </div>
-          <div className='flex flex-col text-slate-900 font-medium px-4 pb-8 pt-2'>
-            <span>NodeJs</span>
-            <span>ExpressJs</span>
-            
-          </div>
-        </div>
-        
-      
-        <div className='text-center mt-8'>
-          <div className='text-center'>
-            <Image className='bg-slate-200' src='/other-tools.webp' width='100px' height='100px' alt='Front-End' />
-          </div>
-          <div className='text-pink-700 text-xl font-semibold pt-8 pb-4'>
-            Others
-          </div>
-          <div className='text-slate-900 font-medium px-4 pb-8'>
-            I like to code things from scratch, and enjoy bringing ideas to life in the browser.
-          </div>
-          <div>
-            <div className=' text-pink-900 text-lg font-medium '>
-              Databases:
-            </div>
-            <div className='flex flex-col text-slate-900 font-medium px-4 pb-8 pt-2'>
-              <span>SQL</span>
-              <span>MongoDB</span>
-            </div>
-          </div>
-          <div>
-            <div className=' text-pink-900 text-lg font-medium '>
-              Tools:
-            </div>
-            <div className='flex flex-col text-slate-900 font-medium px-4 pb-8 pt-2'>
-              <span>Git</span>
-              <span>GitHub</span>
-              {/* <span>Ansible</span> */}
-              <span>Docker</span>
-              <span>mongoose</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Skills/>
 
       {/* Projects  */}
       <MyWork/>

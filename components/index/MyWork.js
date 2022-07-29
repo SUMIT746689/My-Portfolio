@@ -162,7 +162,6 @@ function MyWork() {
             //     'Created option available for new user'
             // ]
         }
-
     ]
     console.log(projects[0].tools_and_technologies.constructor === Array && Object.keys(...projects[0].tools_and_technologies))
   return (
@@ -178,19 +177,19 @@ function MyWork() {
              <div key={index} className='mx-auto grid grid-cols-6 justify-center align-middle rounded-2xl py-10 max-w-screen-2xl'>
                
                 <div className={`${index %2 === 0 ? ' col-start-1 col-end-4 -right-20 ' : 'text-right col-start-4 col-end-7 -left-20'} relative row-start-1 my-auto overflow-hidden rounded-md bg-slate-500 mx-6 mb bg-cover max-h-screen`}>
-                    <Image className=' scale-125' src={'/total-solution.png'} width='1400px' height='700px' alt='Total Solution'/>
+                    <Image className='hover object-cover bg-center duration:150 scale-125 ' src={'/total-solution.png'} width='1400px' height='800px' alt='Total Solution'/>
                 </div>
                 
                 <div className={`${index %2 === 0 ? 'text-right col-start-4 col-end-7 -left-20':'relative text-left col-start-1 col-end-4 -right-20' } relative row-start-1 z-0 `}>
                     <h1 className='text-slate-900 font-bold text-xl px-7 my-2'>{project.name}</h1>
                     <h1 className='text-slate-800 font-medium text-md px-7 '>{project.title}</h1>
-                    <div className=' transition-transform duration-200 overflow-hidden text-gray-200 text-left p-2 bg shadow-md shadow-slate-800 backdrop-blur-lg mt-8 bg-slate-900'>
-                        <div className='px-2 '>
-                            <div className='text-md font-bold text-slate-50 px-6 py-2'>
+                    <div className='text-slate-900  transition-transform duration-200 overflow-hidden  p-2 bg  mt-8 '>
+                        <div className=' px-2 '>
+                            <div className='text-md font-bold px-6 py-2'>
                             Features:
                             </div>
-                            <div className=' px-10'>
-                                <ul className=" flex flex-grow flex-wrap text-sm list-outside marker:text-sky-300 font-medium">
+                            <div className=' px-10 shadow-md shadow-slate-800 backdrop-blur-3xl'>
+                                <ul className={`${index %2 === 0 ? ' justify-end ' : ' justify-start ' } flex flex-grow flex-wrap text-sm list-outside marker:text-sky-300 font-medium`}>
                                 {
                                     project.features && project.features.map((list_item,index)=>(
                                         <li className='p-1 border m-1' key={index}>{list_item}</li>
@@ -199,14 +198,15 @@ function MyWork() {
                                 </ul>
                             </div>
                         </div>
-                        <div className='px-2'> 
-                            {project.special_features && <div className='text-md font-bold text-slate-50 px-6 py-2 mt-1'>
+                        <div className='px-2 '> 
+                            {project.special_features && 
+                            <div className='text-md font-bold px-6 py-2 mt-1'>
                                 Special Features:
                             </div>
                             }
-                            <div className='px-10'>
+                            <div className='px-10 shadow-md shadow-slate-800 backdrop-blur-3xl'>
                                 
-                            <ul className=" flex flex-wrap text-sm list-outside marker:text-sky-300 font-medium">
+                            <ul className={`${index %2 === 0 ? ' justify-end ' : ' justify-start ' } flex flex-grow flex-wrap text-sm list-outside marker:text-sky-300 font-medium`}>
                                 {
                                     project.special_features && project.special_features.map((list_item,index)=>(
                                         <li className='p-1 border m-1' key={index}>{list_item}</li>
