@@ -11,8 +11,8 @@ function MyWork() {
         {
             name: 'Total Solution',
             title: 'A Full stack e-commerce web applicaion',
-            website_url: 'https://total-solution-v2.herokuapp.com/', 
-            github_url: 'https://github.com/SUMIT746689/A-Ecommerce-Website-using-MERN/tree/update-29/04/2022',
+            website_url : 'https://total-solution-v2.herokuapp.com/', 
+            github_url  : 'https://github.com/SUMIT746689/A-Ecommerce-Website-using-MERN/tree/update-29/04/2022',
             tools_and_technologies: [
                 {html_icon : <AiOutlineHtml5/>}, 
                 {css_icon : <DiCss3/>},
@@ -219,7 +219,7 @@ function MyWork() {
                     <div className='px-4'>
                         <div className={`${index % 2 === 0 ? ' justify-end': ' justify-start'} flex flex-wrap gap-4 px-4 pt-4 font-medium`}>
                             {project.website_url ? 
-                                <a className='flex justify-center text-center gap-4 text-sky-700' href={project.github_url}>
+                                <a className='flex justify-center text-center gap-4 text-sky-700' href={project.website_url}>
                                     <button className='transition duration-150 ease-in-out hover:scale-110 border-2 p-2 border-sky-700 rounded-lg flex gap-3 text-center'><CgWebsite className='mt-1'/> Website</button>
                                 </a>
                             :''}

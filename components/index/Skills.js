@@ -10,9 +10,9 @@ function Skills() {
           </div>
         </div>
       </div>
-      <div className='relative -top-28 min-h-fit flex flex-col justify-center mx-auto sm:flex-row -top-50 bg-slate-50 p-4 w-10/12 rounded-3xl shadow-md shadow-slate-700'>
+      <div className='relative -top-28 ml- min-h-fit flex flex-col justify-center mx-auto sm:flex-row -top-50 bg-slate-50 p-4 w-10/12 rounded-3xl shadow-md shadow-slate-700'>
         <div className='text-center border-b sm:border-b-0 sm:border-r border-gray-500 mt-6'>
-          <div className='text-center'>
+          <div className='text-center py-1'>
             <Image className='bg-slate-200 rounded-full' src='/front-end.webp' width='100px' height='100px' alt='Front-End' />
           </div>
           <div className='text-pink-700 text-xl font-semibold pt-8 pb-4'>

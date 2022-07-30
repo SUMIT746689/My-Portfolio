@@ -15,12 +15,12 @@ body {
   box-sizing: border-box;
 } */
 
-@media (prefers-color-scheme: #0A192F) {
+@media (prefers-color-scheme: dark) {
   html {
-    color-scheme: #0A192F;
+    background:#0A192F;
+    scroll-behavior: smooth;
   }
   body {
-    color: white;
     background: #0A192F;
   }
 } 
