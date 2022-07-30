@@ -5,8 +5,11 @@ import { SiRedux,SiMongodb,SiExpress,SiTailwindcss,SiFirebase } from 'react-icon
 import { VscGithub } from 'react-icons/vsc'
 import { CgWebsite } from 'react-icons/cg'
 import { FaBootstrap } from 'react-icons/fa'
+import { useState } from 'react'
 
 function MyWork() {
+    const [showAllProjects,setShowAllPeojects] = useState(false);
+
     const projects = [
         {
             name: 'Total Solution',
@@ -173,8 +176,8 @@ function MyWork() {
             Here are a few past projects i have worked on.
         </div>
         <div className='flex flex-col flex-grow justify-center align-middle mt-10 '>
-           {projects.length > 0 && projects.map ((project,index)=>(
-             <div key={index} className='mx-auto grid grid-cols-6 justify-center align-middle rounded-2xl py-10 max-w-screen-2xl'>
+           {projects.length > 0 && projects.map((project,index)=>(
+            (showAllProjects || index < 2) && <div key={index} className='mx-auto grid grid-cols-6 justify-center align-middle rounded-2xl py-10 max-w-screen-2xl'>
                
                 <div className={`${index %2 === 0 ? ' col-start-1 col-end-4 -right-20 ' : 'text-right col-start-4 col-end-7 -left-20'} relative row-start-1 my-auto overflow-hidden rounded-md bg-slate-500 mx-6 mb bg-cover max-h-screen`}>
                     <Image className='hover object-cover bg-center duration:150 scale-125 ' src={'/total-solution.png'} width='1400px' height='800px' alt='Total Solution'/>
@@ -256,6 +259,9 @@ function MyWork() {
             
             </div>
            ))}
+        </div>
+        <div>
+            <button onClick={()=>setShowAllPeojects((value)=>!value)} className=' text-slate-800 border-slate-800 hover:bg-slate-200 hover:-translate-y-1 duration-200 text-xl font-bold py-2 px-6 border-4 bg-opacity-10'>{ !showAllProjects ? 'Show More':'Show Less'}</button>
         </div>
     </div>
   )
