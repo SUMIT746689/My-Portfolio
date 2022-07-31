@@ -21,31 +21,28 @@ function Main() {
   const developer = textAnimation(data);
   return (
     <div className='relative'>
-      <main id='home' className='z-50 min-h-screen flex flex-col justify-center align-middle px-5 xs:pl-10 sm:pl-16 md:pl-24 xl:px-40 2xl:pl-52'>
-        <div className=' text-sm sm:text-lg text-green-900 font-bold'>
+      <main id='home' className='dark:bg-slate-900 min-h-screen flex flex-col justify-center align-middle px-5 xs:pl-10 sm:pl-16 md:pl-24 xl:px-40 2xl:pl-52'>
+        <div className=' text-sm sm:text-lg text-green-900 dark:text-sky-300 font-bold'>
           Hi, my name is 
         </div>
-        <div className='flex flex-wrap text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-slate-900 my-3 sm:my-6'>
+        <div className='flex flex-wrap text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-slate-900 dark:text-slate-300 my-3 sm:my-6'>
           {my_Name}
         </div>
-        <div className='flex w-full flex-wrap text-xl xs:text-3xl sm:text-5xl md:text-5xl lg:text-7xl font-bold text-slate-600 '>
+        <div className='flex w-full flex-wrap text-xl xs:text-3xl sm:text-5xl md:text-5xl lg:text-7xl font-bold text-slate-600 dark:text-slate-500 '>
           <div className='flex flex-wrap'>{developer}</div>
           <div className='flex flex-wrap'>{textAnimation(data2)}</div>
         </div>
-        <div className='font-bold text-left text-xs xs:text-md sm:text-xl lg:text-2xl max-w-xl xl:max-w-3xl my-5 sm:my-6 text-slate-900'>
+        <div className='font-bold text-left text-xs xs:text-md sm:text-xl lg:text-2xl max-w-xl xl:max-w-3xl my-5 sm:my-6 text-slate-900 dark:text-slate-500'>
           I’m a professional front-end and back-end developer.
           I believe in transparency and communication.
           I guide my clients with process and keep them updated with progress.
         </div>
         <div className=' py-4'>
-          <button className=' z-10 text-pink-800 border-pink-800 animate-bounce hover:duration-300 hover:bg-slate-200 hover:animate-none md:text-xl font-bold py-1 sm:py-2 px-4 sm:px-6 border-2 sm:border-4 bg-opacity-10'>Message Me</button>
+          <button className=' z-10 text-pink-800 dark:text-sky-300 border-pink-800 dark:border-sky-300 animate-bounce hover:duration-300 hover:bg-slate-200 dark:hover:bg-slate-800 hover:animate-none md:text-xl font-bold py-1 sm:py-2 px-4 sm:px-6 border-2 sm:border-4 bg-opacity-10'>Message Me</button>
         </div>
       </main>
-      {/* <div className='absolute scale-90 hover:scale-100 duration-500 overflow-hidden  rounded-sm top-52 right-20 backdrop-blur-sm shadow-lg shadow-black'>
-        <Image className='border-2 border-green-500' src='/2.png' width='400' height='520' alt='Mehedi Hasan'/>
-      </div> */}
-      <div className={`${styles.slide_left} absolute right-2 sm:right-5 md:right-10 2xl:right-32 -bottom-2 w-40 sm:w-48 md:w-48 lg:w-64 xl:w-72 max-h-fit grayscale hover:grayscale-0`}>
-        <Image className='border-2 border-green-500 hover:scale-105 duration-200' src='/2.png' width='400' height='520' alt='Mehedi Hasan'/>
+      <div className={`${styles.slide_left} absolute right-2 sm:right-5 md:right-10 2xl:right-32 -bottom-2 w-40 sm:w-48 md:w-48 lg:w-64 xl:w-72 max-h-fit grayscale hover:grayscale-0 `}>
+        <Image className=' hover:scale-105 duration-200 dark:opacity-80' src='/2.png' width='400' height='520' alt='Mehedi Hasan'/>
       </div>
     </div>
   )

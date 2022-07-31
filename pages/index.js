@@ -45,7 +45,7 @@ export default function Home() {
 
 
   return (
-    <div className={ `${changeTheme ? 'dark ' : ''} ${showClientForm ? 'fixed' : ''} bg-slate-50 min-h-fit scroll-smooth duration-200`}>
+    <div className={ `${changeTheme ? 'dark ' : ''} ${showClientForm ? 'fixed' : ''} bg-slate-50 dark:bg-slate-900 min-h-fit scroll-smooth duration-200`}>
       <Head>
         <title>My Portfolio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
@@ -60,16 +60,16 @@ export default function Home() {
       <Nav changeTheme={changeTheme} setChangeTheme={setChangeTheme}/>
 
       {/* front page */}
-      <div id='home' className=' duration-300'><Main/></div>
+      <div id='home' className='duration-300 dark:bg-slate-900'><Main/></div>
 
       {/* About my skills */}
-      <div id='skills'><Skills/></div>
+      <div id='skills' className='dark:bg-slate-900'><Skills/></div>
 
       {/* Projects  */}
-      <div id='projects'></div><MyWork/>
+      <div id='projects' className='dark:bg-slate-900'></div><MyWork/>
       
       {/* footer area */}
-      <div id='message'><Footer id='#contact' setShowClientForm={setShowClientForm}/></div>
+      <div id='message' className='dark:bg-slate-900'><Footer id='#contact' setShowClientForm={setShowClientForm}/></div>
     </div>
   )
 }
