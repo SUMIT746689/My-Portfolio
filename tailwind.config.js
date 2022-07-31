@@ -15,7 +15,9 @@ module.exports = {
       '2xl': '1536px'
     },
     extend: {
-      
+      blur:{
+        xs:'1px',
+      },
       listStyleType : {
         disc: 'disc'
       },

@@ -14,6 +14,7 @@ function MyWork() {
         {
             name: 'Total Solution',
             title: 'A Full stack e-commerce web applicaion',
+            image:'total-solution.png',
             website_url : 'https://total-solution-v2.herokuapp.com/', 
             github_url  : 'https://github.com/SUMIT746689/A-Ecommerce-Website-using-MERN/tree/update-29/04/2022',
             tools_and_technologies: [
@@ -75,6 +76,7 @@ function MyWork() {
         {
             name : 'A chat Application',
             title : 'A full stack chatting application with live message',
+            image:'chat.png',
             website_url: 'https://my-first-chat-app-v1.herokuapp.com/',
             github_url: 'https://github.com/SUMIT746689/Mern-stack-Chat-application/tree/chat-updated-5/4/2022',
             tools_and_technologies: [
@@ -103,8 +105,9 @@ function MyWork() {
             ]
         },
         {
-            name : 'A Restaurant App',
+            name  : 'A Restaurant App',
             title : 'Developing a Restaurant App in front end',
+            image : 'resturant.png', 
             github_url: 'https://github.com/SUMIT746689/A-Resturant-app-using-React/tree/developed_6/2/22',
             tools_and_technologies: [
                 {html_icon : <AiOutlineHtml5/>}, 
@@ -179,8 +182,8 @@ function MyWork() {
            {projects.length > 0 && projects.map((project,index)=>(
             (showAllProjects || index < 2) && <div key={index} className='mx-auto grid grid-cols-6 justify-center align-middle rounded-2xl py-10 max-w-screen-2xl'>
                
-                <div className={`${index %2 === 0 ? ' col-start-1 col-end-4 -right-20 ' : 'text-right col-start-4 col-end-7 -left-20'} relative row-start-1 my-auto overflow-hidden rounded-md bg-slate-500 mx-6 mb bg-cover max-h-screen`}>
-                    <Image className='hover object-cover bg-center duration:150 scale-125 ' src={'/total-solution.png'} width='1400px' height='800px' alt='Total Solution'/>
+                <div className={`${index %2 === 0 ? ' col-start-1 col-end-4 -right-20 ' : 'text-right col-start-4 col-end-7 -left-20'} relative row-start-1 my-auto overflow-hidden rounded-md xl:mx-6 bg-cover max-h-screen hover:scale-105 duration-150 blur-xs hover:blur-0`}>
+                    <Image className='hover object-cover bg-center duration-300 grayscale hover:grayscale-0 hover:scale-105 ' src={project.image ? `/${project.image}`: '/total-solution.png'} width='900px' height='515px' alt='Total Solution'/>
                 </div>
                 
                 <div className={`${index %2 === 0 ? 'text-right col-start-4 col-end-7 -left-20':'relative text-left col-start-1 col-end-4 -right-20' } relative row-start-1 z-0 `}>
