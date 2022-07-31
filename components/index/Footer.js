@@ -14,7 +14,7 @@ function Footer({setShowClientForm}) {
           <h3 className=' px-4 py-8 text-white '>
             Interested in working together ? We should queue up a time to chat. I’ll buy the coffee.
           </h3>
-          <button onClick={()=>setShowClientForm((value)=>!value)} className=' duration-150 text-gray-50 cursor-pointer border-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-blue-500 hover:to-cyan-400 px-7 py-3 text-xl font-mono font-semibold rounded-full hover:scale-105'>
+          <button onClick={()=>setShowClientForm((value)=>!value)} className=' duration-150 text-gray-50 cursor-pointer border-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-blue-500 hover:to-cyan-400 sm:px-7 px-5 py-2 sm:py-3 text-lg sm:text-xl font-mono font-semibold rounded-full hover:scale-105'>
             {`Let’s do this`}
           </button>
         </div>

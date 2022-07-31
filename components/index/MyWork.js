@@ -261,7 +261,7 @@ function MyWork() {
            ))}
         </div>
         <div>
-            <button onClick={()=>setShowAllPeojects((value)=>!value)} className=' text-slate-800 border-slate-800 hover:bg-slate-200 hover:-translate-y-1 duration-200 text-xl font-bold py-2 px-6 border-4 bg-opacity-10'>{ !showAllProjects ? 'Show More':'Show Less'}</button>
+            <button onClick={()=>setShowAllPeojects((value)=>!value)} className=' text-pink-800 border-pink-800 hover:duration-300 hover:bg-pink-50 hover:animate-none md:text-xl font-bold py-1 sm:py-2 px-4 sm:px-6 border-2 sm:border-4 bg-opacity-10 hover:-translate-y-1 duration-200 text-lg'>{ !showAllProjects ? 'Show More':'Show Less'}</button>
         </div>
     </div>
   )

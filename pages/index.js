@@ -5,34 +5,47 @@ import styles from '../styles/Home.module.css'
 import { FiFacebook ,FiGithub, FiLinkedin, FiInstagram, } from 'react-icons/fi'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import { BiMenuAltRight} from 'react-icons/bi'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Footer from '../components/index/Footer'
 import Nav from '../components/index/Nav'
 import ClienForm from '../components/index/ClientForm'
 import MyWork from '../components/index/MyWork'
 import Skills from '../components/index/Skills'
 import Main from '../components/index/Main'
+import { AiOutlineHome,AiOutlineProject,AiOutlineMessage} from 'react-icons/ai'
+import { GiSkills,GiNightSleep} from 'react-icons/gi'
+import { MdOutlineLightMode} from 'react-icons/md'
+import { RiComputerLine} from 'react-icons/ri'
 
 
 export default function Home() {
 
   const[showClientForm,setShowClientForm] = useState(false);
-
-  const myName = 'Mehedi Hasan';
-  const splitMyName = myName.split('');
-  console.log(showClientForm);
+  const[changeTheme,setChangeTheme] = useState(false);
   
 
-  const name = splitMyName.map((value,index)=>{
-    return(
-    <div key={index} className={styles.name}>
-      { value===' ' ? ' ' : value}
-    </div>
-  )})
-  // console.log(developer)
+  //check browser have local storage 
+  useEffect(()=>{
+    const theme =JSON.parse(localStorage.getItem('theme'));
+
+    if(['light'].includes(theme)) return setChangeTheme(()=>false);
+    if(['dark'].includes(theme)) return setChangeTheme(()=>true);
+    
+    if (typeof window !== "undefined" && ['system'].includes(theme)) {
+        if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+          setChangeTheme(()=>true)
+        }
+        else{
+          setChangeTheme(()=>false)
+        }
+    }
+
+  },[])
+
+
 
   return (
-    <div className={ `${showClientForm ? 'fixed' : ''} bg-slate-50 min-h-fit scroll-smooth duration-200`}>
+    <div className={ `${changeTheme ? 'dark ' : ''} ${showClientForm ? 'fixed' : ''} bg-slate-50 min-h-fit scroll-smooth duration-200`}>
       <Head>
         <title>My Portfolio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
@@ -44,7 +57,7 @@ export default function Home() {
       {showClientForm ? <ClienForm setShowClientForm={setShowClientForm} /> : ''}
 
       {/* Nav bar component */}
-      <Nav/>
+      <Nav changeTheme={changeTheme} setChangeTheme={setChangeTheme}/>
 
       {/* front page */}
       <div id='home' className=' duration-300'><Main/></div>
