@@ -9,13 +9,13 @@ import { BiMenuAltRight} from 'react-icons/bi';
 function Footer({setShowClientForm}) {
   return (
     <footer className=' bg-cyan-700 border-t border-slate-500 dark:bg-slate-900 py-6 duration-150'>
-        <div className='relative -top-20 text-center py-7 mx-auto w-5/6 bg-cyan-600 dark:bg-slate-800 shadow-md dark:shadow-md shadow-slate-700 dark:shadow-slate-500 rounded-xl'>
-          <h1 className=' text-slate-100 font-bold text-2xl font-mono'>Let’s Start a project</h1>
-          <h3 className=' px-4 py-8 text-white '>
+        <div className='relative -top-20 text-center py-7 mx-auto w-5/6 bg-cyan-600 dark:bg-slate-800 shadow-md dark:shadow-md shadow-slate-700 dark:shadow-black rounded-xl'>
+          <h1 className=' text-slate-100 font-bold text-lg sm:text-xl md:text-2xl font-mono'>Let’s Start a project</h1>
+          <h3 className=' px-4 py-8 text-white text-sm sm:text-base max-w-sm sm:max-w-md m-auto'>
             Interested in working together ? We should queue up a time to chat. I’ll buy the coffee.
           </h3>
-          <button onClick={()=>setShowClientForm((value)=>!value)} className=' duration-150 text-gray-50 cursor-pointer border-2 bg-gradient-to-r from-cyan-400 to-blue-500 hover:from-blue-500 hover:to-cyan-400 sm:px-7 px-5 py-2 sm:py-3 text-lg sm:text-xl font-mono font-semibold rounded-full hover:scale-105'>
-            {`Let’s do this`}
+          <button onClick={()=>setShowClientForm((value)=>!value)} className=' duration-150 text-gray-50 cursor-pointer border-2 bg-gradient-to-r from-cyan-400 dark:from-sky-700 to-blue-500 dark:to-slate-800 hover:from-blue-500 dark:hover:from-sky-600 hover:to-cyan-400 dark:hover:to-slate-800 sm:px-7 px-5 py-2 sm:py-3 text-md sm:text-lg font-mono font-semibold rounded-full hover:scale-105'>
+            Let’s do this
           </button>
         </div>
         <div className=' text-xl font-extrabold flex my-6 justify-center text-slate-300 dark:text-slate-400 duration-150 '>

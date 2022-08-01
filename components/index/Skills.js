@@ -4,13 +4,13 @@ function Skills() {
   return (
     <>
     <div className='relative h-fit bg-slate-900'>
-        <div className='relative bg-cyan-700 dark:bg-slate-800 flex justify-center font-light text-xl text-gray-100 px-4 pt-14 pb-40  min-w-min'>
+        <div className='relative bg-cyan-700 dark:bg-slate-800 flex justify-center font-light text-lg sm:text-xl md:text-2xl text-gray-100 px-4 pt-14 pb-40 min-w-fit'>
           <div className=' text-center max-w-2xl'>
             {`Since beginning my journey as a freelance designer over 11 years I'm quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.`}
           </div>
         </div>
       </div>
-      <div className='relative -top-28 ml- min-h-fit flex flex-col justify-center mx-auto sm:flex-row -top-50 bg-slate-50 dark:bg-slate-900 p-4 w-10/12 rounded-3xl shadow-md shadow-slate-700 dark:shadow-slate-600'>
+      <div className='relative -top-28 ml- min-h-fit flex flex-col justify-center mx-auto sm:flex-row -top-50 bg-slate-50 dark:bg-slate-900 p-4 w-10/12 rounded-3xl shadow-md shadow-slate-700 dark:shadow-black'>
         <div className='text-center border-b sm:border-b-0 sm:border-r border-gray-500  mt-6'>
           <div className='text-center py-1'>
             <Image className=' dark:bg-inherit rounded-full' src='/front-end.webp' width='100px' height='100px' alt='Front-End' />

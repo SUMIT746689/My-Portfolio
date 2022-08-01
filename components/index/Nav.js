@@ -47,20 +47,22 @@ function Nav({changeTheme,setChangeTheme}) {
 
   return (
     <>
-    <div className="fixed z-50 text-xl xs:text-2xl md:text-2xl lg:text-3xl text-pink-900 dark:text-gray-800 w-screen md:w-fit md:h-screen pl-4 lg:pl-7 xl:pl-8 2xl:pl-9 ">
+    <div className="fixed z-10 text-xl xs:text-2xl md:text-2xl lg:text-3xl text-pink-900 dark:text-gray-800 w-screen md:w-fit md:h-screen pl-4 lg:pl-7 xl:pl-8 2xl:pl-9 ">
         <ul className='flex md:flex-col justify-center align-middle my-auto font-bold w-full md:h-full -lg'>
-            <a onClick={()=>setShowThemeCard((value)=>false)} href='#home'><li className='p-2 mr-4 md:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 hover:shadow-pink-900 bg-white bg-opacity-80 md:bg-opacity-50 hover:scale-105'><AiOutlineHome/></li></a>
-            <a onClick={()=>setShowThemeCard((value)=>false)} href='#skills'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 hover:shadow-pink-900 bg-white bg-opacity-80 md:bg-opacity-50 hover:scale-105'><GiSkills/></li></a>
-            <a onClick={()=>setShowThemeCard((value)=>false)} href='#projects'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 hover:shadow-pink-900 bg-white bg-opacity-80 md:bg-opacity-50 hover:scale-105'><AiOutlineProject/></li></a>
-            <a onClick={()=>setShowThemeCard((value)=>false)} href='#message'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 hover:shadow-pink-900 bg-white bg-opacity-80 md:bg-opacity-50 hover:scale-105'><AiOutlineMessage/></li></a>
-            <div onClick={()=>setShowThemeCard((value)=>!value)} htmlFor="checked-toggle" className='relative p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 hover:shadow-pink-900 bg-white bg-opacity-80 md:bg-opacity-50 '>
+            <a onClick={()=>setShowThemeCard((value)=>false)} href='#home'><li className='p-2 mr-4 md:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><AiOutlineHome/></li></a>
+            <a onClick={()=>setShowThemeCard((value)=>false)} href='#skills'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105'><GiSkills/></li></a>
+            <a onClick={()=>setShowThemeCard((value)=>false)} href='#projects'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105'><AiOutlineProject/></li></a>
+            <a onClick={()=>setShowThemeCard((value)=>false)} href='#message'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105'><AiOutlineMessage/></li></a>
+            <div onClick={()=>setShowThemeCard((value)=>!value)} htmlFor="checked-toggle" className='relative p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md dark:shadow-slate-600 shadow-slate-900 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white dark:bg-opacity-60 bg-opacity-80 md:bg-opacity-50 '>
               
-              {showCurrentThemeIcon}
+              <div>
+                {showCurrentThemeIcon}
+              </div>
 
-              <div className={` ${showThemeCard ? '' : 'hidden '} text-sm sm:text-md md:text-lg hover:scale-105 duration-150 text-slate-900 z-50 absolute top-14 md:top-0 right-0 md:left-16 w-fit rounded-lg overflow-hidden shadow-md shadow-slate-900 bg-white`}>
-                <div onClick={()=>themeChangeHandle('light')  } className='flex hover:bg-slate-300 cursor-pointer px-5 py-2 font-semibold duration-200'><MdOutlineLightMode className=' relative top-1 mr-2 '/>Light</div>
-                <div onClick={()=>themeChangeHandle('dark')   } className='flex hover:bg-slate-300 cursor-pointer px-5 py-2 font-semibold duration-200'><GiNightSleep className=' relative top-1 mr-2 '/>Dark</div>
-                <div onClick={()=>themeChangeHandle('system') } className='flex hover:bg-slate-300 cursor-pointer px-5 py-2 font-semibold duration-200'><RiComputerLine className=' relative top-1 mr-2 '/>System</div>
+              <div className={` ${showThemeCard ? '' : 'hidden '} bg-white dark:bg-slate-800 text-sm sm:text-md md:text-lg hover:scale-105 duration-150 text-slate-900 dark:text-slate-300 z-50 absolute top-14 md:top-0 right-0 md:left-16 w-fit rounded-lg overflow-hidden shadow-md shadow-slate-900 dark:shadow-slate-600 `}>
+                <div onClick={()=>themeChangeHandle('light')  } className='flex hover:bg-slate-300 dark:hover:bg-slate-900 cursor-pointer px-5 py-2 font-semibold duration-200'><MdOutlineLightMode className=' relative top-1 mr-2 '/>Light</div>
+                <div onClick={()=>themeChangeHandle('dark')   } className='flex hover:bg-slate-300 dark:hover:bg-slate-900 cursor-pointer px-5 py-2 font-semibold duration-200'><GiNightSleep className=' relative top-1 mr-2 '/>Dark</div>
+                <div onClick={()=>themeChangeHandle('system') } className='flex hover:bg-slate-300 dark:hover:bg-slate-900 cursor-pointer px-5 py-2 font-semibold duration-200'><RiComputerLine className=' relative top-1 mr-2 '/>System</div>
               </div>
             </div>
         </ul>
