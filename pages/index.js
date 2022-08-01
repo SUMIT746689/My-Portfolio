@@ -31,7 +31,7 @@ export default function Home() {
     if(['light'].includes(theme)) return setChangeTheme(()=>false);
     if(['dark'].includes(theme)) return setChangeTheme(()=>true);
     
-    if (typeof window !== "undefined" && ['system'].includes(theme)) {
+    if (typeof window !== "undefined" ) {
         if(window.matchMedia('(prefers-color-scheme: dark)').matches){
           setChangeTheme(()=>true)
         }
@@ -45,7 +45,7 @@ export default function Home() {
 
 
   return (
-    <div className={ `${changeTheme ? 'dark ' : ''} ${showClientForm ? 'fixed' : ''} bg-slate-50 dark:bg-slate-900 min-h-fit scroll-smooth duration-200`}>
+    <div className={ `${!changeTheme ? ' ' : 'dark '} ${showClientForm ? ' fixed ' : ' '} bg-slate-50  min-h-fit scroll-smooth duration-200`}>
       <Head>
         <title>My Portfolio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>

@@ -8,7 +8,7 @@ import { BiMenuAltRight} from 'react-icons/bi';
 
 function Footer({setShowClientForm}) {
   return (
-    <footer className=' bg-cyan-700 border-t border-slate-500 dark:bg-slate-900 py-6 duration-150'>
+    <footer className=' bg-cyan-700 border-t border-slate-800 dark:bg-slate-900 py-6 duration-150'>
         <div className='relative -top-20 text-center py-7 mx-auto w-5/6 bg-cyan-600 dark:bg-slate-800 shadow-md dark:shadow-md shadow-slate-700 dark:shadow-black rounded-xl'>
           <h1 className=' text-slate-100 font-bold text-lg sm:text-xl md:text-2xl font-mono'>Let’s Start a project</h1>
           <h3 className=' px-4 py-8 text-white text-sm sm:text-base max-w-sm sm:max-w-md m-auto'>
@@ -25,7 +25,7 @@ function Footer({setShowClientForm}) {
           <a href='https://www.facebook.com/mehedihasan.sumit.5'><FiFacebook className='hover:text-slate-50 mx-4 cursor-pointer'/>   </a>
         </div>
         <div className='text-center text-slate-200 dark:text-slate-300 font-semibold text-md pb-5'> 
-          Designed & Built by Mehedi Hasan
+          {'Designed & Built by Mehedi Hasan'}
         </div>
     </footer>
   )

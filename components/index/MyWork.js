@@ -76,7 +76,7 @@ function MyWork() {
         {
             name : 'A chat Application',
             title : 'A full stack chatting application with live message',
-            image:'chat.png',
+            image:'chat-app.png',
             website_url: 'https://my-first-chat-app-v1.herokuapp.com/',
             github_url: 'https://github.com/SUMIT746689/Mern-stack-Chat-application/tree/chat-updated-5/4/2022',
             tools_and_technologies: [
@@ -107,7 +107,7 @@ function MyWork() {
         {
             name  : 'A Restaurant App',
             title : 'Developing a Restaurant App in front end',
-            image : 'resturant.png', 
+            image : 'resturant-app.png', 
             github_url: 'https://github.com/SUMIT746689/A-Resturant-app-using-React/tree/developed_6/2/22',
             tools_and_technologies: [
                 {html_icon : <AiOutlineHtml5/>}, 
@@ -180,7 +180,7 @@ function MyWork() {
         </div>
         <div className='flex flex-col flex-grow justify-center align-middle mt-10 '>
            {projects.length > 0 && projects.map((project,index)=>(
-            (showAllProjects || index < 2) && <div key={index} className='mx-auto grid grid-cols-6 justify-center align-middle  pb-6 md:max-w-screen-2xl md:border-t md:border-slate-400'>
+            (showAllProjects || index < 2) && <div key={index} className='mx-auto grid grid-cols-6 justify-center align-middle pb-6 w-full md:max-w-screen-2xl md:border-t md:border-slate-400'>
                 {/* for large device */}
                 <div className={`${index %2 === 0 ? ' col-start-1 col-end-4 -right-20 ' : 'text-right col-start-4 col-end-7 -left-20'} hidden md:block relative row-start-1 my-auto overflow-hidden rounded-md xl:mx-6 lg:py-4 bg-cover max-h-80 hover:scale-105 duration-150 blur-xs hover:blur-0 dark:opacity-50 dark:hover:opacity-80`}>
                     <Image className='hover object-cover bg-center duration-300 grayscale hover:grayscale-0 hover:scale-105 ' src={project.image ? `/${project.image}`: '/total-solution.png'} width='900px' height='515px' alt='Total Solution'/>
@@ -266,7 +266,10 @@ function MyWork() {
                 </div>
                 
                 {/* for small device */}
-                <div className='md:hidden text-left col-start-1 col-end-7 relative row-start-1 w-11/12 mx-auto p-3 sm:p-6 bg-slate-800 shadow shadow-black'>
+                <div className='md:hidden text-left col-start-1 col-end-7 relative row-start-1 w-11/12 mx-auto p-3 sm:p-6 dark:bg-slate-800 shadow-md dark:shadow shadow-slate-900 dark:shadow-black'>
+                    <div className='absolute flex justify-center top-0 left-0 my-auto h-full mx-auto bg-center bg-cover'>
+                        <Image className='h-full bg-mint text-mint fill-current hover:scale-105 duration-150 opacity-10 dark:opacity-5 ' src={`/${project.image ? project.image : 'total-solution.png'}`} width='900' height='515' objectFit='cover' alt='Project Image'/>
+                    </div>
                     <h1 className='text-slate-900 dark:text-slate-200 font-bold text-lg xs:text-xl my-2'>{project.name}</h1>
                     <h1 className='text-slate-800 dark:text-slate-400 font-medium text-base sm:text-lg  '>{project.title}</h1>
                     <div className="text-slate-900 dark:text-slate-400  transition-transform duration-200 overflow-hidden ">

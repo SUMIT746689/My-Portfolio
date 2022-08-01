@@ -3,6 +3,7 @@ import { AiOutlineHome,AiOutlineProject,AiOutlineMessage} from 'react-icons/ai'
 import { GiSkills,GiNightSleep} from 'react-icons/gi'
 import { MdOutlineLightMode} from 'react-icons/md'
 import { RiComputerLine} from 'react-icons/ri'
+import { FiGithub, FiLinkedin, FiInstagram, FiFacebook} from 'react-icons/fi'
 
 function Nav({changeTheme,setChangeTheme}) {
   const data = {
@@ -12,7 +13,7 @@ function Nav({changeTheme,setChangeTheme}) {
   }
   const [showThemeCard,setShowThemeCard] = useState(false);
   const [toggleCheckBox,setoggleCheckBox] = useState(false);
-  const [showCurrentThemeIcon,setShowCurrentThemeIcon] = useState(data.light);
+  const [showCurrentThemeIcon,setShowCurrentThemeIcon] = useState(data.system);
 
   useEffect(()=>{
     const theme =JSON.parse(localStorage.getItem('theme'));
@@ -20,7 +21,7 @@ function Nav({changeTheme,setChangeTheme}) {
     if(['light'].includes(theme)) return setShowCurrentThemeIcon(()=>data.light);
     if(['dark'].includes(theme)) return setShowCurrentThemeIcon(()=>data.dark);
     if(['system'].includes(theme)) return setShowCurrentThemeIcon(()=>data.system);
-  },[0])
+  },[])
 
   const themeChangeHandle =(mode)=>{
     //light mode
@@ -47,6 +48,7 @@ function Nav({changeTheme,setChangeTheme}) {
 
   return (
     <>
+    {/* nav bar */}
     <div className="fixed z-10 text-xl xs:text-2xl md:text-2xl lg:text-3xl text-pink-900 dark:text-gray-800 w-screen md:w-fit md:h-screen pl-4 lg:pl-7 xl:pl-8 2xl:pl-9 ">
         <ul className='flex md:flex-col justify-center align-middle my-auto font-bold w-full md:h-full -lg'>
             <a onClick={()=>setShowThemeCard((value)=>false)} href='#home'><li className='p-2 mr-4 md:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><AiOutlineHome/></li></a>
@@ -66,6 +68,21 @@ function Nav({changeTheme,setChangeTheme}) {
               </div>
             </div>
         </ul>
+    </div>
+    
+    {/* social icon*/}
+    <div className='hidden md:fixed z-10 right-0 md:flex md:justify-center align-middle h-full my-auto'>
+      <div className='text-2xl font-extrabold flex flex-col xl:mr-8 justify-center text-slate-900 dark:text-slate-400 '>
+        <a href='https://github.com/SUMIT746689'><FiGithub className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150' />    </a>
+        <a href='https://www.linkedin.com/in/mehedi-hasan-sumit-103621210'><FiLinkedin className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>   </a>
+        <a href='https://www.instagram.com/mehedi_hasan_sumit/'><FiInstagram className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>  </a>
+        <a href='https://www.facebook.com/mehedihasan.sumit.5'><FiFacebook className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>   </a>
+      </div>
+    </div>
+
+    {/* resume buttton */}
+    <div className='absolute right-0 top-6 z-50'>
+      <a onClick={()=>setShowThemeCard((value)=>false)} href='/Mehedi-Hasan-Resume.pdf' className='p-2 mr-4 sm:mr-8 xs:mx-4 my-4 cursor-pointer border-2 text-slate-900 border-slate-900 font-semibold hover:text-slate-600 hover:border-slate-600 rounded-md duration-150'>Resume</a>
     </div>
     </>
   )
