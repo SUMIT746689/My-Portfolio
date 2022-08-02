@@ -6,7 +6,13 @@ function Skills() {
     <div className='relative h-fit bg-slate-900'>
         <div className='relative bg-cyan-700 dark:bg-slate-800 flex justify-center font-light text-lg sm:text-xl md:text-2xl text-gray-100 px-4 pt-14 pb-40 min-w-fit'>
           <div className=' text-center max-w-2xl'>
-            {`Since beginning my journey as a freelance designer over 11 years I'm quietly confident, naturally curious, and perpetually working on improving my chops one design problem at a time.`}
+            {
+              `Since late 2020 I have been trying to learn MERN 
+              stack development alongside my studies.
+             I search and learned those technologies on my own.
+             I'm quietly confident, naturally curious, and perpetually
+              working on improving my chops one problem at a time.`
+            }
           </div>
         </div>
       </div>

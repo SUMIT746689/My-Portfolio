@@ -51,8 +51,43 @@ function MyWork() {
             ]
         },
         {
+            name  : 'A Restaurant App',
+            title : 'Developing a Restaurant App in front end',
+            image : 'resturant-app.png',
+            website_url : 'https://sultan-dine-restaurant-app.vercel.app/', 
+            github_url: 'https://github.com/SUMIT746689/A-Resturant-app-using-React/tree/developed_6/2/22',
+            tools_and_technologies: [
+                {html_icon : <AiOutlineHtml5/>}, 
+                {css_icon : <DiCss3/>},
+                {react : <DiReact/>},
+                {firebase : <SiFirebase/>},
+                {github : <AiFillGithub/>}
+            ],
+            features:
+            [
+                'Home Page', 
+                'About us page', 
+                'Our history', 
+                'daily special item', 
+                'Chef word', 
+                'Awards and recognition', 
+                'Photo gallery', 
+                'Contact', 
+                'Newsletter', 
+                'Subscribe footer'
+            ],
+            // special_features: 
+            // [
+            //     'Awards and recognition',
+            //     'User send to image', 
+            //     'User chat with available users', 
+            //     'Created option available for new user'
+            // ]
+        },
+        {
             name : 'Raw NodeJs CRUD project',
-            title : 'Using raw nodeJs build read, create, update and delete files',
+            title : 'Using raw nodeJs read, create, update and delete files',
+            image : 'raw-node.png',
             github_url: 'https://github.com/SUMIT746689/Raw-Node.js-CRUD-project/tree/updated_2/2/22',
             tools_and_technologies: [
                 {node : <DiNodejsSmall/>},
@@ -104,39 +139,7 @@ function MyWork() {
                 'Created option available for new user'
             ]
         },
-        {
-            name  : 'A Restaurant App',
-            title : 'Developing a Restaurant App in front end',
-            image : 'resturant-app.png', 
-            github_url: 'https://github.com/SUMIT746689/A-Resturant-app-using-React/tree/developed_6/2/22',
-            tools_and_technologies: [
-                {html_icon : <AiOutlineHtml5/>}, 
-                {css_icon : <DiCss3/>},
-                {react : <DiReact/>},
-                {firebase : <SiFirebase/>},
-                {github : <AiFillGithub/>}
-            ],
-            features:
-            [
-                'Home Page', 
-                'About us page', 
-                'Our history', 
-                'daily special item', 
-                'Chef word', 
-                'Awards and recognition', 
-                'Photo gallery', 
-                'Contact', 
-                'Newsletter', 
-                'Subscribe footer'
-            ],
-            // special_features: 
-            // [
-            //     'Awards and recognition',
-            //     'User send to image', 
-            //     'User chat with available users', 
-            //     'Created option available for new user'
-            // ]
-        },
+        
         {
             name : 'Amazon clone web application',
             title : 'Developing a front end web app using react, dedux and many more ',
