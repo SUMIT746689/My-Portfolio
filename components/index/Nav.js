@@ -81,8 +81,8 @@ function Nav({changeTheme,setChangeTheme}) {
     </div>
 
     {/* resume buttton */}
-    <div className='absolute right-0 top-6 z-50'>
-      <a onClick={()=>setShowThemeCard((value)=>false)} href='/Mehedi-Hasan-Resume.pdf' className='p-2 mr-4 sm:mr-8 xs:mx-4 my-4 cursor-pointer border-2 text-slate-900 border-slate-900 font-semibold hover:text-slate-600 hover:border-slate-600 rounded-md duration-150'>Resume</a>
+    <div className=' hidden sm:block sm:absolute right-0 top-6 z-50'>
+      <a onClick={()=>setShowThemeCard((value)=>false)} href='/Mehedi-Hasan-Resume.pdf' className='py-2 sm:px-4 md:px-6 mr-4 md:mr-8 xs:mx-4 my-4 cursor-pointer border-2 text-slate-900 dark:text-slate-400 border-slate-800 dark:border-slate-400 font-semibold hover:text-slate-600 dark:hover:text-slate-300 hover:border-slate-600 dark:hover:border-slate-300 rounded-md duration-150'>Resume</a>
     </div>
     </>
   )
