@@ -3,6 +3,7 @@ import { AiOutlineHome,AiOutlineProject,AiOutlineMessage} from 'react-icons/ai'
 import { GiSkills,GiNightSleep} from 'react-icons/gi'
 import { MdOutlineLightMode} from 'react-icons/md'
 import { RiComputerLine} from 'react-icons/ri'
+import { GoMail} from 'react-icons/go'
 import { FiGithub, FiLinkedin, FiInstagram, FiFacebook} from 'react-icons/fi'
 
 function Nav({changeTheme,setChangeTheme}) {
@@ -73,6 +74,7 @@ function Nav({changeTheme,setChangeTheme}) {
     {/* social icon*/}
     <div className='hidden md:fixed z-10 right-0 md:flex md:justify-center align-middle h-full my-auto'>
       <div className='text-2xl font-extrabold flex flex-col xl:mr-8 justify-center text-slate-900 dark:text-slate-400 '>
+        {/* <a href='mailto:mehedihasansumit1@gmail.com'><GoMail className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150' />    </a> */}
         <a href='https://github.com/SUMIT746689'><FiGithub className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150' />    </a>
         <a href='https://www.linkedin.com/in/mehedi-hasan-sumit-103621210'><FiLinkedin className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>   </a>
         <a href='https://www.instagram.com/mehedi_hasan_sumit/'><FiInstagram className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>  </a>
