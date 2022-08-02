@@ -22,7 +22,7 @@ function Main() {
   return (
     <div className='relative'>
       <main id='home' className='dark:bg-slate-900 min-h-screen flex flex-col justify-center align-middle px-5 xs:pl-10 sm:pl-16 md:pl-24 xl:px-40 2xl:pl-52'>
-        <div className=' before:-translate-x-10 duration-700 text-sm sm:text-lg text-green-900 dark:text-sky-300 font-bold'>
+        <div className=' before:bg-black before:absolute before:top-20 before:w-full text-sm sm:text-lg text-green-900 dark:text-sky-300 font-bold'>
           Hi, my name is 
         </div>
         <div className='flex flex-wrap text-3xl xs:text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-slate-900 dark:text-slate-300 my-3 sm:my-6'>

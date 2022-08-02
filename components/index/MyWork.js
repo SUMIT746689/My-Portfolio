@@ -11,45 +11,7 @@ function MyWork() {
     const [showAllProjects,setShowAllPeojects] = useState(false);
 
     const projects = [
-        {
-            name: 'Total Solution',
-            title: 'A Full stack e-commerce web applicaion',
-            image:'total-solution.png',
-            website_url : 'https://total-solution-v2.herokuapp.com/', 
-            github_url  : 'https://github.com/SUMIT746689/A-Ecommerce-Website-using-MERN/tree/update-29/04/2022',
-            tools_and_technologies: [
-                {html_icon : <AiOutlineHtml5/>}, 
-                {css_icon : <DiCss3/>},
-                {tailwind : <SiTailwindcss/>},
-                {react : <DiReact/>},
-                {redux : <SiRedux/>},
-                {node : <DiNodejsSmall/>},
-                {express : <SiExpress/>},
-                {mongo : <SiMongodb/>},
-                {firebase : <SiFirebase/>},
-                {github : <AiFillGithub/>}
-            ],
-            features: 
-            [
-                'Authentication',
-                'Verify using mobile OTP',
-                'Fotgot password reset',
-                'Login user Profile',
-                'Dashboad with create, edit and delete products',
-                'Store products data in database',
-                'Upload products images in the cloud storage',
-                'Search Products',
-                'Find products by category'
-            ],
-            special_features: 
-            [
-                'Voice recognition system',
-                '2-step Authentication',
-                'Existing user verify when trying to login using the new browser on any device',
-                'Dark mode enable or disable using user device default preference',
-                
-            ]
-        },
+        
         {
             name  : 'A Restaurant App',
             title : 'Developing a Restaurant App in front end',
@@ -140,6 +102,45 @@ function MyWork() {
             ]
         },
         {
+            name: 'Total Solution',
+            title: 'A Full stack e-commerce web applicaion',
+            image:'total-solution.png',
+            website_url : 'https://total-solution-v2.herokuapp.com/', 
+            github_url  : 'https://github.com/SUMIT746689/A-Ecommerce-Website-using-MERN/tree/update-29/04/2022',
+            tools_and_technologies: [
+                {html_icon : <AiOutlineHtml5/>}, 
+                {css_icon : <DiCss3/>},
+                {tailwind : <SiTailwindcss/>},
+                {react : <DiReact/>},
+                {redux : <SiRedux/>},
+                {node : <DiNodejsSmall/>},
+                {express : <SiExpress/>},
+                {mongo : <SiMongodb/>},
+                {firebase : <SiFirebase/>},
+                {github : <AiFillGithub/>}
+            ],
+            features: 
+            [
+                'Authentication',
+                'Verify using mobile OTP',
+                'Fotgot password reset',
+                'Login user Profile',
+                'Dashboad with create, edit and delete products',
+                'Store products data in database',
+                'Upload products images in the cloud storage',
+                'Search Products',
+                'Find products by category'
+            ],
+            special_features: 
+            [
+                'Voice recognition system',
+                '2-step Authentication',
+                'Existing user verify when trying to login using the new browser on any device',
+                'Dark mode enable or disable using user device default preference',
+                
+            ]
+        },
+        {
             name : 'Amazon clone web application',
             title : 'Developing a front end web app using react, dedux and many more ',
             image : 'amazon-clone.png',
@@ -190,7 +191,7 @@ function MyWork() {
             (showAllProjects || index < 2) && <div key={index} className='mx-auto grid grid-cols-6 justify-center align-middle pb-6 w-full md:max-w-screen-2xl md:border-t md:border-slate-400 overflow-hidden'>
                 {/* for large device */}
                 <div className={`${index %2 === 0 ? ' col-start-1 col-end-4 -right-20 ' : ' col-start-4 col-end-7 -left-20'} hidden md:flex relative row-start-1 my-auto overflow-hidden rounded-md xl:mx-6 lg:py-4 bg-cover max-h-80 hover:scale-105 duration-150 blur-xs hover:blur-0 dark:opacity-50 dark:hover:opacity-80`}>
-                    <Image className='hover object-cover bg-center duration-300 grayscale hover:grayscale-0 hover:scale-105 ' src={project.image ? `/${project.image}`: '/total-solution.png'} width='900px' height='515px' alt='Total Solution'/>
+                    <Image className='hover object-cover bg-center duration-300 grayscale hover:grayscale-0 hover:scale-105 ' src={project.image ? `/${project.image}`: '/raw-node.png'} width='900px' height='515px' alt='Total Solution'/>
                 </div>
                 
                 {/* for small device */}
@@ -315,14 +316,14 @@ function MyWork() {
                     <div className=''>
                         <div className=' justify-start text-sky-700 dark:text-emerald-400 flex flex-wrap gap-2 sm:gap-4 pt-2 sm:pt-4 font-medium text-sm sm:text-base'>
                             {project.website_url ? 
-                                <a className='z-10 flex justify-center text-center gap-4 ' href={project.website_url}>
+                                <a className='z-0 flex justify-center text-center gap-4 ' href={project.website_url}>
                                     <button className='transition duration-75 ease-in-out hover:scale-105 border-2 p-2 border-sky-700 dark:border-emerald-400 rounded-lg flex gap-3 text-center'><CgWebsite className='mt-1'/> Website</button>
                                 </a>
                             :''}
                                                     
                             {project.github_url ? 
                                 
-                                <a className='z-10 bg- flex justify-center text-center gap-4 ' href={project.github_url}>
+                                <a className='z-0 bg- flex justify-center text-center gap-4 ' href={project.github_url}>
                                     <button className='transition duration-75 ease-in-out hover:scale-105 border-2 p-2 border-sky-700 dark:border-emerald-400 rounded-lg flex gap-3 text-center'><VscGithub className='mt-1'/> Souce Code</button>
                                 </a>
                             :''}
