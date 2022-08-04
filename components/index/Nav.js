@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AiOutlineHome,AiOutlineProject,AiOutlineMessage} from 'react-icons/ai'
 import { GiSkills,GiNightSleep} from 'react-icons/gi'
 import { MdOutlineLightMode} from 'react-icons/md'
@@ -15,6 +15,33 @@ function Nav({changeTheme,setChangeTheme}) {
   const [showThemeCard,setShowThemeCard] = useState(false);
   const [toggleCheckBox,setoggleCheckBox] = useState(false);
   const [showCurrentThemeIcon,setShowCurrentThemeIcon] = useState(data.system);
+
+  const refHome = useRef(null);
+  const refSkills = useRef(null);
+  const refProjects = useRef(null);
+  const refContact = useRef(null);
+
+  //for change toolkit visible or invisible
+  const refHomeChange = (a,b)=>{
+    const ref = refHome.current
+    ref.classList.remove(a)
+    ref.classList.add(b) 
+  }
+  const refSkillsChange = (a,b)=>{
+    const ref = refSkills.current
+    ref.classList.remove(a)
+    ref.classList.add(b) 
+  }
+  const refProjectsChange = (a,b)=>{
+    const ref = refProjects.current
+    ref.classList.remove(a)
+    ref.classList.add(b) 
+  }
+  const refContactChange = (a,b)=>{
+    const ref = refContact.current
+    ref.classList.remove(a)
+    ref.classList.add(b) 
+  }
 
   useEffect(()=>{
     const theme =JSON.parse(localStorage.getItem('theme'));
@@ -52,10 +79,51 @@ function Nav({changeTheme,setChangeTheme}) {
     {/* nav bar */}
     <div className="fixed z-10 text-xl xs:text-2xl md:text-2xl lg:text-3xl text-pink-900 dark:text-gray-800 w-screen md:w-fit md:h-screen pl-4 lg:pl-7 xl:pl-8 2xl:pl-9 ">
         <ul className='flex md:flex-col justify-center align-middle my-auto font-bold w-full md:h-full -lg'>
-            <a onClick={()=>setShowThemeCard((value)=>false)} href='#home'><li className=' p-2 mr-4 md:mx-4 my-4 cursor-pointer hover:text-pink-600 dark:hover:text-pink-900 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-700 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><AiOutlineHome/></li></a>
-            <a onClick={()=>setShowThemeCard((value)=>false)} href='#skills'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 dark:hover:text-pink-900 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><GiSkills/></li></a>
-            <a onClick={()=>setShowThemeCard((value)=>false)} href='#projects'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 dark:hover:text-pink-900 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><AiOutlineProject/></li></a>
-            <a onClick={()=>setShowThemeCard((value)=>false)} href='#message'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 dark:hover:text-pink-900 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><AiOutlineMessage/></li></a>
+            
+            <div className='relative flex '>
+              <a onClick={()=>setShowThemeCard((value)=>false)} href='#home'>
+                <li onMouseOver={()=>refHomeChange("invisible","visible")} onMouseOut={()=>refHomeChange("visible","invisible")} className=' p-2 mr-4 md:mx-4 my-4 cursor-pointer hover:text-pink-600 dark:hover:text-pink-900 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-700 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'>
+                  <AiOutlineHome/>
+                </li>
+              </a>
+              <div ref={refHome} className=" absolute top-[68px] md:top-4 lg:top-5 -left-4 md:left-16 lg:left-20 invisible dark:bg-slate-600 shadow-md shadow-black text-white py-2 px-4 text-sm xs:text-base font-semibold text-center rounded-md">
+                Home
+              </div>
+            </div>
+            
+            <div className='relative'>
+              <a  onClick={()=>setShowThemeCard((value)=>false)} href='#skills'>
+                <li onMouseOver={()=>refSkillsChange("invisible","visible")} onMouseOut={()=>refSkillsChange("visible","invisible")} className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 dark:hover:text-pink-900 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'>
+                  <GiSkills/>
+                </li>
+              </a>
+              <div ref={refSkills} className="absolute top-[68px] md:top-4 lg:top-5 -left-3 xs:left-1 md:left-16 lg:left-20 invisible dark:bg-slate-600 shadow-md shadow-black text-white py-2 px-4 text-sm xs:text-base font-semibold text-center rounded-md">
+                Skills
+              </div>
+            </div>
+
+            <div className='relative'>
+              <a onClick={()=>setShowThemeCard((value)=>false)} href='#projects'>
+                <li onMouseOver={()=>refProjectsChange("invisible","visible")} onMouseOut={()=>refProjectsChange("visible","invisible")} className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 dark:hover:text-pink-900 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'>
+                  <AiOutlineProject/>
+                </li>
+              </a>
+              <div ref={refProjects} className="absolute top-[68px] md:top-4 lg:top-5 -left-5 xs:-left-1 md:left-16 lg:left-20 invisible dark:bg-slate-600 shadow-md shadow-black text-white py-2 px-4 text-sm xs:text-base font-semibold text-center rounded-md">
+                Projects
+              </div>
+            </div>
+
+            <div className='relative'>
+              <a onClick={()=>setShowThemeCard((value)=>false)} href='#message'>
+                <li onMouseOver={()=>refContactChange("invisible","visible")} onMouseOut={()=>refContactChange("visible","invisible")} className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 dark:hover:text-pink-900 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'>
+                  <AiOutlineMessage/>
+                </li>
+              </a>
+              <div ref={refContact} className="absolute top-[68px] md:top-4 lg:top-5 -left-5 xs:-left-1 md:left-16 lg:left-20 invisible dark:bg-slate-600 shadow-md shadow-black text-white py-2 px-4 text-sm xs:text-base font-semibold text-center rounded-md">
+                contact
+              </div>
+            </div>
+
             <div onClick={()=>setShowThemeCard((value)=>!value)} htmlFor="checked-toggle" className='relative p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 dark:hover:text-pink-900 duration-100 rounded-full shadow-md dark:shadow-slate-600 shadow-slate-900 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white dark:bg-opacity-60 bg-opacity-80 md:bg-opacity-50 backdrop-blur-sm'>
               
               <div>
