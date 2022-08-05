@@ -20,7 +20,7 @@ function Footer({setShowClientForm}) {
         </div>
         <div className=' text-xl font-extrabold flex my-6 justify-center text-slate-300 dark:text-slate-400 duration-150 '>
           <a href='https://github.com/SUMIT746689'><FiGithub className='hover:text-slate-50 mx-4 cursor-pointer' />    </a>
-          <a href='https://www.linkedin.com/in/mehedi-hasan-sumit-103621210'><FiLinkedin className='hover:text-slate-50 mx-4 cursor-pointer'/>   </a>
+          <a href='https://www.linkedin.com/in/mehedi-hasan-103621210'><FiLinkedin className='hover:text-slate-50 mx-4 cursor-pointer'/>   </a>
           <a href='https://www.instagram.com/mehedi_hasan_sumit/'><FiInstagram className='hover:text-slate-50 mx-4 cursor-pointer'/>  </a>
           <a href='https://www.facebook.com/mehedihasan.sumit.5'><FiFacebook className='hover:text-slate-50 mx-4 cursor-pointer'/>   </a>
         </div>
