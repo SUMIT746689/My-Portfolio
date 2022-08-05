@@ -144,7 +144,7 @@ function Nav({changeTheme,setChangeTheme}) {
       <div className='text-2xl font-extrabold flex flex-col xl:mr-8 justify-center text-slate-900 dark:text-slate-400 '>
         {/* <a href='mailto:mehedihasansumit1@gmail.com'><GoMail className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150' />    </a> */}
         <a href='https://github.com/SUMIT746689 ' target="_blank" rel="noopener noreferrer"><FiGithub className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150' />    </a>
-        <a href='https://www.linkedin.com/in/mehedi-hasan-sumit-103621210' target="_blank" rel="noopener noreferrer"><FiLinkedin className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>   </a>
+        <a href='https://www.linkedin.com/in/mehedi-hasan-103621210' target="_blank" rel="noopener noreferrer"><FiLinkedin className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>   </a>
         <a href='https://www.instagram.com/mehedi_hasan_sumit/' target="_blank" rel="noopener noreferrer"><FiInstagram className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>  </a>
         <a href='https://www.facebook.com/mehedihasan.sumit.5' target="_blank" rel="noopener noreferrer"><FiFacebook className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>   </a>
       </div>
