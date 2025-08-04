@@ -6,52 +6,134 @@ import { AiOutlineCloseCircle } from 'react-icons/ai';
 function ClienForm({setShowClientForm}) {
     
   return (
-    <div className='transition ease-in-out fixed h-screen bg-white dark:bg-transparent z-50 overflow-x-hidden w-full object-cove backdrop-blur-lg '>
-        <div className={`${styles.client_form } flex justify-center flex-col gap-6 p-2`}>
-            <div className={ `${styles.client_form_text} text-slate-700 dark:text-slate-200 drop-shadow-sm shadow-black m-auto pt-10 text-xl sm:text-2xl md:text-3xl  text-center space-y-3 max-w-lg `}>
-                I’m excited to learn about your project. Ready to get started?
-            </div>
-            <form  className='mx-auto m-0 p-4 h-fit w-5/6 max-w-3xl bg-white dark:bg-slate-800 bg-opacity-80 backdrop-blur-md rounded-lg shadow-lg shadow-slate-700 dark:shadow-slate-600'>
-                <div className="relative grid p-3 md:grid-cols-2 md:gap-6 font-bold text-3xl sm:text-4xl right-0 text-slate-700 dark:text-slate-400 dark:hover:text-slate-300 duration-150">
-                    <AiOutlineCloseCircle onClick={()=>setShowClientForm((value)=>!value)} className='absolute right-0 cursor-pointer'/>
-                </div>
-                <div className="grid md:grid-cols-2 md:gap-6">
-                    <div className="relative z-0 mb-6 w-full group">
-                        <input type="text" name="floating_first_name" id="floating_first_name" className="block py-2.5 px-0 w-full text-sm sm:text-md lg:text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label htmlFor="floating_first_name" className="peer-focus:font-medium absolute text-sm sm:text-md lg:text-lg text-gray-500 dark:text-gray-400 duration-300 tran htmlForm -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">First name</label>
-                    </div>
-                    <div className="relative z-0 mb-6 w-full group">
-                        <input type="text" name="floating_last_name" id="floating_last_name" className="block py-2.5 px-0 w-full text-sm sm:text-md lg:text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                        <label htmlFor="floating_last_name" className="peer-focus:font-medium absolute text-sm sm:text-md lg:text-lg text-gray-500 dark:text-gray-400 duration-300 tran htmlForm -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Last name</label>
-                    </div>
-                </div>
-                <div className="relative z-0 mb-6 group">
-                    <input type="email" name="floating_email" id="floating_email" className="block py-2.5 px-0 w-full text-sm sm:text-md lg:text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label htmlFor="floating_email" className="peer-focus:font-medium absolute text-sm sm:text-md lg:text-lg text-gray-500 dark:text-gray-400 duration-300 tran htmlForm -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email address</label>
-                </div>
-                <div className='relative z-0 mb-6 w-full group'>
-                    <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Type of project</label>
-                    <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm sm:text-md md:text-lg rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-slate-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option>Front end development for web application</option>
-                        <option>Back end development for web application</option>
-                        <option>Full stack development for web application</option>
-                        
-                    </select>
-                </div>
-                <div className="relative z-0 mb-6 w-full group">
-                    <input type="number" name="budget" id="budget" className="block py-2.5 px-0 w-full text-sm sm:text-md lg:text-lg text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
-                    <label htmlFor="floating_password" className="peer-focus:font-medium absolute text-sm sm:text-md lg:text-lg text-gray-500 dark:text-gray-400 duration-300 tran htmlForm -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Budget</label>
-                </div>
+    <div className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-fadeIn'>
+      <div className='relative w-full max-w-2xl max-h-[85vh] overflow-y-auto'>
+        {/* Main container */}
+        <div className='relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-xl shadow-2xl border border-white/20 dark:border-slate-700/50'>
+          {/* Header */}
+          <div className='relative p-4 text-center border-b border-slate-200 dark:border-slate-700'>
+            <button
+              onClick={() => setShowClientForm(false)}
+              className='absolute top-2 right-2 p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors duration-200'
+            >
+              <AiOutlineCloseCircle className='w-5 h-5' />
+            </button>
+            
+            <h2 className='text-xl font-bold bg-gradient-to-r from-pink-600 to-sky-600 bg-clip-text text-transparent mb-1'>
+              Let's Start Your Project
+            </h2>
+            <p className='text-slate-600 dark:text-slate-400 text-sm'>
+              Share your project details and I'll get back to you within 24 hours.
+            </p>
+          </div>
 
-                <div className="relative z-0 mb-6 w-full group">
-                    <label htmlFor="message" className="block mb-2 text-sm sm:text-md lg:text-lg font-medium text-gray-900 dark:text-gray-400">Additional details</label>
-                    <textarea id="message" rows="4" className="block p-2.5 w-full text-sm md:text-md text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-slate-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
-                </div>
-                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm sm:text-md lg:text-lg w-full px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
-            </form> 
+          {/* Form */}
+          <form className='p-4 space-y-4'>
+            {/* Name and Email */}
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+              <div>
+                <label className='block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1'>
+                  Name *
+                </label>
+                <input
+                  type='text'
+                  name='name'
+                  required
+                  className='w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-sky-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100 placeholder-slate-400'
+                  placeholder='Your full name'
+                />
+              </div>
+              
+              <div>
+                <label className='block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1'>
+                  Email *
+                </label>
+                <input
+                  type='email'
+                  name='email'
+                  required
+                  className='w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-sky-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100 placeholder-slate-400'
+                  placeholder='your@email.com'
+                />
+              </div>
+            </div>
+
+            {/* Project Type and Budget */}
+            <div className='grid grid-cols-1 sm:grid-cols-2 gap-3'>
+              <div>
+                <label className='block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1'>
+                  Project Type *
+                </label>
+                <select
+                  name='projectType'
+                  required
+                  className='w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-sky-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100'
+                >
+                  <option value=''>Select type</option>
+                  <option value='frontend'>Frontend</option>
+                  <option value='backend'>Backend</option>
+                  <option value='fullstack'>Full Stack</option>
+                  <option value='mobile'>Mobile App</option>
+                  <option value='ecommerce'>E-commerce</option>
+                  <option value='other'>Other</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className='block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1'>
+                  Budget (USD)
+                </label>
+                <select
+                  name='budget'
+                  className='w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-sky-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100'
+                >
+                  <option value=''>Select budget</option>
+                  <option value='1000-5000'>$1K - $5K</option>
+                  <option value='5000-10000'>$5K - $10K</option>
+                  <option value='10000+'>$10K+</option>
+                  <option value='discuss'>Let's discuss</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Project Details */}
+            <div>
+              <label className='block text-xs font-medium text-slate-700 dark:text-slate-300 mb-1'>
+                Project Details *
+              </label>
+              <textarea
+                name='details'
+                rows={3}
+                required
+                className='w-full px-3 py-2 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-sky-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100 placeholder-slate-400 resize-none'
+                placeholder='Describe your project, requirements, and any specific technologies...'
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type='submit'
+              className='w-full bg-gradient-to-r from-pink-600 to-sky-600 hover:from-pink-700 hover:to-sky-700 text-white font-medium py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 group text-sm'
+            >
+              <span>Send Project Details</span>
+              <svg className='w-4 h-4 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 19l9 2-9-18-9 18 9-2zm0 0v-8' />
+              </svg>
+            </button>
+
+            {/* Contact Info */}
+            <div className='text-center pt-2 border-t border-slate-200 dark:border-slate-700'>
+              <p className='text-xs text-slate-500 dark:text-slate-400'>
+                Or email directly:{' '}
+                <a href='mailto:mehedihasansumit@gmail.com' className='text-pink-600 dark:text-sky-400 hover:underline font-medium'>
+                  mehedihasansumit@gmail.com
+                </a>
+              </p>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
-    
   )
 }
 

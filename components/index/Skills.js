@@ -6,13 +6,14 @@ function Skills() {
     <div className='relative h-fit bg-slate-900'>
         <div className='relative bg-cyan-700 dark:bg-slate-800 flex justify-center font-light text-lg sm:text-xl md:text-2xl text-gray-100 px-4 pt-14 pb-40 min-w-fit'>
           <div className=' text-center md:px-14 max-w-6xl'>
-            {
-              `Since late 2020 I have been trying to learn MERN 
-              stack development alongside my studies.
-             I search and learned those technologies on my own.
-             I'm quietly confident, naturally curious, and perpetually
-              working on improving my chops one problem at a time.`
-            }
+            <div className='mb-4'>
+              <span className='font-bold text-xl sm:text-2xl md:text-3xl'>3+ Years of Professional Experience</span>
+            </div>
+            <div className='text-base sm:text-lg md:text-xl leading-relaxed'>
+              Proven track record in full-cycle development of enterprise systems including school management platforms,
+              CRM solutions, and multi-vendor web applications. Experienced in Docker-based deployments and
+              collaborating with product teams to deliver scalable SaaS applications.
+            </div>
           </div>
         </div>
       </div>
@@ -30,22 +31,24 @@ function Skills() {
           </div>
           <div>
             <div className=' text-pink-900 dark:text-pink-500 text-lg font-medium '> Languages:</div>
-            <div className='flex flex-col text-slate-900 dark:text-slate-300 font-medium px-4 pb-8 pt-2'> 
+            <div className='flex flex-col text-slate-900 dark:text-slate-300 font-medium px-4 pb-8 pt-2'>
               <span>HTML5</span>
               <span>CSS3</span>
               <span>JavaScript</span>
-              
+              <span>TypeScript</span>
             </div>
           </div>
           <div className='px-1 text-pink-900 dark:text-pink-500 text-lg font-medium '>
-            Tools, Framewokrs Or Libraries:
+            Frameworks & Libraries:
           </div>
           <div className='flex flex-col text-slate-900 dark:text-slate-300 font-medium px-4 pb-8 pt-2'>
-            <span>ReactJs</span>
+            <span>React.js</span>
+            <span>Next.js</span>
             <span>Redux</span>
-            <span>NextJs</span>
-            <span>TailwindCSS</span>
-            <span>Bootstrap</span>
+            <span>RTK Query</span>
+            <span>Tailwind CSS</span>
+            <span>MUI</span>
+            <span>Shadcn</span>
           </div>
         </div>
 
@@ -64,16 +67,18 @@ function Skills() {
               Languages:
             </div>
             <div className='flex flex-col text-slate-900 dark:text-slate-300 font-medium px-4 pb-8 pt-2'>
-              JavaScript
+              <span>JavaScript</span>
+              <span>TypeScript</span>
+              <span>Go</span>
             </div>
           </div>
           <div className='px-1 text-pink-900 dark:text-pink-500 text-lg font-medium '>
-            Runtime or Framewokrs:
+            Runtime & Frameworks:
           </div>
           <div className='flex flex-col text-slate-900 dark:text-slate-300 font-medium px-4 pb-8 pt-2'>
-            <span>NodeJs</span>
-            <span>ExpressJs</span>
-            
+            <span>Node.js</span>
+            <span>Express.js</span>
+            <span>NestJS</span>
           </div>
         </div>
         
@@ -89,23 +94,26 @@ function Skills() {
           </div>
           <div>
             <div className=' text-pink-900 dark:text-pink-500 text-lg font-medium '>
-              Databases:
+              Databases & ORMs:
             </div>
             <div className='flex flex-col text-slate-900 dark:text-slate-300 font-medium px-4 pb-8 pt-2'>
-              <span>SQL</span>
+              <span>PostgreSQL</span>
+              <span>MySQL</span>
               <span>MongoDB</span>
+              <span>Prisma</span>
+              <span>Drizzle ORM</span>
             </div>
           </div>
           <div>
             <div className=' text-pink-900 dark:text-pink-500 text-lg font-medium '>
-              Tools:
+              DevOps & Tools:
             </div>
             <div className='flex flex-col text-slate-900 dark:text-slate-300 font-medium px-4 pb-8 pt-2'>
-              <span>Git</span>
-              <span>GitHub</span>
-              {/* <span>Ansible</span> */}
               <span>Docker</span>
-              <span>mongoose</span>
+              <span>Podman</span>
+              <span>NGINX</span>
+              <span>Git</span>
+              <span>Bitbucket</span>
             </div>
           </div>
         </div>

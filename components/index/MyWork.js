@@ -12,168 +12,150 @@ function MyWork() {
 
     const projects = [
         {
-            name: 'Total Solution',
-            title: 'A Full stack e-commerce web applicaion',
+            name: 'ECRM for GrameenPhone',
+            title: 'Enterprise Customer Relationship Management System',
             image:'total-solution.png',
-            website_url : 'https://total-solution-v2.herokuapp.com/', 
-            github_url  : 'https://github.com/SUMIT746689/A-Ecommerce-Website-using-MERN/tree/update-29/04/2022',
+            website_url : 'https://cockpit-stg.ppl.how/',
             tools_and_technologies: [
-                {html_icon : <AiOutlineHtml5/>}, 
-                {css_icon : <DiCss3/>},
-                {tailwind : <SiTailwindcss/>},
+                {node : <DiNodejsSmall/>},
+                {express : <SiExpress/>},
                 {react : <DiReact/>},
-                {redux : <SiRedux/>},
+                {mongo : <SiMongodb/>},
+                {github : <AiFillGithub/>}
+            ],
+            features:
+            [
+                'Backend APIs for web and Android applications',
+                'Database architecture design',
+                'Onboarding module implementation',
+                'Campaign training system',
+                'GPC visit tracking',
+                'Secure data flow management',
+                'User authentication & authorization'
+            ],
+            special_features:
+            [
+                'Device-binding system for Android devices',
+                'Multi-platform support (Web & Mobile)',
+                'Enterprise-grade security',
+                'Real-time data synchronization'
+            ]
+        },
+        {
+            name  : 'Professional Photo Galleries Platform',
+            title : 'Multi-language photo sharing platform with real-time features',
+            image : 'resturant-app.png',
+            website_url : 'https://stage.neodesk.io/',
+            tools_and_technologies: [
+                {react : <DiReact/>},
+                {node : <DiNodejsSmall/>},
+                {tailwind : <SiTailwindcss/>},
+                {github : <AiFillGithub/>}
+            ],
+            features:
+            [
+                'Multi-language support (English & German)',
+                'Professional photo gallery management',
+                'Real-time upload progress indicators',
+                'File transfer optimization',
+                'User feedback enhancement',
+                'Responsive design',
+                'Cloud storage integration'
+            ],
+            special_features:
+            [
+                'Real-time upload progress tracking',
+                'Multi-language internationalization',
+                'Professional gallery layouts',
+                'Enhanced user experience design'
+            ]
+        },
+        {
+            name : 'SAAS Multi-Vendor School Management System',
+            title : 'Comprehensive educational institution management platform',
+            image : 'raw-node.png',
+            website_url: 'https://admin.edu360.com.bd/',
+            tools_and_technologies: [
+                {react : <DiReact/>},
                 {node : <DiNodejsSmall/>},
                 {express : <SiExpress/>},
                 {mongo : <SiMongodb/>},
-                {firebase : <SiFirebase/>},
-                {github : <AiFillGithub/>}
-            ],
-            features: 
-            [
-                'Authentication',
-                'Verify using mobile OTP',
-                'Fotgot password reset',
-                'Login user Profile',
-                'Dashboad with create, edit and delete products',
-                'Store products data in database',
-                'Upload products images in the cloud storage',
-                'Search Products',
-                'Find products by category'
-            ],
-            special_features: 
-            [
-                'Voice recognition system',
-                '2-step Authentication',
-                'Existing user verify when trying to login using the new browser on any device',
-                'Dark mode enable or disable using user device default preference',
-                
-            ]
-        },
-        {
-            name  : 'A Restaurant App',
-            title : 'Developing a Restaurant App in front end',
-            image : 'resturant-app.png',
-            website_url : 'https://sultan-dine-restaurant-app.vercel.app/', 
-            github_url: 'https://github.com/SUMIT746689/A-Resturant-app-using-React/tree/developed_6/2/22',
-            tools_and_technologies: [
-                {html_icon : <AiOutlineHtml5/>}, 
-                {css_icon : <DiCss3/>},
-                {react : <DiReact/>},
-                {firebase : <SiFirebase/>},
                 {github : <AiFillGithub/>}
             ],
             features:
             [
-                'Home Page', 
-                'About us page', 
-                'Our history', 
-                'daily special item', 
-                'Chef word', 
-                'Awards and recognition', 
-                'Photo gallery', 
-                'Contact', 
-                'Newsletter', 
-                'Subscribe footer'
+                'Multi-tenant architecture',
+                'Role-based access control',
+                'Individual user permissions',
+                'Organization-level roles',
+                'Custom domain support',
+                'Dynamic website generator',
+                'SMS system integration'
             ],
-            // special_features: 
-            // [
-            //     'Awards and recognition',
-            //     'User send to image', 
-            //     'User chat with available users', 
-            //     'Created option available for new user'
-            // ]
-        },
-        {
-            name : 'Raw NodeJs CRUD project',
-            title : 'Using raw nodeJs read, create, update and delete files',
-            image : 'raw-node.png',
-            github_url: 'https://github.com/SUMIT746689/Raw-Node.js-CRUD-project/tree/updated_2/2/22',
-            tools_and_technologies: [
-                {node : <DiNodejsSmall/>},
-                {github : <AiFillGithub/>}
-            ],
-            features:
+            special_features:
             [
-                'Home page',
-                'Using raw NodeJS and no npm modules used', 
-                'Authentication and authorization',
-                'Create new user file', 
-                'Authorized user upload, delete and edit file in server',
-            ],
-            special_features: 
-            [
-                'Token based authentication',
-                'Created Restful API',
-                'Token expire time auto update when user request server'
+                'Python-based text-to-speech engine',
+                'Automated voice notifications',
+                'Custom branding for schools',
+                'Used by 30+ educational institutions',
+                'Full-stack development contribution (60%)'
             ]
         },
         {
-            name : 'A chat Application',
-            title : 'A full stack chatting application with live message',
+            name : 'E-commerce Platform Upgrade',
+            title : 'Next.js performance optimization and modernization',
             image:'chat-app.png',
-            website_url: 'https://my-first-chat-app-v1.herokuapp.com/',
-            github_url: 'https://github.com/SUMIT746689/Mern-stack-Chat-application/tree/chat-updated-5/4/2022',
             tools_and_technologies: [
-                {html_icon : <AiOutlineHtml5/>}, 
-                {css_icon : <DiCss3/>},
+                {react : <DiReact/>},
                 {node : <DiNodejsSmall/>},
                 {express : <SiExpress/>},
+                {mongo : <SiMongodb/>},
                 {github : <AiFillGithub/>}
             ],
             features:
             [
-                'Login',
-                'Signup', 
-                'Create new user', 
-                'Add user image and upload in server', 
-                'Previous chat', 
-                'Auto update chat', 
-                'Share image with message and save in server'
+                'Next.js v13 to v14 upgrade',
+                'Build time optimization',
+                'Runtime performance improvement',
+                'API response optimization',
+                'Query optimization',
+                'Caching strategies implementation',
+                'Database schema design'
             ],
-            special_features: 
+            special_features:
             [
-                'Live chat using Socket.io',
-                'User send to image', 
-                'User chat with available users', 
-                'Created option available for new user'
+                '3-4x performance improvement',
+                'Significantly enhanced user experience',
+                'Advanced caching implementation',
+                'Production deployment optimization'
             ]
         },
         {
-            name : 'Amazon clone web application',
-            title : 'Developing a front end web app using react, dedux and many more ',
+            name : 'Desktop POS Application',
+            title : 'Point of Sale system using Electron framework',
             image : 'amazon-clone.png',
-            website_url: 'https://amazon-clone-livid-two.vercel.app/',
-            github_url: 'https://github.com/SUMIT746689/Amazon1',
             tools_and_technologies: [
-                {html_icon : <AiOutlineHtml5/>}, 
-                {css_icon : <DiCss3/>},
-                {bootstrap : <FaBootstrap/>},
                 {react : <DiReact/>},
-                {redux : <SiRedux/>},
-                {firebase : <SiFirebase/>},
+                {node : <DiNodejsSmall/>},
                 {github : <AiFillGithub/>}
             ],
             features:
             [
-                'Home page' , 
-                'Products', 
-                'login page', 
-                'Signup page', 
-                'Cart', 
-                'Routing', 
-                'Products',
-                'Login with facebook',
-                'login with google',
-                'user profile'
+                'Desktop application development',
+                'Point of Sale functionality',
+                'Inventory management',
+                'Sales tracking',
+                'Receipt generation',
+                'Cross-platform compatibility',
+                'Offline capability'
             ],
-            // special_features: 
-            // [
-            //     'Awards and recognition',
-            //     'User send to image', 
-            //     'User chat with available users', 
-            //     'Created option available for new user'
-            // ]
+            special_features:
+            [
+                'Electron-based desktop app',
+                'Cross-platform support',
+                'Offline-first architecture',
+                'Real-time inventory updates'
+            ]
         }
     ]
     

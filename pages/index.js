@@ -12,6 +12,7 @@ import ClienForm from '../components/index/ClientForm'
 import MyWork from '../components/index/MyWork'
 import Skills from '../components/index/Skills'
 import Main from '../components/index/Main'
+import Experience from '../components/index/Experience'
 import { AiOutlineHome,AiOutlineProject,AiOutlineMessage} from 'react-icons/ai'
 import { GiSkills,GiNightSleep} from 'react-icons/gi'
 import { MdOutlineLightMode} from 'react-icons/md'
@@ -65,8 +66,11 @@ export default function Home() {
       {/* About my skills */}
       <div id='skills' className='dark:bg-slate-900'><Skills/></div>
 
+      {/* Experience section */}
+      <div id='experience' className='dark:bg-slate-900'><Experience/></div>
+
       {/* Projects  */}
-      <div id='projects' className='dark:bg-slate-900'></div><MyWork/>
+      <div id='projects' className='dark:bg-slate-900'><MyWork/></div>
       
       {/* footer area */}
       <div id='message' className='dark:bg-slate-900'><Footer id='#contact' setShowClientForm={setShowClientForm}/></div>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { AiOutlineHome,AiOutlineProject,AiOutlineMessage} from 'react-icons/ai'
 import { GiSkills,GiNightSleep} from 'react-icons/gi'
-import { MdOutlineLightMode} from 'react-icons/md'
+import { MdOutlineLightMode, MdWorkOutline} from 'react-icons/md'
 import { RiComputerLine} from 'react-icons/ri'
 import { GoMail} from 'react-icons/go'
 import { FiGithub, FiLinkedin, FiInstagram, FiFacebook} from 'react-icons/fi'
@@ -54,6 +54,7 @@ function Nav({changeTheme,setChangeTheme}) {
         <ul className='flex md:flex-col justify-center align-middle my-auto font-bold w-full md:h-full -lg'>
             <a onClick={()=>setShowThemeCard((value)=>false)} href='#home'><li className='p-2 mr-4 md:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-700 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><AiOutlineHome/></li></a>
             <a onClick={()=>setShowThemeCard((value)=>false)} href='#skills'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><GiSkills/></li></a>
+            <a onClick={()=>setShowThemeCard((value)=>false)} href='#experience'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><MdWorkOutline/></li></a>
             <a onClick={()=>setShowThemeCard((value)=>false)} href='#projects'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><AiOutlineProject/></li></a>
             <a onClick={()=>setShowThemeCard((value)=>false)} href='#message'><li className='p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md shadow-slate-900 dark:shadow-slate-600 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white bg-opacity-80 dark:bg-opacity-60 md:bg-opacity-50 hover:scale-105 backdrop-blur-sm'><AiOutlineMessage/></li></a>
             <div onClick={()=>setShowThemeCard((value)=>!value)} htmlFor="checked-toggle" className='relative p-2 mr-4 xs:mx-4 my-4 cursor-pointer hover:text-pink-600 duration-100 rounded-full shadow-md dark:shadow-slate-600 shadow-slate-900 hover:shadow-pink-900 dark:hover:shadow-pink-900 bg-white dark:bg-opacity-60 bg-opacity-80 md:bg-opacity-50 backdrop-blur-sm'>
@@ -74,8 +75,8 @@ function Nav({changeTheme,setChangeTheme}) {
     {/* social icon*/}
     <div className='hidden md:fixed z-10 right-0 md:flex md:justify-center align-middle h-full my-auto'>
       <div className='text-2xl font-extrabold flex flex-col xl:mr-8 justify-center text-slate-900 dark:text-slate-400 '>
-        {/* <a href='mailto:mehedihasansumit1@gmail.com'><GoMail className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150' />    </a> */}
-        <a href='https://github.com/SUMIT746689'><FiGithub className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150' />    </a>
+        <a href='mailto:mehedihasansumit@gmail.com'><GoMail className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150' />    </a>
+        <a href='https://github.com/mehedihasansumit'><FiGithub className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150' />    </a>
         <a href='https://www.linkedin.com/in/mehedi-hasan-103621210'><FiLinkedin className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>   </a>
         <a href='https://www.instagram.com/mehedi_hasan_sumit/'><FiInstagram className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>  </a>
         <a href='https://www.facebook.com/mehedihasan.sumit.5'><FiFacebook className='hover:text-slate-700 dark:hover:text-slate-200 m-4 cursor-pointer duration-150'/>   </a>

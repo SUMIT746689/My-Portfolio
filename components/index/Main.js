@@ -32,10 +32,15 @@ function Main() {
           <div className='flex flex-wrap'>{developer}</div>
           <div className='flex flex-wrap'>{textAnimation(data2)}</div>
         </div>
-        <div className='font-semibold text-left text-xs xs:text-md sm:text-xl lg:text-2xl max-w-xl xl:max-w-3xl my-5 sm:my-6 text-slate-900 dark:text-slate-500'>
-          I’m a professional front-end and back-end developer.
-          I believe in transparency and communication.
-          I guide my clients with process and keep them updated with progress.
+        <div className='font-medium text-left text-xs xs:text-sm sm:text-lg lg:text-xl max-w-2xl xl:max-w-4xl my-4 sm:my-5 text-slate-700 dark:text-slate-400'>
+          <div className='mb-3'>
+            <span className='text-pink-700 dark:text-sky-300 font-bold'>Current Role:</span> Software Engineer (Team Lead) at V2 Technologies Limited
+          </div>
+          <div className='text-xs xs:text-sm sm:text-base lg:text-lg leading-relaxed'>
+            Experienced in building scalable SaaS applications, enterprise systems including school management platforms,
+            CRM solutions, and multi-vendor web applications. Skilled in backend architecture, API design, database modeling,
+            and frontend performance optimization.
+          </div>
         </div>
         <div className=' py-4'>
           <button className=' z-10 text-pink-800 dark:text-sky-300 border-pink-800 dark:border-sky-300 animate-bounce hover:duration-300 hover:bg-slate-200 dark:hover:bg-slate-800 hover:animate-none md:text-xl font-semibold py-1 sm:py-2 px-4 sm:px-6 border-2 sm:border-4 bg-opacity-10'>Message Me</button>
@@ -44,9 +49,9 @@ function Main() {
         <a href='/Mehedi-Hasan-Resume.pdf' className='sm:hidden py-1 px-4 my-4 cursor-pointer border-2 text-slate-900 dark:text-slate-400 border-slate-800 dark:border-slate-400 font-semibold hover:text-slate-600 dark:hover:text-slate-300 hover:border-slate-600 dark:hover:border-slate-300 duration-150'>Resume</a>
         </div>
       </main>
-      <div className={`${styles.slide_left} absolute right-2 sm:right-5 md:right-10 2xl:right-32 -bottom-2 w-40 sm:w-48 md:w-48 lg:w-64 xl:w-72 max-h-fit grayscale hover:grayscale-0 `}>
+      {/* <div className={`${styles.slide_left} absolute right-2 sm:right-5 md:right-10 2xl:right-32 -bottom-2 w-40 sm:w-48 md:w-48 lg:w-64 xl:w-72 max-h-fit grayscale hover:grayscale-0 `}>
         <Image className=' hover:scale-105 duration-200 dark:opacity-80' src='/2.png' width='400' height='520' alt='Mehedi Hasan'/>
-      </div>
+      </div> */}
     </div>
   )
 }

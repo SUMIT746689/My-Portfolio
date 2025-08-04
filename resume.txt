@@ -1,0 +1,86 @@
+MEHEDI HASAN  
+Software Engineer  
+Trimohoni, Khilgaon, Dhaka 1214  
+Email: mehedihasansumit@gmail.com | Phone: +8801776912033  
+Portfolio: https://my-portfolio-inky-six-61.vercel.app  
+LinkedIn: www.linkedin.com/in/mehedi-hasan-103621210  
+GitHub: https://github.com/mehedihasansumit  
+
+------------------------------------------------------------------------------------------------------------------------
+
+PROFESSIONAL SUMMARY  
+Software Engineer with 3+ years of experience building scalable SaaS applications using Node.js, Next.js, React, and NestJS. Proven track record in full-cycle development of enterprise systems including school management platforms, CRM solutions, and multi-vendor web applications. Skilled in backend architecture, API design, database modeling, and frontend performance optimization. Strong collaborator with product teams and experienced in Docker-based deployments.
+
+------------------------------------------------------------------------------------------------------------------------
+
+TECHNICAL SKILLS  
+• Frontend: React.js, Next.js, Redux, RTK Query, Tailwind CSS, MUI, Shadcn  
+• Backend: Node.js, Express.js, NestJS, TypeScript, JavaScript  
+• Databases: PostgreSQL, MySQL, Prisma, Drizzle ORM  
+• DevOps & Tools: Docker, Podman, NGINX, Git, Bitbucket  
+• Languages: English (Full Professional), Bangla (Native), Hindi (Fluent)  
+
+------------------------------------------------------------------------------------------------------------------------
+
+WORK EXPERIENCE  
+
+Software Engineer (Team Lead)  
+V2 Technologies Limited – Dhaka, Bangladesh  
+Nov 2024 – Present  
+• Leading backend development for an ECRM web application using Express.js, NestJS, and Go standard library.  
+• Developing frontend features for a photo gallery sharing platform using React and Next.js.  
+• Implemented server-side rendering (SSR), static site generation (SSG), incremental static regeneration (ISR), and Server Actions in Next.js for improved SEO and performance.  
+• Applied advanced MySQL concepts including views, transactions, stored procedures, and triggers to ensure data integrity.  
+• Troubleshoot production issues and collaborate with product managers to refine requirements and deliverables.  
+
+Software Engineer  
+Elitbuzz Technologies Limited – Dhaka, Bangladesh  
+Aug 2022 – Nov 2024  
+• Developed and maintained a SAAS-based multi-vendor school management system using Next.js (frontend), Prisma, and MySQL (backend).  
+• Upgraded an e-commerce platform from Next.js v13 to v14, improving build time and runtime performance by 3–4x.  
+• Optimized API response times through query optimization and caching strategies, significantly enhancing user experience.  
+• Designed and implemented database schemas for school management, SMS, and e-commerce systems.  
+• Built a dynamic website generator allowing individual schools to have custom domains and branding.  
+• Integrated text-to-speech functionality using Python scripts executed via Node.js backend for automated voice notifications.  
+• Developed a static and dynamic SMS system supporting both text and voice message delivery.  
+• Containerized applications using Docker and deployed images to cloud environments for testing and production.  
+• Contributed to a desktop POS application using Electron.  
+
+------------------------------------------------------------------------------------------------------------------------
+
+KEY PROJECTS  
+
+ECRM for GrameenPhone  
+https://cockpit-stg.ppl.how/  
+• Developed backend APIs and database architecture for web and Android applications.  
+• Designed and implemented onboarding, campaign training, and GPC visit modules with secure data flow.  
+• Built a device-binding system to securely link user accounts with Android devices.  
+
+Professional Photo Galleries Sharing Platform  
+https://stage.neodesk.io/  
+• Developed frontend using React and Next.js with support for English and German languages.  
+• Implemented real-time upload progress indicators for file transfers, enhancing user feedback.  
+
+SAAS Multi-Vendor School Management System  
+https://admin.edu360.com.bd/  
+• Contributed to 60% of full-stack development, including multi-tenant architecture and role-based access control.  
+• Enabled individual user permissions alongside organization-level roles for granular security.  
+• Integrated Python-based text-to-speech engine via Node.js API for automated announcements.  
+• System currently used by 30+ educational institutions across Bangladesh.  
+
+------------------------------------------------------------------------------------------------------------------------
+
+EDUCATION  
+
+B.Sc. in Computer Science and Engineering  
+Green University of Bangladesh  
+2018 – 2022  
+
+Diploma in Marine Engineering  
+Shyamoli Ideal Polytechnic Institute  
+2013 – 2018  
+
+------------------------------------------------------------------------------------------------------------------------
+
+INTERESTS  
+Latest technology trends, Traveling, PC gaming  
