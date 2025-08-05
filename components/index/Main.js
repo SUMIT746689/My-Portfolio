@@ -15,9 +15,9 @@ function Main() {
   console.log(my_Name)
 
   //my next text animation
-  const data  = 'I’m.a.full.stack.or.' 
-  const data2 = 'mern.stack.developer'
-
+  // const data  = 'I’m.a.full.stack.or.' 
+  // const data2 = 'mern.stack.developer'
+  const data = 'I’m.a.software.engineer'
   const developer = textAnimation(data);
   return (
     <div className='relative'>
@@ -30,7 +30,7 @@ function Main() {
         </div>
         <div className='flex w-full flex-wrap text-xl xs:text-3xl sm:text-5xl md:text-5xl lg:text-7xl font-bold text-slate-600 dark:text-slate-500 '>
           <div className='flex flex-wrap'>{developer}</div>
-          <div className='flex flex-wrap'>{textAnimation(data2)}</div>
+          {/* <div className='flex flex-wrap'>{textAnimation(data2)}</div> */}
         </div>
         <div className='font-medium text-left text-xs xs:text-sm sm:text-lg lg:text-xl max-w-2xl xl:max-w-4xl my-4 sm:my-5 text-slate-700 dark:text-slate-400'>
           <div className='mb-3'>
