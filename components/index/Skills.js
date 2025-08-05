@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image"
 
 function Skills() {
   return (
@@ -21,7 +21,6 @@ function Skills() {
           </div>
         </div>
       </div>
-
       {/* Skills Cards - Updated to match nav color scheme */}
       <div className="relative -top-20 sm:-top-24 min-h-fit flex flex-col sm:flex-row justify-center mx-auto 
                       bg-white/80 dark:bg-slate-800/80 backdrop-blur-lg p-6 sm:p-8 w-11/12 md:w-5/6 lg:w-3/4 
@@ -39,7 +38,10 @@ function Skills() {
               height={80}
               alt="Front-End"
               priority
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
           <h3 className="text-pink-700 dark:text-pink-400 text-2xl font-semibold mb-4 group-hover:text-pink-600 dark:group-hover:text-pink-300 transition-colors">
             Front End
@@ -89,7 +91,10 @@ function Skills() {
               height={80}
               alt="Back-End"
               priority
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
           <h3 className="text-pink-700 dark:text-pink-400 text-2xl font-semibold mb-4 group-hover:text-pink-600 dark:group-hover:text-pink-300 transition-colors">
             Back End
@@ -138,7 +143,10 @@ function Skills() {
               height={80}
               alt="Other Tools"
               priority
-            />
+              style={{
+                maxWidth: "100%",
+                height: "auto"
+              }} />
           </div>
           <h3 className="text-pink-700 dark:text-pink-400 text-2xl font-semibold mb-4 group-hover:text-pink-600 dark:group-hover:text-pink-300 transition-colors">
             DevOps & Tools
@@ -177,7 +185,7 @@ function Skills() {
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default Skills

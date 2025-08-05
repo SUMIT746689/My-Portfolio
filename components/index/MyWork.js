@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image"
 import { AiOutlineHtml5, AiFillGithub } from 'react-icons/ai'
 import { DiCss3, DiReact, DiNodejsSmall } from 'react-icons/di'
 import { SiRedux, SiMongodb, SiExpress, SiTailwindcss, SiFirebase } from 'react-icons/si'
@@ -155,7 +155,6 @@ function MyWork() {
             {/* Decorative elements */}
             <div className='absolute top-0 left-0 w-64 h-64 rounded-full bg-pink-500/10 dark:bg-pink-400/10 blur-3xl -z-10'></div>
             <div className='absolute bottom-0 right-0 w-64 h-64 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 blur-3xl -z-10'></div>
-
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -171,7 +170,6 @@ function MyWork() {
                     {"Here are a few past projects I've worked on."}
                 </p>
             </motion.div>
-
             <div className='flex flex-col items-center mt-10 px-4 sm:px-6'>
                 <AnimatePresence>
                     {projects.map((project, index) => (
@@ -191,11 +189,13 @@ function MyWork() {
                                 >
                                     <Image
                                         src={`/${project.image || 'total-solution.png'}`}
-                                        layout='fill'
-                                        objectFit='cover'
                                         className='grayscale hover:grayscale-0 transition-all duration-300'
                                         alt={project.name}
-                                    />
+                                        fill
+                                        sizes="100vw"
+                                        style={{
+                                            objectFit: "cover"
+                                        }} />
                                     <div className='absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-6'>
                                         <h3 className='text-white text-xl font-bold'>{project.name}</h3>
                                     </div>
@@ -309,7 +309,7 @@ function MyWork() {
                 </motion.div>
             </div>
         </div>
-    )
+    );
 }
 
 export default MyWork

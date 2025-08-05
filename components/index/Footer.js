@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/image'
+import Image from "next/image"
 import { FiFacebook, FiGithub, FiLinkedin, FiInstagram, FiMail } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 
