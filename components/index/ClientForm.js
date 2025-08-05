@@ -67,10 +67,10 @@ function ClientForm({ setShowClientForm }) {
               </motion.button>
               
               <h2 className='text-xl font-bold bg-gradient-to-r from-pink-600 to-sky-600 bg-clip-text text-transparent mb-1'>
-                Let's Start Your Project
+                {"Let's Start Your Project"}
               </h2>
               <p className='text-slate-600 dark:text-slate-400 text-sm'>
-                Share your project details and I'll get back to you within 24 hours.
+                {"Share your project details and I'll get back to you within 24 hours."}
               </p>
             </div>
 
@@ -88,7 +88,7 @@ function ClientForm({ setShowClientForm }) {
                 </div>
                 <h3 className='text-lg font-medium text-slate-900 dark:text-slate-100 mb-2'>Thank you!</h3>
                 <p className='text-sm text-slate-600 dark:text-slate-400'>
-                  Your project details have been submitted successfully. I'll contact you soon.
+                  {"Your project details have been submitted successfully. I'll contact you soon."}
                 </p>
               </motion.div>
             ) : (
@@ -172,7 +172,7 @@ function ClientForm({ setShowClientForm }) {
                       <option value='5000-10000'>$5K - $10K</option>
                       <option value='10000-25000'>$10K - $25K</option>
                       <option value='25000+'>$25K+</option>
-                      <option value='discuss'>Let's discuss</option>
+                      <option value='discuss'>{"Let's discuss"}</option>
                     </select>
                   </div>
                 </div>

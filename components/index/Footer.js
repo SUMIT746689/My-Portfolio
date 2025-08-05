@@ -41,11 +41,11 @@ function Footer({ setShowClientForm }) {
                 className='mb-6'
               >
                 <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-sky-600 bg-clip-text text-transparent mb-4'>
-                  Let's Build Something Amazing Together
+                  {"Let's Build Something Amazing Together"}
                 </h2>
                 <p className='text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed'>
-                  Ready to turn your ideas into reality? I'm here to help you create exceptional digital experiences.
-                  Let's discuss your project over a virtual coffee!
+                  {`Ready to turn your ideas into reality? I'm here to help you create exceptional digital experiences.
+                  Let's discuss your project over a virtual coffee!`}
                 </p>
               </motion.div>
 
@@ -147,18 +147,6 @@ function Footer({ setShowClientForm }) {
         </div>
       </motion.div>
 
-      {/* Animation styles */}
-      <style jsx>{`
-        @keyframes gradientShift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient-shift {
-          background-size: 200% 200%;
-          animation: gradientShift 10s ease infinite;
-        }
-      `}</style>
     </footer>
   )
 }

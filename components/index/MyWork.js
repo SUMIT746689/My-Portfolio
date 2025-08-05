@@ -168,7 +168,7 @@ function MyWork() {
                     </span>
                 </h2>
                 <p className='text-lg text-slate-700 dark:text-slate-400 max-w-2xl mx-auto'>
-                    Here are a few past projects I've worked on.
+                    {"Here are a few past projects I've worked on."}
                 </p>
             </motion.div>
 
