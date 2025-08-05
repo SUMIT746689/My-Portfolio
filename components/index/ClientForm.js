@@ -20,10 +20,10 @@ function ClienForm({setShowClientForm}) {
             </button>
             
             <h2 className='text-xl font-bold bg-gradient-to-r from-pink-600 to-sky-600 bg-clip-text text-transparent mb-1'>
-              Let's Start Your Project
+              {"Let's Start Your Project"}
             </h2>
             <p className='text-slate-600 dark:text-slate-400 text-sm'>
-              Share your project details and I'll get back to you within 24 hours.
+              {"Share your project details and I'll get back to you within 24 hours."}
             </p>
           </div>
 
@@ -91,7 +91,7 @@ function ClienForm({setShowClientForm}) {
                   <option value='1000-5000'>$1K - $5K</option>
                   <option value='5000-10000'>$5K - $10K</option>
                   <option value='10000+'>$10K+</option>
-                  <option value='discuss'>Let's discuss</option>
+                  <option value='discuss'>{"Let's discuss"}</option>
                 </select>
               </div>
             </div>

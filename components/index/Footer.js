@@ -2,11 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import logo from '../../asset/favicon.ico'
 import styles from '../../styles/Home.module.css'
-import { FiFacebook ,FiGithub, FiLinkedin, FiInstagram, } from 'react-icons/fi';
+import { FiFacebook, FiGithub, FiLinkedin, FiInstagram, } from 'react-icons/fi';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
-import { BiMenuAltRight} from 'react-icons/bi';
+import { BiMenuAltRight } from 'react-icons/bi';
 
-function Footer({setShowClientForm}) {
+function Footer({ setShowClientForm }) {
   return (
     <footer className='relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-20 duration-150 overflow-hidden'>
       {/* Background Pattern */}
@@ -25,17 +25,17 @@ function Footer({setShowClientForm}) {
             <div className='bg-white dark:bg-slate-900 rounded-xl p-8 sm:p-12 text-center'>
               <div className='mb-6'>
                 <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-sky-600 bg-clip-text text-transparent mb-4'>
-                  Let's Build Something Amazing Together
+                  {"Let's Build Something Amazing Together"}
                 </h2>
                 <p className='text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed'>
-                  Ready to turn your ideas into reality? I'm here to help you create exceptional digital experiences.
-                  Let's discuss your project over a virtual coffee!
+                  {`Ready to turn your ideas into reality? I'm here to help you create exceptional digital experiences.
+                  Let's discuss your project over a virtual coffee!`}
                 </p>
               </div>
-              
+
               <div className='flex flex-col sm:flex-row gap-4 justify-center items-center'>
                 <button
-                  onClick={()=>setShowClientForm((value)=>!value)}
+                  onClick={() => setShowClientForm((value) => !value)}
                   className='group relative px-8 py-4 bg-gradient-to-r from-pink-600 to-sky-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden'
                 >
                   <span className='relative z-10 flex items-center gap-2'>
@@ -46,7 +46,7 @@ function Footer({setShowClientForm}) {
                   </span>
                   <div className='absolute inset-0 bg-gradient-to-r from-sky-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                 </button>
-                
+
                 <a
                   href='mailto:mehedihasansumit@gmail.com'
                   className='px-8 py-4 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-semibold rounded-xl hover:border-pink-500 dark:hover:border-sky-400 hover:text-pink-600 dark:hover:text-sky-400 transition-all duration-300 flex items-center gap-2'
