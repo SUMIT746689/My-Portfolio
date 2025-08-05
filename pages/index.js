@@ -10,32 +10,30 @@ import Experience from '../components/index/Experience'
 
 export default function Home() {
 
-  const[showClientForm,setShowClientForm] = useState(false);
-  const[changeTheme,setChangeTheme] = useState(false);
-  
+  const [showClientForm, setShowClientForm] = useState(false);
+  const [changeTheme, setChangeTheme] = useState(false);
+
 
   //check browser have local storage 
-  useEffect(()=>{
-    const theme =JSON.parse(localStorage.getItem('theme'));
+  useEffect(() => {
+    const theme = JSON.parse(localStorage.getItem('theme'));
 
-    if(['light'].includes(theme)) return setChangeTheme(()=>false);
-    if(['dark'].includes(theme)) return setChangeTheme(()=>true);
-    
-    if (typeof window !== "undefined" ) {
-        if(window.matchMedia('(prefers-color-scheme: dark)').matches){
-          setChangeTheme(()=>true)
-        }
-        else{
-          setChangeTheme(()=>false)
-        }
+    if (['light'].includes(theme)) return setChangeTheme(() => false);
+    if (['dark'].includes(theme)) return setChangeTheme(() => true);
+
+    if (typeof window !== "undefined") {
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setChangeTheme(() => true)
+      }
+      else {
+        setChangeTheme(() => false)
+      }
     }
 
-  },[])
-
-
+  }, [])
 
   return (
-    <div className={ `${!changeTheme ? ' ' : 'dark '} ${showClientForm ? ' fixed ' : ' '} bg-slate-50  min-h-fit scroll-smooth duration-200`}>
+    <div className={`${!changeTheme ? ' ' : 'dark '} ${showClientForm ? ' fixed ' : ' '} bg-slate-50  min-h-fit scroll-smooth duration-200`}>
       <Head>
         <title>My Portfolio</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
@@ -47,22 +45,22 @@ export default function Home() {
       {showClientForm ? <ClienForm setShowClientForm={setShowClientForm} /> : ''}
 
       {/* Nav bar component */}
-      <Nav changeTheme={changeTheme} setChangeTheme={setChangeTheme}/>
+      <Nav changeTheme={changeTheme} setChangeTheme={setChangeTheme} />
 
       {/* front page */}
-      <div id='home' className='duration-300 dark:bg-slate-900'><Main/></div>
+      <div id='home' className='duration-300 dark:bg-slate-900'><Main /></div>
 
       {/* About my skills */}
-      <div id='skills' className='dark:bg-slate-900'><Skills/></div>
+      <div id='skills' className='dark:bg-slate-900'><Skills /></div>
 
       {/* Experience section */}
-      <div id='experience' className='dark:bg-slate-900'><Experience/></div>
+      <div id='experience' className='dark:bg-slate-900'><Experience /></div>
 
       {/* Projects  */}
-      <div id='projects' className='dark:bg-slate-900'><MyWork/></div>
-      
+      <div id='projects' className='dark:bg-slate-900'><MyWork /></div>
+
       {/* footer area */}
-      <div id='message' className='dark:bg-slate-900'><Footer id='#contact' setShowClientForm={setShowClientForm}/></div>
+      <div id='message' className='dark:bg-slate-900'><Footer id='#contact' setShowClientForm={setShowClientForm} /></div>
     </div>
   )
 }

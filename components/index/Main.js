@@ -1,7 +1,6 @@
-import Image from 'next/image'
 import styles from '../../styles/Home.module.css'
 import { textAnimation } from '../../utilities/textAnimation'
-import { motion } from 'framer-motion'
+import { motion } from "motion/react"
 import { FiMail } from 'react-icons/fi'
 
 function Main() {

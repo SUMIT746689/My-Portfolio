@@ -14,8 +14,6 @@ import {
   FiInstagram,
   FiFacebook,
 } from 'react-icons/fi';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 const navLinks = [
   { href: '#home', icon: <AiOutlineHome />, label: 'Home' },
@@ -43,7 +41,6 @@ function Nav({ changeTheme, setChangeTheme }) {
   const [currentThemeIcon, setCurrentThemeIcon] = useState(themeIcons.system);
   const themeCardRef = useRef(null);
   const [activeLink, setActiveLink] = useState('#home');
-  const router = useRouter();
 
   // Set active nav link based on hash in URL (and on click)
   useEffect(() => {
