@@ -1,10 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import logo from '../asset/favicon.ico'
-import styles from '../styles/Home.module.css'
-import { FiFacebook ,FiGithub, FiLinkedin, FiInstagram, } from 'react-icons/fi'
-import { AiOutlineCloseCircle } from 'react-icons/ai'
-import { BiMenuAltRight} from 'react-icons/bi'
 import { useEffect, useState } from 'react'
 import Footer from '../components/index/Footer'
 import Nav from '../components/index/Nav'
@@ -13,11 +7,6 @@ import MyWork from '../components/index/MyWork'
 import Skills from '../components/index/Skills'
 import Main from '../components/index/Main'
 import Experience from '../components/index/Experience'
-import { AiOutlineHome,AiOutlineProject,AiOutlineMessage} from 'react-icons/ai'
-import { GiSkills,GiNightSleep} from 'react-icons/gi'
-import { MdOutlineLightMode} from 'react-icons/md'
-import { RiComputerLine} from 'react-icons/ri'
-
 
 export default function Home() {
 
