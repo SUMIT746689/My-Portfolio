@@ -41,6 +41,7 @@ function Nav({ changeTheme, setChangeTheme }) {
   const [currentThemeIcon, setCurrentThemeIcon] = useState(themeIcons.system);
   const themeCardRef = useRef(null);
   const [activeLink, setActiveLink] = useState('#home');
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   // Set active nav link based on hash in URL (and on click)
   useEffect(() => {
@@ -94,12 +95,13 @@ function Nav({ changeTheme, setChangeTheme }) {
     setActiveLink(href);
     window.location.hash = href;
     setShowThemeCard(false);
+    setMobileMenuOpen(false);
   };
 
   return (
     <>
-      {/* Nav bar */}
-      <div className="fixed z-20 text-xl md:text-2xl text-blue-900 dark:text-cyan-300 w-screen md:w-fit md:h-screen pl-2 lg:pl-4">
+      {/* Desktop View */}
+      <div className="hidden md:block fixed z-20 text-xl md:text-2xl text-blue-900 dark:text-cyan-300 w-screen md:w-fit md:h-screen pl-2 lg:pl-4">
         <ul className="flex md:flex-col gap-6 justify-center align-middle my-auto font-medium w-full md:h-full">
           {navLinks.map((link) => (
             <li key={link.href}>
@@ -161,6 +163,126 @@ function Nav({ changeTheme, setChangeTheme }) {
             </div>
           </div>
         </ul>
+      </div>
+
+      {/* Mobile View */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
+        <div className="flex justify-around py-2">
+          {navLinks.slice(0, 3).map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => handleNavClick(link.href)}
+              className={`flex flex-col items-center p-2 rounded-lg transition-all duration-200
+                ${activeLink === link.href
+                  ? 'text-blue-600 dark:text-cyan-400'
+                  : 'text-gray-700 dark:text-gray-300'
+                }`}
+            >
+              <span className="text-xl">{link.icon}</span>
+              <span className="text-xs mt-1">{link.label}</span>
+            </a>
+          ))}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={`flex flex-col items-center p-2 rounded-lg transition-all duration-200
+              ${mobileMenuOpen ? 'text-blue-600 dark:text-cyan-400' : 'text-gray-700 dark:text-gray-300'}`}
+          >
+            <span className="text-xl">
+              {mobileMenuOpen ? (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </span>
+            <span className="text-xs mt-1">More</span>
+          </button>
+        </div>
+
+        {/* Expanded Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="absolute bottom-full left-0 right-0 bg-white dark:bg-gray-800 p-4 border-t border-gray-200 dark:border-gray-700 shadow-lg rounded-t-lg">
+            <div className="grid grid-cols-2 gap-3">
+              {navLinks.slice(3).map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  className={`flex items-center p-3 rounded-lg transition-all duration-200
+                    ${activeLink === link.href
+                      ? 'bg-blue-600 dark:bg-cyan-700 text-white'
+                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                    }`}
+                >
+                  <span className="mr-2">{link.icon}</span>
+                  <span>{link.label}</span>
+                </a>
+              ))}
+              
+              {/* Theme Selector */}
+              <div
+                onClick={() => setShowThemeCard((v) => !v)}
+                className="flex items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-700 dark:text-gray-300"
+                ref={themeCardRef}
+              >
+                <span className="mr-2">{currentThemeIcon}</span>
+                <span>Theme</span>
+                {showThemeCard && (
+                  <div className="absolute bottom-full left-4 right-4 mb-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-2 z-50">
+                    <div
+                      onClick={() => themeChangeHandle('light')}
+                      className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                    >
+                      <MdOutlineLightMode className="mr-2" />
+                      Light
+                    </div>
+                    <div
+                      onClick={() => themeChangeHandle('dark')}
+                      className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                    >
+                      <GiNightSleep className="mr-2" />
+                      Dark
+                    </div>
+                    <div
+                      onClick={() => themeChangeHandle('system')}
+                      className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                    >
+                      <RiComputerLine className="mr-2" />
+                      System
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              {/* Resume Button */}
+              <a
+                href="/Mehedi-Hasan-Resume.pdf"
+                className="flex items-center justify-center p-3 border:bg-blue-600 border dark:border-cyan-500 dark:text-cyan-500 text-blue-700 border-blue-700 rounded-lg hover:bg-blue-300 dark:hover:bg-cyan-800"
+              >
+                Resume
+              </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex justify-center space-x-4 mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400"
+                >
+                  {link.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Social icons */}

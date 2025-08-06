@@ -51,10 +51,10 @@ export default function Home() {
       <div id='home' className='duration-300 dark:bg-slate-900'><Main /></div>
 
       {/* About my skills */}
-      <div id='skills' className='dark:bg-slate-900'><Skills /></div>
+      <div id='skills' className=' dark:bg-slate-900'><Skills /></div>
 
       {/* Experience section */}
-      <div id='experience' className='dark:bg-slate-900'><Experience /></div>
+      <div id='experience' className='max-w-screen overflow-hidden dark:bg-slate-900'><Experience /></div>
 
       {/* Projects  */}
       <div id='projects' className='dark:bg-slate-900'><MyWork /></div>
