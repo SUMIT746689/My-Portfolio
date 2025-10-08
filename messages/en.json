@@ -1,0 +1,58 @@
+{
+  "articles": {
+    "postgres": {
+      "title": "PostgreSQL Architecture",
+      "description": "Understanding PostgreSQL's process and memory architecture",
+      "readTime": "10 min read",
+      "lastUpdated": "Last updated: Jan 2025",
+      "sections": {
+        "processArchitecture": {
+          "title": "Process Architecture",
+          "postmaster": {
+            "title": "Postmaster - The Main Supervisor",
+            "description": "The postmaster is PostgreSQL's parent process that controls all database operations. It listens for client connections on port 5432 (default) and manages all child processes.",
+            "responsibilities": "Responsibilities",
+            "keyPoint": "Key Point",
+            "keyPointText": "If the postmaster crashes, the entire PostgreSQL instance stops. It's the single point of control for the database cluster.",
+            "items": [
+              "Accepts incoming connections",
+              "Spawns backend processes",
+              "Manages background workers",
+              "Handles crash recovery"
+            ]
+          },
+          "backend": {
+            "title": "Backend Processes",
+            "description": "Each client connection gets its own dedicated backend process. This provides process isolation - if one backend crashes due to a bad query, other connections remain unaffected.",
+            "processModel": "Process Per Connection Model",
+            "items": [
+              "Isolation: Each connection is independent",
+              "Memory: Each backend has its own memory space",
+              "Limitation: High memory usage with many connections",
+              "Solution: Use connection poolers (PgBouncer, pgpool)"
+            ]
+          },
+          "workers": {
+            "title": "Background Worker Processes",
+            "backgroundWriter": {
+              "title": "Background Writer",
+              "description": "Writes dirty buffers from shared memory to disk periodically"
+            },
+            "checkpointer": {
+              "title": "Checkpointer",
+              "description": "Creates recovery checkpoints to minimize recovery time"
+            },
+            "walWriter": {
+              "title": "WAL Writer",
+              "description": "Flushes Write-Ahead Log buffers to disk for durability"
+            },
+            "autovacuum": {
+              "title": "Autovacuum",
+              "description": "Removes old row versions and prevents table bloat"
+            }
+          }
+        }
+      }
+    }
+  }
+}
