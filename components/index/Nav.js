@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
+import Link from 'next/link';
 import {
   AiOutlineHome,
   AiOutlineProject,
   AiOutlineMessage,
 } from 'react-icons/ai';
 import { GiSkills, GiNightSleep } from 'react-icons/gi';
-import { MdOutlineLightMode, MdWorkOutline } from 'react-icons/md';
+import { MdOutlineLightMode, MdWorkOutline, MdArticle } from 'react-icons/md';
 import { RiComputerLine } from 'react-icons/ri';
 import { GoMail } from 'react-icons/go';
 import {
@@ -17,18 +18,21 @@ import {
   FiFacebook,
 } from 'react-icons/fi';
 import { useTranslations } from '../../hooks/useTranslations';
+import { useLocale } from 'next-intl';
 import LanguageSwitcher from '../LanguageSwitcher';
 import LanguageSwitcherMobile from '../LanguageSwitcherMobile';
 
 function Nav() {
   const { t } = useTranslations();
+  const locale = useLocale();
 
   const navLinks = [
-    { href: '#home', icon: <AiOutlineHome />, labelKey: 'nav.home' },
-    { href: '#skills', icon: <GiSkills />, labelKey: 'nav.skills' },
-    { href: '#experience', icon: <MdWorkOutline />, labelKey: 'nav.experience' },
-    { href: '#projects', icon: <AiOutlineProject />, labelKey: 'nav.projects' },
-    { href: '#message', icon: <AiOutlineMessage />, labelKey: 'nav.contact' },
+    { href: '#home', icon: <AiOutlineHome />, labelKey: 'nav.home', type: 'hash' },
+    { href: '#skills', icon: <GiSkills />, labelKey: 'nav.skills', type: 'hash' },
+    { href: '#experience', icon: <MdWorkOutline />, labelKey: 'nav.experience', type: 'hash' },
+    { href: '#projects', icon: <AiOutlineProject />, labelKey: 'nav.projects', type: 'hash' },
+    { href: `/${locale}/articles`, icon: <MdArticle />, labelKey: 'nav.articles', type: 'route' },
+    { href: '#message', icon: <AiOutlineMessage />, labelKey: 'nav.contact', type: 'hash' },
   ];
 
   const socialLinks = [
@@ -117,22 +121,36 @@ function Nav() {
         <ul className="flex md:flex-col gap-6 justify-center align-middle my-auto font-medium w-full md:h-full">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={() => handleNavClick(link.href)}
-                className={`group relative block p-2 mr-2 md:mx-2 my-1 cursor-pointer rounded-full shadow transition-all duration-200
-                  ${activeLink === link.href
-                    ? 'bg-blue-600 dark:bg-cyan-700 text-white shadow-blue-900/50 scale-105'
-                    : 'bg-white/90 dark:bg-gray-800/90 text-blue-900 dark:text-cyan-300 shadow-gray-900/10 dark:shadow-gray-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]'
-                  }`}
-              >
-                <span className="flex items-center justify-center">
-                  {link.icon}
-                </span>
-                <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded text-blue-900 dark:text-cyan-300 bg-white/90 dark:bg-gray-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
-                  {t(link.labelKey)}
-                </span>
-              </a>
+              {link.type === 'route' ? (
+                <Link
+                  href={link.href}
+                  className={`group relative block p-2 mr-2 md:mx-2 my-1 cursor-pointer rounded-full shadow transition-all duration-200 bg-white/90 dark:bg-gray-800/90 text-blue-900 dark:text-cyan-300 shadow-gray-900/10 dark:shadow-gray-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]`}
+                >
+                  <span className="flex items-center justify-center">
+                    {link.icon}
+                  </span>
+                  <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded text-blue-900 dark:text-cyan-300 bg-white/90 dark:bg-gray-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
+                    {t(link.labelKey)}
+                  </span>
+                </Link>
+              ) : (
+                <a
+                  href={link.href}
+                  onClick={() => handleNavClick(link.href)}
+                  className={`group relative block p-2 mr-2 md:mx-2 my-1 cursor-pointer rounded-full shadow transition-all duration-200
+                    ${activeLink === link.href
+                      ? 'bg-blue-600 dark:bg-cyan-700 text-white shadow-blue-900/50 scale-105'
+                      : 'bg-white/90 dark:bg-gray-800/90 text-blue-900 dark:text-cyan-300 shadow-gray-900/10 dark:shadow-gray-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]'
+                    }`}
+                >
+                  <span className="flex items-center justify-center">
+                    {link.icon}
+                  </span>
+                  <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded text-blue-900 dark:text-cyan-300 bg-white/90 dark:bg-gray-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
+                    {t(link.labelKey)}
+                  </span>
+                </a>
+              )}
             </li>
           ))}
 
@@ -184,19 +202,30 @@ function Nav() {
       <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
         <div className="flex justify-around py-2">
           {navLinks.slice(0, 3).map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => handleNavClick(link.href)}
-              className={`flex flex-col items-center p-2 rounded-lg transition-all duration-200
-                ${activeLink === link.href
-                  ? 'text-blue-600 dark:text-cyan-400'
-                  : 'text-gray-700 dark:text-gray-300'
-                }`}
-            >
-              <span className="text-xl">{link.icon}</span>
-              <span className="text-xs mt-1">{t(link.labelKey)}</span>
-            </a>
+            link.type === 'route' ? (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="flex flex-col items-center p-2 rounded-lg transition-all duration-200 text-gray-700 dark:text-gray-300"
+              >
+                <span className="text-xl">{link.icon}</span>
+                <span className="text-xs mt-1">{t(link.labelKey)}</span>
+              </Link>
+            ) : (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => handleNavClick(link.href)}
+                className={`flex flex-col items-center p-2 rounded-lg transition-all duration-200
+                  ${activeLink === link.href
+                    ? 'text-blue-600 dark:text-cyan-400'
+                    : 'text-gray-700 dark:text-gray-300'
+                  }`}
+              >
+                <span className="text-xl">{link.icon}</span>
+                <span className="text-xs mt-1">{t(link.labelKey)}</span>
+              </a>
+            )
           ))}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -223,19 +252,30 @@ function Nav() {
           <div className="absolute bottom-full left-0 right-0 bg-white dark:bg-gray-800 p-4 border-t border-gray-200 dark:border-gray-700 shadow-lg rounded-t-lg">
             <div className="grid grid-cols-2 gap-3">
               {navLinks.slice(3).map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => handleNavClick(link.href)}
-                  className={`flex items-center p-3 rounded-lg transition-all duration-200
-                    ${activeLink === link.href
-                      ? 'bg-blue-600 dark:bg-cyan-700 text-white'
-                      : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
-                    }`}
-                >
-                  <span className="mr-2">{link.icon}</span>
-                  <span>{t(link.labelKey)}</span>
-                </a>
+                link.type === 'route' ? (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="flex items-center p-3 rounded-lg transition-all duration-200 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                  >
+                    <span className="mr-2">{link.icon}</span>
+                    <span>{t(link.labelKey)}</span>
+                  </Link>
+                ) : (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => handleNavClick(link.href)}
+                    className={`flex items-center p-3 rounded-lg transition-all duration-200
+                      ${activeLink === link.href
+                        ? 'bg-blue-600 dark:bg-cyan-700 text-white'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                      }`}
+                  >
+                    <span className="mr-2">{link.icon}</span>
+                    <span>{t(link.labelKey)}</span>
+                  </a>
+                )
               ))}
               
               {/* Theme Selector */}
