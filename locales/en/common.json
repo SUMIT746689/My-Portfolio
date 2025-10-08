@@ -68,5 +68,183 @@
     "startProject": "Start Your Project",
     "sendEmail": "Send Email",
     "copyright": "Crafted with ❤️ using Next.js & Tailwind CSS"
+  },
+  "articles": {
+    "postgres": {
+      "title": "PostgreSQL Architecture",
+      "description": "Understanding PostgreSQL's process and memory architecture",
+      "readTime": "10 min read",
+      "lastUpdated": "Last updated: Jan 2025",
+      "diagramTitle": "PostgreSQL Process and Memory Architecture",
+      "diagram": {
+        "clientApplication": "Client Application",
+        "postmaster": "Postmaster",
+        "mainSupervisor": "Main Supervisor",
+        "backendProcess": "Backend Process",
+        "onePerConnection": "One per connection",
+        "sharedBufferPool": "Shared Buffer Pool",
+        "sharedBuffers": "Shared Buffers",
+        "clogBuffer": "CLOG Buffer",
+        "walBuffer": "WAL Buffer",
+        "onDiskStorage": "On Disk Storage",
+        "dataFiles": "Data Files",
+        "walFiles": "WAL Files",
+        "archiveLogs": "Archive Logs",
+        "checkpointer": "Checkpointer",
+        "walWriter": "WAL Writer",
+        "autovacuum": "Autovacuum",
+        "statsCollector": "Stats Collector",
+        "connectionRequest": "Connection Request",
+        "spawnsBackend": "Spawns Backend",
+        "accessesMemory": "Accesses Memory",
+        "persistsToDisk": "Persists to Disk"
+      },
+      "processArchitecture": {
+        "title": "Process Architecture",
+        "postmaster": {
+          "title": "Postmaster - The Main Supervisor",
+          "description": "The postmaster is PostgreSQL's parent process that controls all database operations. It listens for client connections on port 5432 (default) and manages all child processes.",
+          "responsibilities": "Responsibilities",
+          "keyPoint": "Key Point",
+          "keyPointText": "If the postmaster crashes, the entire PostgreSQL instance stops. It's the single point of control for the database cluster.",
+          "items": [
+            "Accepts incoming connections",
+            "Spawns backend processes",
+            "Manages background workers",
+            "Handles crash recovery"
+          ]
+        },
+        "backend": {
+          "title": "Backend Processes",
+          "description": "Each client connection gets its own dedicated backend process. This provides process isolation - if one backend crashes due to a bad query, other connections remain unaffected.",
+          "processModel": "Process Per Connection Model",
+          "items": [
+            "Isolation: Each connection is independent",
+            "Memory: Each backend has its own memory space",
+            "Limitation: High memory usage with many connections",
+            "Solution: Use connection poolers (PgBouncer, pgpool)"
+          ]
+        },
+        "workers": {
+          "title": "Background Worker Processes",
+          "backgroundWriter": {
+            "title": "Background Writer",
+            "description": "Writes dirty buffers from shared memory to disk periodically"
+          },
+          "checkpointer": {
+            "title": "Checkpointer",
+            "description": "Creates recovery checkpoints to minimize recovery time"
+          },
+          "walWriter": {
+            "title": "WAL Writer",
+            "description": "Flushes Write-Ahead Log buffers to disk for durability"
+          },
+          "autovacuum": {
+            "title": "Autovacuum",
+            "description": "Removes old row versions and prevents table bloat"
+          }
+        }
+      },
+      "memoryArchitecture": {
+        "title": "Memory Architecture",
+        "sharedBuffers": {
+          "title": "Shared Buffers - The Data Cache",
+          "description": "Shared buffers are PostgreSQL's main data cache, storing frequently accessed table and index pages in memory to avoid expensive disk I/O.",
+          "size": "Size",
+          "sizeValue": "Typically 25% of total RAM",
+          "pageSize": "Page Size",
+          "pageSizeValue": "8KB data pages",
+          "goal": "Goal",
+          "goalValue": "99%+ cache hit ratio",
+          "configuration": "Configuration:",
+          "configValue": "shared_buffers = 8GB"
+        },
+        "localMemory": {
+          "title": "Local Memory (Per Backend)",
+          "workMem": {
+            "title": "work_mem",
+            "description": "Memory allocated for query operations like sorting and hash joins. Each operation can use up to this amount.",
+            "important": "Important:",
+            "importantText": "Complex queries may use work_mem multiple times (once per sort/hash operation). If exceeded, data spills to disk, causing major slowdowns."
+          },
+          "maintenanceWorkMem": {
+            "title": "maintenance_work_mem",
+            "description": "Used by VACUUM, CREATE INDEX, and other maintenance operations. Larger values speed up maintenance tasks."
+          }
+        }
+      },
+      "storageLayer": {
+        "title": "Storage Layer",
+        "wal": {
+          "title": "Write-Ahead Log (WAL)",
+          "description": "WAL is a sequential log of all database changes. It's the foundation of PostgreSQL's durability and replication.",
+          "howItWorks": "How It Works",
+          "howItWorksItems": [
+            "Change is written to WAL buffer",
+            "On COMMIT, WAL flushed to disk",
+            "Later, data pages updated on disk",
+            "If crash occurs, replay WAL to recover"
+          ],
+          "benefits": "Benefits",
+          "benefitsItems": [
+            "Guarantees durability (ACID)",
+            "Fast crash recovery",
+            "Point-in-time recovery",
+            "Streaming replication"
+          ]
+        },
+        "dataFiles": {
+          "title": "Data Files",
+          "description": "PostgreSQL stores table data in heap files, organized into 8KB pages. Each table and index is stored in separate files, split into 1GB segments."
+        }
+      },
+      "mvcc": {
+        "title": "MVCC - Multi-Version Concurrency Control",
+        "keyConcept": "Key Concept: Multiple row versions enable high concurrency",
+        "keyConceptDescription": "Instead of locking rows, PostgreSQL keeps multiple versions. Readers see their transaction's snapshot, writers create new versions.",
+        "howItWorks": "How It Works",
+        "howItWorksItems": [
+          "Each row has xmin (created) and xmax (deleted) transaction IDs",
+          "UPDATE creates new version",
+          "DELETE marks row deleted",
+          "VACUUM removes old versions"
+        ],
+        "benefits": "Benefits",
+        "benefitsItems": [
+          "Readers never block writers",
+          "Writers never block readers",
+          "High concurrency",
+          "Consistent snapshots"
+        ],
+        "tradeoffs": "Trade-offs",
+        "tradeoffsItems": [
+          "Table bloat possible",
+          "VACUUM required",
+          "More disk space needed",
+          "Write amplification"
+        ]
+      },
+      "keyTakeaways": {
+        "title": "Key Takeaways",
+        "items": [
+          {
+            "title": "Process per connection",
+            "description": "provides isolation but requires connection pooling at scale"
+          },
+          {
+            "title": "Shared buffers",
+            "description": "cache hot data in memory to minimize disk I/O"
+          },
+          {
+            "title": "WAL ensures durability",
+            "description": "and enables crash recovery and replication"
+          },
+          {
+            "title": "MVCC enables high concurrency",
+            "description": "but requires regular VACUUM maintenance"
+          }
+        ]
+      }
+    }
   }
 }

@@ -1,7 +1,8 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
+import { useParams, usePathname, useRouter } from 'next/navigation';
+import { useLocale } from 'next-intl';
 import {
   MdExpandMore,
   MdChevronRight,
@@ -12,16 +13,49 @@ import {
   MdCloud,
   MdArticle,
   MdMenu,
-  MdClose
+  MdClose,
+  MdLanguage,
+  MdOutlineLightMode
 } from 'react-icons/md';
+import { GiNightSleep } from 'react-icons/gi';
+import { RiComputerLine } from 'react-icons/ri';
 
 const ArticlesSidebar = () => {
   const params = useParams();
   const pathname = usePathname();
-  const locale = params?.locale || 'en';
+  const router = useRouter();
+  const locale = useLocale();
 
   const [expandedCategories, setExpandedCategories] = useState(['architectures']);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showThemeMenu, setShowThemeMenu] = useState(false);
+  const [currentThemeIcon, setCurrentThemeIcon] = useState(<RiComputerLine />);
+  const themeMenuRef = useRef(null);
+
+  const themeIcons = {
+    system: <RiComputerLine />,
+    light: <MdOutlineLightMode />,
+    dark: <GiNightSleep />,
+  };
+
+  useEffect(() => {
+    const theme = JSON.parse(localStorage.getItem('theme'));
+    if (theme === 'light') setCurrentThemeIcon(themeIcons.light);
+    else if (theme === 'dark') setCurrentThemeIcon(themeIcons.dark);
+    else setCurrentThemeIcon(themeIcons.system);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (themeMenuRef.current && !themeMenuRef.current.contains(event.target)) {
+        setShowThemeMenu(false);
+      }
+    };
+    if (showThemeMenu) {
+      document.addEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [showThemeMenu]);
 
   const categories = [
     {
@@ -32,7 +66,7 @@ const ArticlesSidebar = () => {
         {
           id: 'postgres',
           title: 'PostgreSQL Database Architecture',
-          slug: 'architectures',
+          slug: 'architectures/postgres',
           icon: MdStorage,
         },
         // Add more articles here
@@ -84,16 +118,115 @@ const ArticlesSidebar = () => {
     return pathname.includes(`/articles/${slug}`);
   };
 
+  const handleLanguageChange = (newLocale) => {
+    const currentPath = pathname.replace(`/${locale}`, '');
+    router.push(`/${newLocale}${currentPath}`);
+  };
+
+  const themeChangeHandle = (mode) => {
+    if (mode === 'light') {
+      document.documentElement.classList.remove('dark');
+      setCurrentThemeIcon(themeIcons.light);
+      localStorage.setItem('theme', JSON.stringify('light'));
+    } else if (mode === 'dark') {
+      document.documentElement.classList.add('dark');
+      setCurrentThemeIcon(themeIcons.dark);
+      localStorage.setItem('theme', JSON.stringify('dark'));
+    } else if (mode === 'system') {
+      if (typeof window !== 'undefined') {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        setCurrentThemeIcon(themeIcons.system);
+        localStorage.setItem('theme', JSON.stringify('system'));
+      }
+    }
+    setShowThemeMenu(false);
+  };
+
   const SidebarContent = () => (
     <>
       <div className="p-4">
-        <div className="mb-6">
+        <div className="mb-4">
           <Link
             href={`/${locale}`}
             className="text-xl font-bold text-gray-800 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
           >
             ← Back to Home
           </Link>
+        </div>
+
+        {/* Language and Theme Switchers */}
+        <div className="mb-6 space-y-3">
+          {/* Language Switcher */}
+          <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+            <button
+              onClick={() => handleLanguageChange('en')}
+              className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
+                locale === 'en'
+                  ? 'bg-blue-600 dark:bg-cyan-700 text-white shadow-sm'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+              }`}
+            >
+              <MdLanguage size={16} />
+              <span>English</span>
+            </button>
+            <button
+              onClick={() => handleLanguageChange('bn')}
+              className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
+                locale === 'bn'
+                  ? 'bg-blue-600 dark:bg-cyan-700 text-white shadow-sm'
+                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+              }`}
+            >
+              <span>বাংলা</span>
+            </button>
+          </div>
+
+          {/* Theme Switcher */}
+          <div className="relative" ref={themeMenuRef}>
+            <button
+              onClick={() => setShowThemeMenu((v) => !v)}
+              className="w-full flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors duration-200"
+            >
+              <span className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-medium text-sm">
+                {currentThemeIcon}
+                <span>Theme</span>
+              </span>
+              <MdChevronRight
+                size={18}
+                className={`text-gray-500 transition-transform duration-200 ${showThemeMenu ? 'rotate-90' : ''}`}
+              />
+            </button>
+            {showThemeMenu && (
+              <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden z-10">
+                <button
+                  onClick={() => themeChangeHandle('light')}
+                  className="flex items-center w-full px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                >
+                  <MdOutlineLightMode className="mr-3" size={18} />
+                  Light
+                </button>
+                <button
+                  onClick={() => themeChangeHandle('dark')}
+                  className="flex items-center w-full px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                >
+                  <GiNightSleep className="mr-3" size={18} />
+                  Dark
+                </button>
+                <button
+                  onClick={() => themeChangeHandle('system')}
+                  className="flex items-center w-full px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                >
+                  <RiComputerLine className="mr-3" size={18} />
+                  System
+                </button>
+              </div>
+            )}
+          </div>
         </div>
 
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center gap-2">
