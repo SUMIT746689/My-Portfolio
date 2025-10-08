@@ -1,0 +1,72 @@
+{
+  "nav": {
+    "home": "Home",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact",
+    "theme": "Theme",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System",
+    "resume": "Resume",
+    "more": "More"
+  },
+  "social": {
+    "email": "Email",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "facebook": "Facebook"
+  },
+  "main": {
+    "greeting": "Hi, my name is",
+    "name": "Mehedi Hasan.",
+    "profession": "I'm a software engineer",
+    "currentRole": "Current Role:",
+    "currentRoleTitle": "Software Engineer (Team Lead) at V2 Technologies Limited",
+    "description": "Experienced in building scalable SaaS applications, enterprise systems including school management platforms, CRM solutions, and multi-vendor web applications. Skilled in backend architecture, API design, database modeling, and frontend performance optimization.",
+    "sendEmail": "Send Email",
+    "resume": "Resume"
+  },
+  "skills": {
+    "title": "3+ Years of Professional Experience",
+    "description": "Proven track record in full-cycle development of enterprise systems including school management platforms, CRM solutions, and multi-vendor web applications. Experienced in Docker-based deployments and collaborating with product teams to deliver scalable SaaS applications.",
+    "frontEnd": "Front End",
+    "frontEndDescription": "I like to code things from scratch and enjoy bringing ideas to life in the browser.",
+    "backEnd": "Back End",
+    "backEndDescription": "I design robust APIs and scalable backend systems with performance in mind.",
+    "devOps": "DevOps & Tools",
+    "devOpsDescription": "Tools and technologies I use to deliver and deploy quality software.",
+    "languages": "Languages",
+    "frameworks": "Frameworks & Libraries",
+    "runtime": "Runtime & Frameworks",
+    "databases": "Databases & ORMs",
+    "devOpsTools": "DevOps & Tools"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "description": "Professional journey building scalable applications and leading development teams",
+    "current": "Current",
+    "responsibilities": "Key Responsibilities & Achievements",
+    "education": "Education"
+  },
+  "projects": {
+    "title": "My Recent Works",
+    "description": "Here are a few past projects I've worked on.",
+    "features": "Features",
+    "specialFeatures": "Special Features",
+    "visitWebsite": "Visit Website",
+    "sourceCode": "Source Code",
+    "builtWith": "Built With",
+    "showMore": "Show More",
+    "showLess": "Show Less"
+  },
+  "footer": {
+    "title": "Let's Build Something Amazing Together",
+    "description": "Ready to turn your ideas into reality? I'm here to help you create exceptional digital experiences. Let's discuss your project over a virtual coffee!",
+    "startProject": "Start Your Project",
+    "sendEmail": "Send Email",
+    "copyright": "Crafted with ❤️ using Next.js & Tailwind CSS"
+  }
+}

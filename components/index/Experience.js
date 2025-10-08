@@ -1,8 +1,12 @@
+'use client';
+
 import React from 'react'
 import { FiMapPin, FiCalendar, FiBriefcase } from 'react-icons/fi'
 import { motion } from 'framer-motion'
+import { useTranslations } from '../../hooks/useTranslations'
 
 function Experience() {
+  const { t } = useTranslations();
   const experiences = [
     {
       title: "Software Engineer (Team Lead)",
@@ -54,7 +58,7 @@ function Experience() {
     <div className='py-20 bg-slate-50 dark:bg-slate-900/50 backdrop-blur-sm'>
       <div className='max-w-6xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* Header Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -62,11 +66,11 @@ function Experience() {
         >
           <h2 className='text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-200 mb-4'>
             <span className='bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-cyan-500'>
-              Work Experience
+              {t('experience.title')}
             </span>
           </h2>
           <p className='text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto'>
-            Professional journey building scalable applications and leading development teams
+            {t('experience.description')}
           </p>
         </motion.div>
 
@@ -94,13 +98,13 @@ function Experience() {
                 
                 {/* Current badge */}
                 {exp.current && (
-                  <motion.div 
+                  <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ delay: 0.3 }}
                     className='absolute -top-2 -right-2 bg-gradient-to-r from-pink-500 to-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-md'
                   >
-                    Current
+                    {t('experience.current')}
                   </motion.div>
                 )}
 
@@ -128,7 +132,7 @@ function Experience() {
                 {/* Responsibilities */}
                 <div>
                   <h4 className='text-lg font-semibold text-slate-900 dark:text-slate-200 mb-4'>
-                    Key Responsibilities & Achievements
+                    {t('experience.responsibilities')}
                   </h4>
                   <ul className='space-y-3'>
                     {exp.responsibilities.map((responsibility, idx) => (
@@ -162,7 +166,7 @@ function Experience() {
           
           <h3 className='text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-200 mb-8 text-center'>
             <span className='bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-pink-600'>
-              Education
+              {t('experience.education')}
             </span>
           </h3>
           <div className='grid md:grid-cols-2 gap-6'>

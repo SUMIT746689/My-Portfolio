@@ -1,0 +1,13 @@
+# *
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://mehedihasansumit.com/sitemap.xml
+
+# Disallow admin or private paths if any
+# Disallow: /admin/
+# Disallow: /private/
+
+# Allow all search engines to crawl all pages
+Crawl-delay: 0

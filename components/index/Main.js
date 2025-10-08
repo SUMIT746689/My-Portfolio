@@ -1,11 +1,21 @@
+'use client';
+
 import styles from '../../styles/Home.module.css'
 import { textAnimation } from '../../utilities/textAnimation'
 import { motion } from "motion/react"
 import { FiMail } from 'react-icons/fi'
+import { useTranslations } from '../../hooks/useTranslations'
 
 function Main() {
+  const { t } = useTranslations();
   // Name animation with enhanced styling
-  const my_Name = ('Mehedi Hasan.').replace(' ', '-').split('').map((value, index) => {
+  // Use Intl.Segmenter for proper Unicode grapheme splitting (Bangla support)
+  const nameText = t('main.name').replace(' ', '-');
+  const nameCharacters = typeof Intl !== 'undefined' && Intl.Segmenter
+    ? Array.from(new Intl.Segmenter().segment(nameText)).map(s => s.segment)
+    : Array.from(nameText);
+
+  const my_Name = nameCharacters.map((value, index) => {
     return (
       <motion.p
         key={index}
@@ -20,7 +30,7 @@ function Main() {
   })
 
   // Profession animation
-  const data = 'I’m.a.software.engineer'
+  const data = t('main.profession').replace(/\s/g, '.')
   const developer = textAnimation(data);
 
   return (
@@ -31,7 +41,7 @@ function Main() {
 
       <main
         id='home'
-        className='dark:bg-slate-900/50 backdrop-blur-sm min-h-screen flex flex-col justify-center align-middle px-5 xs:pl-10 sm:pl-16 md:pl-24 xl:px-40 2xl:pl-52'
+        className='bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm min-h-screen flex flex-col justify-center align-middle px-5 xs:pl-10 sm:pl-16 md:pl-24 xl:px-40 2xl:pl-52'
       >
         {/* Greeting */}
         <motion.div
@@ -40,7 +50,7 @@ function Main() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Hi, my name is
+          {t('main.greeting')}
         </motion.div>
 
         {/* Name */}
@@ -66,12 +76,10 @@ function Main() {
           transition={{ delay: 1, duration: 0.5 }}
         >
           <div className='mb-3'>
-            <span className='text-pink-700 dark:text-cyan-400 font-bold'>Current Role:</span> Software Engineer (Team Lead) at V2 Technologies Limited
+            <span className='text-pink-700 dark:text-cyan-400 font-bold'>{t('main.currentRole')}</span> {t('main.currentRoleTitle')}
           </div>
           <div className='text-xs xs:text-sm sm:text-base lg:text-lg leading-relaxed'>
-            Experienced in building scalable SaaS applications, enterprise systems including school management platforms,
-            CRM solutions, and multi-vendor web applications. Skilled in backend architecture, API design, database modeling,
-            and frontend performance optimization.
+            {t('main.description')}
           </div>
         </motion.div>
 
@@ -89,14 +97,14 @@ function Main() {
             className='flex gap-2 justify-center align-middle py-1 px-4 cursor-pointer border-2 text-pink-700 dark:text-cyan-400 border-pink-700 dark:border-cyan-400 font-semibold rounded-lg hover:bg-pink-700/10 dark:hover:bg-cyan-400/10 transition-all duration-300'
           >
             <FiMail className='w-5 h-5 my-auto' />
-            Send Email
+            {t('main.sendEmail')}
           </motion.a>
 
           <a
             href='/Mehedi-Hasan-Resume.pdf'
             className='sm:hidden py-1 px-4 cursor-pointer border-2 text-pink-700 dark:text-cyan-400 border-pink-700 dark:border-cyan-400 font-semibold rounded-lg hover:bg-pink-700/10 dark:hover:bg-cyan-400/10 transition-all duration-300'
           >
-            Resume
+            {t('main.resume')}
           </a>
         </motion.div>
       </main>

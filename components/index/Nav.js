@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState, useRef } from 'react';
 import {
   AiOutlineHome,
@@ -14,24 +16,28 @@ import {
   FiInstagram,
   FiFacebook,
 } from 'react-icons/fi';
+import { useTranslations } from '../../hooks/useTranslations';
+import LanguageSwitcher from '../LanguageSwitcher';
+import LanguageSwitcherMobile from '../LanguageSwitcherMobile';
 
-const navLinks = [
-  { href: '#home', icon: <AiOutlineHome />, label: 'Home' },
-  { href: '#skills', icon: <GiSkills />, label: 'Skills' },
-  { href: '#experience', icon: <MdWorkOutline />, label: 'Experience' },
-  { href: '#projects', icon: <AiOutlineProject />, label: 'Projects' },
-  { href: '#message', icon: <AiOutlineMessage />, label: 'Contact' },
-];
+function Nav() {
+  const { t } = useTranslations();
 
-const socialLinks = [
-  { href: 'mailto:mehedihasansumit@gmail.com', icon: <GoMail />, label: 'Email' },
-  { href: 'https://github.com/mehedihasansumit', icon: <FiGithub />, label: 'GitHub' },
-  { href: 'https://www.linkedin.com/in/mehedi-hasan-103621210', icon: <FiLinkedin />, label: 'LinkedIn' },
-  { href: 'https://www.instagram.com/mehedi_hasan_sumit/', icon: <FiInstagram />, label: 'Instagram' },
-  { href: 'https://www.facebook.com/mehedihasan.sumit.5', icon: <FiFacebook />, label: 'Facebook' },
-];
+  const navLinks = [
+    { href: '#home', icon: <AiOutlineHome />, labelKey: 'nav.home' },
+    { href: '#skills', icon: <GiSkills />, labelKey: 'nav.skills' },
+    { href: '#experience', icon: <MdWorkOutline />, labelKey: 'nav.experience' },
+    { href: '#projects', icon: <AiOutlineProject />, labelKey: 'nav.projects' },
+    { href: '#message', icon: <AiOutlineMessage />, labelKey: 'nav.contact' },
+  ];
 
-function Nav({ changeTheme, setChangeTheme }) {
+  const socialLinks = [
+    { href: 'mailto:mehedihasansumit@gmail.com', icon: <GoMail />, labelKey: 'social.email' },
+    { href: 'https://github.com/mehedihasansumit', icon: <FiGithub />, labelKey: 'social.github' },
+    { href: 'https://www.linkedin.com/in/mehedi-hasan-103621210', icon: <FiLinkedin />, labelKey: 'social.linkedin' },
+    { href: 'https://www.instagram.com/mehedi_hasan_sumit/', icon: <FiInstagram />, labelKey: 'social.instagram' },
+    { href: 'https://www.facebook.com/mehedihasan.sumit.5', icon: <FiFacebook />, labelKey: 'social.facebook' },
+  ];
   const themeIcons = {
     system: <RiComputerLine />,
     light: <MdOutlineLightMode />,
@@ -42,6 +48,7 @@ function Nav({ changeTheme, setChangeTheme }) {
   const themeCardRef = useRef(null);
   const [activeLink, setActiveLink] = useState('#home');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showLanguageMenu, setShowLanguageMenu] = useState(false);
 
   // Set active nav link based on hash in URL (and on click)
   useEffect(() => {
@@ -74,16 +81,21 @@ function Nav({ changeTheme, setChangeTheme }) {
 
   const themeChangeHandle = (mode) => {
     if (mode === 'light') {
-      setChangeTheme(false);
+      document.documentElement.classList.remove('dark');
       setCurrentThemeIcon(themeIcons.light);
       localStorage.setItem('theme', JSON.stringify('light'));
     } else if (mode === 'dark') {
-      setChangeTheme(true);
+      document.documentElement.classList.add('dark');
       setCurrentThemeIcon(themeIcons.dark);
       localStorage.setItem('theme', JSON.stringify('dark'));
     } else if (mode === 'system') {
       if (typeof window !== 'undefined') {
-        setChangeTheme(window.matchMedia('(prefers-color-scheme: dark)').matches);
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
         setCurrentThemeIcon(themeIcons.system);
         localStorage.setItem('theme', JSON.stringify('system'));
       }
@@ -118,7 +130,7 @@ function Nav({ changeTheme, setChangeTheme }) {
                   {link.icon}
                 </span>
                 <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded text-blue-900 dark:text-cyan-300 bg-white/90 dark:bg-gray-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
-                  {link.label}
+                  {t(link.labelKey)}
                 </span>
               </a>
             </li>
@@ -132,7 +144,7 @@ function Nav({ changeTheme, setChangeTheme }) {
           >
             <div>{currentThemeIcon}</div>
             <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded bg-white/90 dark:bg-gray-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
-              Theme
+              {t('nav.theme')}
             </span>
             <div
               className={`${
@@ -144,24 +156,27 @@ function Nav({ changeTheme, setChangeTheme }) {
                 className="flex items-center hover:bg-blue-100 dark:hover:bg-gray-700 cursor-pointer px-3 py-1.5 font-medium transition-colors duration-150"
               >
                 <MdOutlineLightMode className="mr-2 text-sm" />
-                Light
+                {t('nav.themeLight')}
               </div>
               <div
                 onClick={() => themeChangeHandle('dark')}
                 className="flex items-center hover:bg-blue-100 dark:hover:bg-gray-700 cursor-pointer px-3 py-1.5 font-medium transition-colors duration-150"
               >
                 <GiNightSleep className="mr-2 text-sm" />
-                Dark
+                {t('nav.themeDark')}
               </div>
               <div
                 onClick={() => themeChangeHandle('system')}
                 className="flex items-center hover:bg-blue-100 dark:hover:bg-gray-700 cursor-pointer px-3 py-1.5 font-medium transition-colors duration-150"
               >
                 <RiComputerLine className="mr-2 text-sm" />
-                System
+                {t('nav.themeSystem')}
               </div>
             </div>
           </div>
+
+          {/* Language selector */}
+          <LanguageSwitcher />
         </ul>
       </div>
 
@@ -180,7 +195,7 @@ function Nav({ changeTheme, setChangeTheme }) {
                 }`}
             >
               <span className="text-xl">{link.icon}</span>
-              <span className="text-xs mt-1">{link.label}</span>
+              <span className="text-xs mt-1">{t(link.labelKey)}</span>
             </a>
           ))}
           <button
@@ -199,7 +214,7 @@ function Nav({ changeTheme, setChangeTheme }) {
                 </svg>
               )}
             </span>
-            <span className="text-xs mt-1">More</span>
+            <span className="text-xs mt-1">{t('nav.more')}</span>
           </button>
         </div>
 
@@ -219,7 +234,7 @@ function Nav({ changeTheme, setChangeTheme }) {
                     }`}
                 >
                   <span className="mr-2">{link.icon}</span>
-                  <span>{link.label}</span>
+                  <span>{t(link.labelKey)}</span>
                 </a>
               ))}
               
@@ -230,7 +245,7 @@ function Nav({ changeTheme, setChangeTheme }) {
                 ref={themeCardRef}
               >
                 <span className="mr-2">{currentThemeIcon}</span>
-                <span>Theme</span>
+                <span>{t('nav.theme')}</span>
                 {showThemeCard && (
                   <div className="absolute bottom-full left-4 right-4 mb-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-2 z-50">
                     <div
@@ -238,32 +253,38 @@ function Nav({ changeTheme, setChangeTheme }) {
                       className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
                     >
                       <MdOutlineLightMode className="mr-2" />
-                      Light
+                      {t('nav.themeLight')}
                     </div>
                     <div
                       onClick={() => themeChangeHandle('dark')}
                       className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
                     >
                       <GiNightSleep className="mr-2" />
-                      Dark
+                      {t('nav.themeDark')}
                     </div>
                     <div
                       onClick={() => themeChangeHandle('system')}
                       className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
                     >
                       <RiComputerLine className="mr-2" />
-                      System
+                      {t('nav.themeSystem')}
                     </div>
                   </div>
                 )}
               </div>
+
+              {/* Language Selector */}
+              <LanguageSwitcherMobile
+                showLanguageMenu={showLanguageMenu}
+                setShowLanguageMenu={setShowLanguageMenu}
+              />
 
               {/* Resume Button */}
               <a
                 href="/Mehedi-Hasan-Resume.pdf"
                 className="flex items-center justify-center p-3 border:bg-blue-600 border dark:border-cyan-500 dark:text-cyan-500 text-blue-700 border-blue-700 rounded-lg hover:bg-blue-300 dark:hover:bg-cyan-800"
               >
-                Resume
+                {t('nav.resume')}
               </a>
             </div>
 
@@ -299,7 +320,7 @@ function Nav({ changeTheme, setChangeTheme }) {
               <span className="hover:text-blue-900 dark:hover:text-cyan-400 m-2 p-2 cursor-pointer rounded-full shadow transition-all duration-200 shadow-gray-900/10 dark:shadow-gray-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]">
                 {link.icon}
                 <span className="absolute right-full mr-2 px-2 py-1 text-xs font-normal rounded shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
-                  {link.label}
+                  {t(link.labelKey)}
                 </span>
               </span>
             </a>
@@ -314,7 +335,7 @@ function Nav({ changeTheme, setChangeTheme }) {
           href="/Mehedi-Hasan-Resume.pdf"
           className="py-1.5 px-4 mr-4 cursor-pointer border text-blue-900 dark:text-cyan-300 border-blue-700 dark:border-cyan-400 font-medium rounded transition-all duration-200 hover:bg-blue-700 dark:hover:bg-cyan-700 hover:text-white hover:border-blue-700 hover:shadow hover:shadow-blue-700/20 text-sm"
         >
-          Resume
+          {t('nav.resume')}
         </a>
       </div>
     </>

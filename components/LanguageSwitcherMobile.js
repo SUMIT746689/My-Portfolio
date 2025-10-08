@@ -1,0 +1,55 @@
+'use client';
+
+import { useLocale } from 'next-intl';
+import { useRouter, usePathname } from 'next/navigation';
+import { MdLanguage } from 'react-icons/md';
+
+function LanguageSwitcherMobile({ showLanguageMenu, setShowLanguageMenu }) {
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleLanguageChange = (newLocale) => {
+    // Remove current locale from pathname and add new locale
+    const currentPath = pathname.replace(`/${locale}`, '');
+    router.push(`/${newLocale}${currentPath}`);
+    setShowLanguageMenu(false);
+  };
+
+  const languages = {
+    en: 'English',
+    bn: 'বাংলা'
+  };
+
+  return (
+    <div
+      onClick={() => setShowLanguageMenu((v) => !v)}
+      className="flex items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-700 dark:text-gray-300 relative"
+    >
+      <MdLanguage className="mr-2" />
+      <span>Language</span>
+      {showLanguageMenu && (
+        <div className="absolute bottom-full left-4 right-4 mb-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-2 z-50">
+          <div
+            onClick={() => handleLanguageChange('en')}
+            className={`flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded ${
+              locale === 'en' ? 'bg-blue-50 dark:bg-gray-600' : ''
+            }`}
+          >
+            {languages.en}
+          </div>
+          <div
+            onClick={() => handleLanguageChange('bn')}
+            className={`flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded ${
+              locale === 'bn' ? 'bg-blue-50 dark:bg-gray-600' : ''
+            }`}
+          >
+            {languages.bn}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default LanguageSwitcherMobile;

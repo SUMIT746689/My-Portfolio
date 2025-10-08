@@ -1,3 +1,5 @@
+'use client';
+
 import Image from "next/image"
 import { AiOutlineHtml5, AiFillGithub } from 'react-icons/ai'
 import { DiCss3, DiReact, DiNodejsSmall } from 'react-icons/di'
@@ -7,8 +9,10 @@ import { CgWebsite } from 'react-icons/cg'
 import { FaBootstrap } from 'react-icons/fa'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useTranslations } from '../../hooks/useTranslations'
 
 function MyWork() {
+    const { t } = useTranslations();
     const [showAllProjects, setShowAllProjects] = useState(false);
 
     const projects = [
@@ -151,7 +155,7 @@ function MyWork() {
     ]
 
     return (
-        <div className='pb-20 text-center dark:bg-slate-900/50 backdrop-blur-sm'>
+        <div className='pb-20 text-center bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm'>
             {/* Decorative elements */}
             <div className='absolute top-0 left-0 w-64 h-64 rounded-full bg-pink-500/10 dark:bg-pink-400/10 blur-3xl -z-10'></div>
             <div className='absolute bottom-0 right-0 w-64 h-64 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 blur-3xl -z-10'></div>
@@ -163,11 +167,11 @@ function MyWork() {
             >
                 <h2 className='text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-200 mb-2'>
                     <span className='bg-clip-text text-transparent bg-gradient-to-r from-pink-600 to-cyan-500'>
-                        My Recent Works
+                        {t('projects.title')}
                     </span>
                 </h2>
                 <p className='text-lg text-slate-700 dark:text-slate-400 max-w-2xl mx-auto'>
-                    {"Here are a few past projects I've worked on."}
+                    {t('projects.description')}
                 </p>
             </motion.div>
             <div className='flex flex-col items-center mt-10 px-4 sm:px-6'>
@@ -209,7 +213,7 @@ function MyWork() {
                                     </div>
 
                                     <div className='mb-6'>
-                                        <h4 className='text-lg font-semibold text-pink-700 dark:text-cyan-400 mb-2'>Features:</h4>
+                                        <h4 className='text-lg font-semibold text-pink-700 dark:text-cyan-400 mb-2'>{t('projects.features')}:</h4>
                                         <ul className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
                                             {project.features.map((feature, i) => (
                                                 <motion.li
@@ -226,7 +230,7 @@ function MyWork() {
 
                                     {project.special_features && (
                                         <div className='mb-6'>
-                                            <h4 className='text-lg font-semibold text-pink-700 dark:text-cyan-400 mb-2'>Special Features:</h4>
+                                            <h4 className='text-lg font-semibold text-pink-700 dark:text-cyan-400 mb-2'>{t('projects.specialFeatures')}:</h4>
                                             <ul className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
                                                 {project.special_features.map((feature, i) => (
                                                     <motion.li
@@ -252,7 +256,7 @@ function MyWork() {
                                                 whileTap={{ scale: 0.95 }}
                                                 className='flex items-center gap-2 px-4 py-2 border border-pink-500 dark:border-cyan-400 text-pink-700 dark:text-cyan-400 rounded-lg hover:bg-pink-500/10 dark:hover:bg-cyan-400/10 transition-colors'
                                             >
-                                                <CgWebsite /> Visit Website
+                                                <CgWebsite /> {t('projects.visitWebsite')}
                                             </motion.a>
                                         )}
                                         {project.github_url && (
@@ -264,13 +268,13 @@ function MyWork() {
                                                 whileTap={{ scale: 0.95 }}
                                                 className='flex items-center gap-2 px-4 py-2 border border-pink-500 dark:border-cyan-400 text-pink-700 dark:text-cyan-400 rounded-lg hover:bg-pink-500/10 dark:hover:bg-cyan-400/10 transition-colors'
                                             >
-                                                <VscGithub /> Source Code
+                                                <VscGithub /> {t('projects.sourceCode')}
                                             </motion.a>
                                         )}
                                     </div>
 
                                     <div>
-                                        <h4 className='text-md font-semibold text-slate-700 dark:text-slate-300 mb-2'>Built With:</h4>
+                                        <h4 className='text-md font-semibold text-slate-700 dark:text-slate-300 mb-2'>{t('projects.builtWith')}:</h4>
                                         <div className='flex flex-wrap gap-4 text-2xl'>
                                             {project.tools_and_technologies.map((tech, i) => (
                                                 <motion.div
@@ -304,7 +308,7 @@ function MyWork() {
                                 : 'bg-gradient-to-r from-pink-600 to-cyan-500 text-white border-transparent hover:shadow-lg hover:shadow-pink-500/30'
                         }`}
                     >
-                        {showAllProjects ? 'Show Less' : 'Show More'}
+                        {showAllProjects ? t('projects.showLess') : t('projects.showMore')}
                     </button>
                 </motion.div>
             </div>

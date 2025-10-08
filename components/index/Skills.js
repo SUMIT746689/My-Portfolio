@@ -1,22 +1,25 @@
+'use client';
+
 import Image from "next/image"
+import { useTranslations } from '../../hooks/useTranslations'
 
 function Skills() {
+  const { t } = useTranslations();
+
   return (
     <>
       {/* Experience Summary with Coordinated Gradient Background */}
-      <div className="relative h-fit bg-slate-900 overflow-hidden">
+      <div className="relative h-fit bg-slate-50 dark:bg-slate-900 overflow-hidden">
         {/* Gradient background aligned with nav colors */}
-        <div className="absolute inset-0 bg-gradient-to-br from-pink-600 via-pink-700 to-cyan-800 dark:from-slate-800 dark:to-slate-900 opacity-90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-pink-600 via-pink-700 to-cyan-800 dark:from-slate-800 dark:to-slate-900 opacity-90 dark:opacity-90"></div>
         
         <div className="relative flex justify-center font-light text-lg sm:text-xl md:text-2xl text-white px-4 pt-16 pb-40 min-w-fit z-10">
           <div className="text-center md:px-14 max-w-5xl">
             <h2 className="mb-6 font-extrabold text-3xl sm:text-4xl md:text-5xl tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-pink-200 to-cyan-200">
-              3+ Years of Professional Experience
+              {t('skills.title')}
             </h2>
             <p className="text-base sm:text-lg md:text-xl leading-relaxed opacity-95 max-w-3xl mx-auto text-pink-100">
-              Proven track record in full-cycle development of enterprise systems including school management platforms,
-              CRM solutions, and multi-vendor web applications. Experienced in Docker-based deployments and
-              collaborating with product teams to deliver scalable SaaS applications.
+              {t('skills.description')}
             </p>
           </div>
         </div>
@@ -44,15 +47,15 @@ function Skills() {
               }} />
           </div>
           <h3 className="text-pink-700 dark:text-pink-400 text-2xl font-semibold mb-4 group-hover:text-pink-600 dark:group-hover:text-pink-300 transition-colors">
-            Front End
+            {t('skills.frontEnd')}
           </h3>
           <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base mb-6 leading-relaxed">
-            I like to code things from scratch and enjoy bringing ideas to life in the browser.
+            {t('skills.frontEndDescription')}
           </p>
 
           <div className="text-left px-2">
             <h4 className="text-pink-900 dark:text-pink-300 font-medium mb-3 text-base sm:text-lg border-b border-pink-200 dark:border-slate-700 pb-1">
-              Languages
+              {t('skills.languages')}
             </h4>
             <ul className="space-y-2 text-slate-800 dark:text-slate-200 text-sm sm:text-base">
               {['HTML5', 'CSS3', 'JavaScript', 'TypeScript'].map((item) => (
@@ -66,7 +69,7 @@ function Skills() {
 
           <div className="mt-6 text-left px-2">
             <h4 className="text-pink-900 dark:text-pink-300 font-medium mb-3 text-base sm:text-lg border-b border-pink-200 dark:border-slate-700 pb-1">
-              Frameworks & Libraries
+              {t('skills.frameworks')}
             </h4>
             <ul className="space-y-2 text-slate-800 dark:text-slate-200 text-sm sm:text-base">
               {['React.js', 'Next.js', 'Redux / RTK Query', 'Tailwind CSS', 'MUI', 'Shadcn UI'].map((item) => (
@@ -97,15 +100,15 @@ function Skills() {
               }} />
           </div>
           <h3 className="text-pink-700 dark:text-pink-400 text-2xl font-semibold mb-4 group-hover:text-pink-600 dark:group-hover:text-pink-300 transition-colors">
-            Back End
+            {t('skills.backEnd')}
           </h3>
           <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base mb-6 leading-relaxed">
-            I design robust APIs and scalable backend systems with performance in mind.
+            {t('skills.backEndDescription')}
           </p>
 
           <div className="text-left px-2">
             <h4 className="text-pink-900 dark:text-pink-300 font-medium mb-3 text-base sm:text-lg border-b border-pink-200 dark:border-slate-700 pb-1">
-              Languages
+              {t('skills.languages')}
             </h4>
             <ul className="space-y-2 text-slate-800 dark:text-slate-200 text-sm sm:text-base">
               {['JavaScript', 'TypeScript', 'Go'].map((item) => (
@@ -119,7 +122,7 @@ function Skills() {
 
           <div className="mt-6 text-left px-2">
             <h4 className="text-pink-900 dark:text-pink-300 font-medium mb-3 text-base sm:text-lg border-b border-pink-200 dark:border-slate-700 pb-1">
-              Runtime & Frameworks
+              {t('skills.runtime')}
             </h4>
             <ul className="space-y-2 text-slate-800 dark:text-slate-200 text-sm sm:text-base">
               {['Node.js', 'Express.js', 'NestJS'].map((item) => (
@@ -149,15 +152,15 @@ function Skills() {
               }} />
           </div>
           <h3 className="text-pink-700 dark:text-pink-400 text-2xl font-semibold mb-4 group-hover:text-pink-600 dark:group-hover:text-pink-300 transition-colors">
-            DevOps & Tools
+            {t('skills.devOps')}
           </h3>
           <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base mb-6 leading-relaxed">
-            Tools and technologies I use to deliver and deploy quality software.
+            {t('skills.devOpsDescription')}
           </p>
 
           <div className="text-left px-2">
             <h4 className="text-pink-900 dark:text-pink-300 font-medium mb-3 text-base sm:text-lg border-b border-pink-200 dark:border-slate-700 pb-1">
-              Databases & ORMs
+              {t('skills.databases')}
             </h4>
             <ul className="space-y-2 text-slate-800 dark:text-slate-200 text-sm sm:text-base">
               {['PostgreSQL', 'MySQL', 'MongoDB', 'Prisma', 'Drizzle ORM'].map((item) => (
@@ -171,7 +174,7 @@ function Skills() {
 
           <div className="mt-6 text-left px-2">
             <h4 className="text-pink-900 dark:text-pink-300 font-medium mb-3 text-base sm:text-lg border-b border-pink-200 dark:border-slate-700 pb-1">
-              DevOps & Tools
+              {t('skills.devOpsTools')}
             </h4>
             <ul className="space-y-2 text-slate-800 dark:text-slate-200 text-sm sm:text-base">
               {['Docker', 'Podman', 'NGINX', 'Git', 'Bitbucket'].map((item) => (

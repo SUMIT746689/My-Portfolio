@@ -1,34 +1,179 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mehedi Hasan - Portfolio Website
 
-## Getting Started
+A modern, responsive portfolio website built with Next.js 15, featuring internationalization (i18n), dark mode, and an articles section with technical content.
 
-First, run the development server:
+## 🚀 Features
+
+- **Next.js 15** - Latest App Router with Server Components
+- **Internationalization (i18n)** - Multi-language support (English & Bengali) using next-intl
+- **Dark Mode** - Theme switching with system preference detection
+- **Articles Section** - Technical blog with category-wise navigation
+  - PostgreSQL Database Architecture guide
+  - Sidebar navigation with expandable categories
+  - Mobile-responsive design
+- **Responsive Design** - Mobile-first approach with Tailwind CSS
+- **SEO Optimized** - Meta tags, Open Graph, structured data
+- **Framer Motion** - Smooth animations and transitions
+- **React Icons** - Beautiful iconography throughout
+
+## 🛠️ Tech Stack
+
+- **Framework:** Next.js 15.4.5
+- **Language:** JavaScript
+- **Styling:** Tailwind CSS
+- **Internationalization:** next-intl
+- **Animations:** Framer Motion
+- **Icons:** React Icons (Material Design)
+- **Package Manager:** pnpm
+
+## 📦 Installation
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Clone the repository
+git clone https://github.com/yourusername/My-Portfolio.git
+
+# Navigate to the project directory
+cd My-Portfolio
+
+# Install dependencies
+pnpm install
+
+# Run the development server
+pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## 🏗️ Project Structure
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+```
+My-Portfolio/
+├── app/
+│   ├── [locale]/
+│   │   ├── articles/
+│   │   │   ├── architectures/
+│   │   │   │   └── page.js          # PostgreSQL Architecture article
+│   │   │   ├── layout.js            # Articles layout with sidebar
+│   │   │   └── page.js              # Articles landing page
+│   │   ├── layout.js                # Root layout with i18n
+│   │   └── page.js                  # Home page
+│   └── sitemap.js
+├── components/
+│   ├── index/                       # Home page components
+│   │   ├── ClientForm.js
+│   │   ├── Experience.js
+│   │   ├── Footer.js
+│   │   ├── Main.js
+│   │   ├── MyWork.js
+│   │   ├── Nav.js
+│   │   └── Skills.js
+│   ├── ArticlesSidebar.js          # Articles navigation sidebar
+│   ├── LanguageSwitcher.js
+│   ├── LanguageSwitcherMobile.js
+│   └── ThemeProvider.js
+├── locales/
+│   ├── en/
+│   │   └── common.json
+│   └── bn/
+│       └── common.json
+├── styles/
+│   └── globals.css
+├── public/
+│   └── robots.txt
+├── i18n/
+│   ├── config.js
+│   └── request.js
+├── middleware.js                    # i18n routing middleware
+└── package.json
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 🌐 Internationalization
 
-## Learn More
+The website supports multiple languages:
+- English (en)
+- Bengali (bn)
 
-To learn more about Next.js, take a look at the following resources:
+Language can be switched using the language switcher in the navigation bar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Adding New Articles
 
-## Deploy on Vercel
+1. Create a new page in `app/[locale]/articles/your-category/page.js`
+2. Update the sidebar categories in `components/ArticlesSidebar.js`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```javascript
+const categories = [
+  {
+    id: 'your-category',
+    title: 'Your Category',
+    icon: YourIcon,
+    articles: [
+      {
+        id: 'article-1',
+        title: 'Your Article Title',
+        slug: 'your-category',
+        icon: ArticleIcon,
+      },
+    ]
+  },
+];
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Theme Customization
+
+Modify the theme colors in `tailwind.config.js` and update dark mode classes throughout the components.
+
+## 📱 Responsive Design
+
+The website is fully responsive with breakpoints:
+- Mobile: < 768px
+- Tablet: 768px - 1024px
+- Desktop: > 1024px
+
+## 🚀 Deployment
+
+### Build for Production
+
+```bash
+pnpm build
+```
+
+### Start Production Server
+
+```bash
+pnpm start
+```
+
+### Deploy to Vercel
+
+The easiest way to deploy is using [Vercel](https://vercel.com):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/My-Portfolio)
+
+## 📄 Available Scripts
+
+- `pnpm dev` - Start development server with Turbopack
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+## 📝 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 👤 Author
+
+**Mehedi Hasan**
+- Website: [mehedihasansumit.com](https://mehedihasansumit.com)
+- GitHub: [@mehedihasansumit](https://github.com/mehedihasansumit)
+- LinkedIn: [Mehedi Hasan](https://www.linkedin.com/in/mehedi-hasan-103621210)
+- Email: mehedihasansumit@gmail.com
+
+## ⭐ Show your support
+
+Give a ⭐️ if you like this project!

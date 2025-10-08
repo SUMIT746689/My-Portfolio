@@ -1,9 +1,13 @@
+'use client';
+
 import React from 'react'
 import Image from "next/image"
 import { FiFacebook, FiGithub, FiLinkedin, FiInstagram, FiMail } from 'react-icons/fi'
 import { motion } from 'framer-motion'
+import { useTranslations } from '../../hooks/useTranslations'
 
 function Footer({ setShowClientForm }) {
+  const { t } = useTranslations();
   const socialLinks = [
     { href: 'https://github.com/mehedihasansumit', icon: FiGithub, label: 'GitHub' },
     { href: 'https://www.linkedin.com/in/mehedi-hasan-103621210', icon: FiLinkedin, label: 'LinkedIn' },
@@ -33,7 +37,7 @@ function Footer({ setShowClientForm }) {
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
           <div className='relative bg-gradient-to-r from-pink-600 via-purple-600 to-sky-600 p-1 rounded-2xl shadow-2xl hover:shadow-3xl transition-shadow duration-500'>
             <div className='bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-xl p-8 sm:p-12 text-center'>
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -41,11 +45,10 @@ function Footer({ setShowClientForm }) {
                 className='mb-6'
               >
                 <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-sky-600 bg-clip-text text-transparent mb-4'>
-                  {"Let's Build Something Amazing Together"}
+                  {t('footer.title')}
                 </h2>
                 <p className='text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed'>
-                  {`Ready to turn your ideas into reality? I'm here to help you create exceptional digital experiences.
-                  Let's discuss your project over a virtual coffee!`}
+                  {t('footer.description')}
                 </p>
               </motion.div>
 
@@ -57,7 +60,7 @@ function Footer({ setShowClientForm }) {
                   className='group relative px-8 py-4 bg-gradient-to-r from-pink-600 to-sky-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden'
                 >
                   <span className='relative z-10 flex items-center gap-2'>
-                    <span>Start Your Project</span>
+                    <span>{t('footer.startProject')}</span>
                     <motion.svg 
                       animate={{ x: [0, 5, 0] }}
                       transition={{ repeat: Infinity, duration: 2 }}
@@ -79,7 +82,7 @@ function Footer({ setShowClientForm }) {
                   className='px-8 py-4 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-semibold rounded-xl hover:border-pink-500 dark:hover:border-sky-400 hover:text-pink-600 dark:hover:text-sky-400 transition-all duration-300 flex items-center gap-2'
                 >
                   <FiMail className='w-5 h-5' />
-                  Send Email
+                  {t('footer.sendEmail')}
                 </motion.a>
               </div>
             </div>
@@ -141,7 +144,7 @@ function Footer({ setShowClientForm }) {
             className='border-t border-slate-700/50 dark:border-slate-600/50 pt-8 w-full text-center'
           >
             <p className='text-slate-400/80 dark:text-slate-500/80 text-sm'>
-              © {new Date().getFullYear()} Mehedi Hasan. Crafted with ❤️ using Next.js & Tailwind CSS
+              © {new Date().getFullYear()} Mehedi Hasan. {t('footer.copyright')}
             </p>
           </motion.div>
         </div>
