@@ -25,6 +25,7 @@ export default function ResumeBuilderLayout() {
   const previewContainerRef = useRef(null);
   const [activeTab, setActiveTab] = useState('editor');
   const [previewScale, setPreviewScale] = useState(1);
+  const [previewHeight, setPreviewHeight] = useState(1123);
   const [template, setTemplate] = useState('classic');
 
   const resumeState = useResumeState();
@@ -44,6 +45,18 @@ export default function ResumeBuilderLayout() {
     return () => window.removeEventListener('resize', updateScale);
   }, [activeTab]);
 
+  // Track the actual content height of the preview
+  useEffect(() => {
+    if (!previewRef.current) return;
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        setPreviewHeight(entry.contentRect.height);
+      }
+    });
+    observer.observe(previewRef.current);
+    return () => observer.disconnect();
+  }, [template]);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
       {/* Top Bar */}
@@ -57,7 +70,7 @@ export default function ResumeBuilderLayout() {
               <FiArrowLeft className="text-xl" />
             </Link>
             <div>
-              <h1 className="text-lg font-bold bg-gradient-to-r from-blue-700 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
+              <h1 className="text-lg font-bold bg-linear-to-r from-blue-700 to-cyan-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent">
                 {t('resumeBuilder.title')}
               </h1>
               <p className="text-[11px] text-slate-400 dark:text-slate-500 hidden sm:block">
@@ -147,7 +160,7 @@ export default function ResumeBuilderLayout() {
             >
               <div
                 ref={previewContainerRef}
-                className="lg:sticky lg:top-[76px] overflow-hidden"
+                className="lg:sticky lg:top-[76px]"
               >
                 {/* Template picker + live label */}
                 <div className="mb-3">
@@ -169,7 +182,7 @@ export default function ResumeBuilderLayout() {
                   className="origin-top-left"
                   style={{
                     transform: `scale(${previewScale})`,
-                    height: `${1123 * previewScale}px`,
+                    height: `${previewHeight * previewScale}px`,
                   }}
                 >
                   <ResumePreview

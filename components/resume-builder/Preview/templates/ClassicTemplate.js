@@ -21,7 +21,7 @@ function MainSection({ title, accent, children }) {
   return (
     <div className="mb-3">
       <div className="mb-1.5">
-        <h3 className="font-bold uppercase tracking-[0.1em]" style={{ fontSize: '13px', color: accent }}>
+        <h3 className="font-bold uppercase tracking-widest" style={{ fontSize: '13px', color: accent }}>
           {title}
         </h3>
         <div className="mt-0.5" style={{ height: '1.5px', background: accent, opacity: 0.35 }} />

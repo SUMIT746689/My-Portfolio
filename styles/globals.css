@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.js";
 
 /* globals.css */
 :root {
@@ -75,4 +74,4 @@ html {
 
 .dark html {
   background: #0A192F;
-} 
+}

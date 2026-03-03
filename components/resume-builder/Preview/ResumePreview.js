@@ -24,10 +24,9 @@ const ResumePreview = forwardRef(function ResumePreview(
   return (
     <div
       ref={ref}
-      className="overflow-hidden"
       style={{
         width: '794px',
-        height: '1123px',
+        minHeight: '1123px',
         fontFamily:
           "'Inter', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif",
         background: '#ffffff',
