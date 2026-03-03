@@ -8,7 +8,7 @@ import {
   AiOutlineMessage,
 } from 'react-icons/ai';
 import { GiSkills, GiNightSleep } from 'react-icons/gi';
-import { MdOutlineLightMode, MdWorkOutline, MdArticle } from 'react-icons/md';
+import { MdOutlineLightMode, MdWorkOutline, MdArticle, MdOutlineDescription } from 'react-icons/md';
 import { RiComputerLine } from 'react-icons/ri';
 import { GoMail } from 'react-icons/go';
 import {
@@ -32,6 +32,7 @@ function Nav() {
     { href: '#experience', icon: <MdWorkOutline />, labelKey: 'nav.experience', type: 'hash' },
     { href: '#projects', icon: <AiOutlineProject />, labelKey: 'nav.projects', type: 'hash' },
     { href: `/${locale}/articles`, icon: <MdArticle />, labelKey: 'nav.articles', type: 'route' },
+    { href: `/${locale}/resume-builder`, icon: <MdOutlineDescription />, labelKey: 'resumeBuilder.title', type: 'route' },
     { href: '#message', icon: <AiOutlineMessage />, labelKey: 'nav.contact', type: 'hash' },
   ];
 
