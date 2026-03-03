@@ -6,7 +6,7 @@ function SectionTitle({ children }) {
   return (
     <div className="mb-2">
       <h3
-        className="font-bold uppercase tracking-[0.1em]"
+        className="font-bold uppercase tracking-widest"
         style={{ fontSize: '10px', color: accentColor }}
       >
         {children}
@@ -80,7 +80,7 @@ export default function PreviewMain({ resume }) {
                   )}
                 </div>
                 {exp.responsibilities.filter(Boolean).length > 0 && (
-                  <ul className="mt-1 flex flex-col gap-[2px]">
+                  <ul className="mt-1 flex flex-col gap-0.5">
                     {exp.responsibilities.filter(Boolean).map((resp, j) => (
                       <li
                         key={j}
@@ -88,7 +88,7 @@ export default function PreviewMain({ resume }) {
                         style={{ fontSize: '7.5px', color: '#475569' }}
                       >
                         <span
-                          className="shrink-0 mt-[3px] w-[3px] h-[3px] rounded-full"
+                          className="shrink-0 mt-0.75 w-0.75 h-0.75 rounded-full"
                           style={{ background: accentColor }}
                         />
                         <span className="leading-snug">{resp}</span>
@@ -135,7 +135,7 @@ export default function PreviewMain({ resume }) {
                   </p>
                 )}
                 {proj.features.filter(Boolean).length > 0 && (
-                  <ul className="mt-1 flex flex-col gap-[2px]">
+                  <ul className="mt-1 flex flex-col gap-0.5">
                     {proj.features.filter(Boolean).map((feat, j) => (
                       <li
                         key={j}
@@ -143,7 +143,7 @@ export default function PreviewMain({ resume }) {
                         style={{ fontSize: '7.5px', color: '#475569' }}
                       >
                         <span
-                          className="shrink-0 mt-[3px] w-[3px] h-[3px] rounded-full"
+                          className="shrink-0 mt-0.75 w-0.75 h-0.75 rounded-full"
                           style={{ background: accentColor }}
                         />
                         <span className="leading-snug">{feat}</span>

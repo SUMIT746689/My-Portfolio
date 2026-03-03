@@ -58,10 +58,10 @@ export default function ResumeBuilderLayout() {
   }, [template]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-100 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
+    <div className="h-screen overflow-hidden  bg-linear-to-br from-slate-50 via-blue-50/30 to-slate-100 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800">
       {/* Top Bar */}
       <div className="sticky top-0 z-40 bg-white/80 dark:bg-slate-800/80 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-700/80 shadow-sm">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+        <div className="max-w-400 mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Link
               href={`/${locale}`}
@@ -104,7 +104,7 @@ export default function ResumeBuilderLayout() {
       </div>
 
       {/* Mobile Tab Switcher */}
-      <div className="lg:hidden sticky top-[57px] z-30 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-700/80">
+      <div className="lg:hidden sticky top-14.25 z-30 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-700/80">
         <div className="flex p-1.5 mx-3 my-2 bg-slate-100 dark:bg-slate-700/50 rounded-xl">
           <button
             onClick={() => setActiveTab('editor')}
@@ -132,7 +132,7 @@ export default function ResumeBuilderLayout() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-[1600px] mx-auto">
+      <div className="max-w-400 mx-auto">
         <div className="lg:flex lg:gap-6 p-4 lg:p-6">
           {/* Editor */}
           <motion.div
@@ -161,7 +161,7 @@ export default function ResumeBuilderLayout() {
             >
               <div
                 ref={previewContainerRef}
-                className="lg:sticky lg:top-[76px]"
+                className="max-h-[calc(100vh-160px)] lg:max-h-[calc(100vh-90px)] overflow-y-auto pr-1 pb-24 lg:pb-6 scrollbar-thin"
               >
                 {/* Template picker + live label */}
                 <div className="mb-3">
