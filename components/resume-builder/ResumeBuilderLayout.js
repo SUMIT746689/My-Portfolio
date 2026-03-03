@@ -97,6 +97,7 @@ export default function ResumeBuilderLayout() {
             <PdfExportButton
               resume={resume}
               template={template}
+              previewRef={previewRef}
             />
           </div>
         </div>

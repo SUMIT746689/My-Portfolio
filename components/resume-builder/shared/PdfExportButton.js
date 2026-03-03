@@ -3,36 +3,20 @@
 import { useState } from 'react';
 import { FiPrinter } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import { renderToStaticMarkup } from 'react-dom/server';
-import { createElement } from 'react';
 import { useTranslations } from '../../../hooks/useTranslations';
-import ClassicTemplate from '../Preview/templates/ClassicTemplate';
-import ModernTemplate from '../Preview/templates/ModernTemplate';
-import ElegantTemplate from '../Preview/templates/ElegantTemplate';
-import BoldTemplate from '../Preview/templates/BoldTemplate';
-import MinimalTemplate from '../Preview/templates/MinimalTemplate';
 
-const templates = {
-  classic: ClassicTemplate,
-  modern: ModernTemplate,
-  elegant: ElegantTemplate,
-  bold: BoldTemplate,
-  minimal: MinimalTemplate,
-};
-
-export default function PdfExportButton({ resume, template }) {
+export default function PdfExportButton({ previewRef }) {
   const { t } = useTranslations();
   const [exporting, setExporting] = useState(false);
 
-  const handlePrint = () => {
-    if (exporting) return;
+  const handlePrint = async () => {
+    if (exporting || !previewRef?.current) return;
     setExporting(true);
 
     try {
-      const TemplateComponent = templates[template] || ClassicTemplate;
-      const html = renderToStaticMarkup(
-        createElement(TemplateComponent, { resume })
-      );
+      // Clone the preview DOM
+      const previewElement = previewRef.current;
+      const clonedElement = previewElement.cloneNode(true);
 
       // Collect all stylesheets from the current page (Tailwind etc.)
       const styleSheets = Array.from(document.styleSheets);
@@ -110,7 +94,7 @@ export default function PdfExportButton({ resume, template }) {
   </style>
 </head>
 <body>
-  <div class="resume-root">${html}</div>
+  <div class="resume-root">${clonedElement.innerHTML}</div>
   <script>
     // Wait for fonts to load, then trigger print
     document.fonts.ready.then(function() {
