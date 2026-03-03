@@ -99,7 +99,9 @@ export default function PdfExportButton({ previewRef }) {
     // Wait for fonts to load, then trigger print
     document.fonts.ready.then(function() {
       window.print();
-      window.close();
+    }).catch(function() {
+      // Fallback if fonts.ready is not supported
+      window.print();
     });
   </script>
 </body>
