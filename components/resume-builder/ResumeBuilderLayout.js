@@ -1,12 +1,15 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import {
   FiArrowLeft,
   FiRefreshCw,
   FiDatabase,
+  FiChevronDown,
+  FiServer,
+  FiLayers,
   FiEdit3,
   FiEye,
 } from 'react-icons/fi';
@@ -29,7 +32,13 @@ export default function ResumeBuilderLayout() {
   const [template, setTemplate] = useState('classic');
 
   const resumeState = useResumeState();
-  const { resume, loadSampleData, resetData } = resumeState;
+  const { resume, loadBackendSample, loadFullStackSample, resetData } = resumeState;
+  const [showSampleMenu, setShowSampleMenu] = useState(false);
+
+  const handleSampleSelect = useCallback((loader) => {
+    loader();
+    setShowSampleMenu(false);
+  }, []);
 
   useEffect(() => {
     const updateScale = () => {
@@ -80,13 +89,37 @@ export default function ResumeBuilderLayout() {
           </div>
 
           <div className="flex items-center gap-2">
-            <button
-              onClick={loadSampleData}
-              className="hidden md:flex items-center gap-2 px-3.5 py-2 text-sm font-medium text-blue-700 dark:text-cyan-400 bg-blue-50 dark:bg-cyan-950/50 border border-blue-200 dark:border-cyan-800 rounded-xl hover:bg-blue-100 dark:hover:bg-cyan-900/50 transition-all duration-200"
-            >
-              <FiDatabase className="text-sm" />
-              {t('resumeBuilder.loadSample')}
-            </button>
+            <div className="relative hidden md:block">
+              <button
+                onClick={() => setShowSampleMenu((v) => !v)}
+                className="flex items-center gap-2 px-3.5 py-2 text-sm font-medium text-blue-700 dark:text-cyan-400 bg-blue-50 dark:bg-cyan-950/50 border border-blue-200 dark:border-cyan-800 rounded-xl hover:bg-blue-100 dark:hover:bg-cyan-900/50 transition-all duration-200"
+              >
+                <FiDatabase className="text-sm" />
+                {t('resumeBuilder.loadSample')}
+                <FiChevronDown className={`text-xs transition-transform ${showSampleMenu ? 'rotate-180' : ''}`} />
+              </button>
+              {showSampleMenu && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setShowSampleMenu(false)} />
+                  <div className="absolute right-0 mt-2 w-56 z-50 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg overflow-hidden">
+                    <button
+                      onClick={() => handleSampleSelect(loadBackendSample)}
+                      className="w-full flex items-center gap-2.5 px-4 py-3 text-sm text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors"
+                    >
+                      <FiServer className="text-blue-600 dark:text-cyan-400" />
+                      Backend Focused
+                    </button>
+                    <button
+                      onClick={() => handleSampleSelect(loadFullStackSample)}
+                      className="w-full flex items-center gap-2.5 px-4 py-3 text-sm text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border-t border-slate-100 dark:border-slate-700"
+                    >
+                      <FiLayers className="text-blue-600 dark:text-cyan-400" />
+                      Full-Stack Developer
+                    </button>
+                  </div>
+                </>
+              )}
+            </div>
             <button
               onClick={resetData}
               className="hidden md:flex items-center gap-2 px-3.5 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 transition-all duration-200"
@@ -200,13 +233,37 @@ export default function ResumeBuilderLayout() {
 
       {/* Mobile bottom bar */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-700/80 px-4 py-3 flex gap-2">
-        <button
-          onClick={loadSampleData}
-          className="flex-1 flex items-center justify-center gap-2 py-2.5 text-sm font-medium text-blue-700 dark:text-cyan-400 bg-blue-50 dark:bg-cyan-950/40 border border-blue-200 dark:border-cyan-800 rounded-xl"
-        >
-          <FiDatabase className="text-sm" />
-          {t('resumeBuilder.loadSample')}
-        </button>
+        <div className="relative flex-1">
+          <button
+            onClick={() => setShowSampleMenu((v) => !v)}
+            className="w-full flex items-center justify-center gap-2 py-2.5 text-sm font-medium text-blue-700 dark:text-cyan-400 bg-blue-50 dark:bg-cyan-950/40 border border-blue-200 dark:border-cyan-800 rounded-xl"
+          >
+            <FiDatabase className="text-sm" />
+            {t('resumeBuilder.loadSample')}
+            <FiChevronDown className={`text-xs transition-transform ${showSampleMenu ? 'rotate-180' : ''}`} />
+          </button>
+          {showSampleMenu && (
+            <>
+              <div className="fixed inset-0 z-40" onClick={() => setShowSampleMenu(false)} />
+              <div className="absolute bottom-full mb-2 left-0 right-0 z-50 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-lg overflow-hidden">
+                <button
+                  onClick={() => handleSampleSelect(loadBackendSample)}
+                  className="w-full flex items-center gap-2.5 px-4 py-3 text-sm text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors"
+                >
+                  <FiServer className="text-blue-600 dark:text-cyan-400" />
+                  Backend Focused
+                </button>
+                <button
+                  onClick={() => handleSampleSelect(loadFullStackSample)}
+                  className="w-full flex items-center gap-2.5 px-4 py-3 text-sm text-slate-700 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-slate-700 transition-colors border-t border-slate-100 dark:border-slate-700"
+                >
+                  <FiLayers className="text-blue-600 dark:text-cyan-400" />
+                  Full-Stack Developer
+                </button>
+              </div>
+            </>
+          )}
+        </div>
         <button
           onClick={resetData}
           className="flex items-center justify-center gap-1.5 px-4 py-2.5 text-sm font-medium text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl"
