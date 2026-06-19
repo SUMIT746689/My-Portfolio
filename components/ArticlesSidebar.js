@@ -1,6 +1,7 @@
 "use client"
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { readTheme } from '../utilities/theme';
 import { useParams, usePathname, useRouter } from 'next/navigation';
 import { useLocale } from 'next-intl';
 import {
@@ -39,7 +40,7 @@ const ArticlesSidebar = () => {
   };
 
   useEffect(() => {
-    const theme = JSON.parse(localStorage.getItem('theme'));
+    const theme = readTheme();
     if (theme === 'light') setCurrentThemeIcon(themeIcons.light);
     else if (theme === 'dark') setCurrentThemeIcon(themeIcons.dark);
     else setCurrentThemeIcon(themeIcons.system);
@@ -153,7 +154,7 @@ const ArticlesSidebar = () => {
         <div className="mb-4">
           <Link
             href={`/${locale}`}
-            className="text-xl font-bold text-gray-800 dark:text-white hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
+            className="text-xl font-bold text-slate-800 dark:text-white hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors"
           >
             ← Back to Home
           </Link>
@@ -162,13 +163,13 @@ const ArticlesSidebar = () => {
         {/* Language and Theme Switchers */}
         <div className="mb-6 space-y-3">
           {/* Language Switcher */}
-          <div className="flex items-center gap-2 bg-gray-100 dark:bg-gray-700 rounded-lg p-1">
+          <div className="flex items-center gap-2 bg-slate-100 dark:bg-slate-700 rounded-lg p-1">
             <button
               onClick={() => handleLanguageChange('en')}
               className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
                 locale === 'en'
                   ? 'bg-blue-600 dark:bg-cyan-700 text-white shadow-sm'
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
               }`}
             >
               <MdLanguage size={16} />
@@ -179,7 +180,7 @@ const ArticlesSidebar = () => {
               className={`flex-1 flex items-center justify-center gap-1.5 px-3 py-2 text-sm font-medium rounded-md transition-colors duration-200 ${
                 locale === 'bn'
                   ? 'bg-blue-600 dark:bg-cyan-700 text-white shadow-sm'
-                  : 'text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                  : 'text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
               }`}
             >
               <span>বাংলা</span>
@@ -190,36 +191,36 @@ const ArticlesSidebar = () => {
           <div className="relative" ref={themeMenuRef}>
             <button
               onClick={() => setShowThemeMenu((v) => !v)}
-              className="w-full flex items-center justify-between px-4 py-2 bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 rounded-lg transition-colors duration-200"
+              className="w-full flex items-center justify-between px-4 py-2 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 rounded-lg transition-colors duration-200"
             >
-              <span className="flex items-center gap-2 text-gray-700 dark:text-gray-300 font-medium text-sm">
+              <span className="flex items-center gap-2 text-slate-700 dark:text-slate-300 font-medium text-sm">
                 {currentThemeIcon}
                 <span>Theme</span>
               </span>
               <MdChevronRight
                 size={18}
-                className={`text-gray-500 transition-transform duration-200 ${showThemeMenu ? 'rotate-90' : ''}`}
+                className={`text-slate-500 transition-transform duration-200 ${showThemeMenu ? 'rotate-90' : ''}`}
               />
             </button>
             {showThemeMenu && (
-              <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden z-10">
+              <div className="absolute left-0 right-0 top-full mt-2 bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700 overflow-hidden z-10">
                 <button
                   onClick={() => themeChangeHandle('light')}
-                  className="flex items-center w-full px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                  className="flex items-center w-full px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200"
                 >
                   <MdOutlineLightMode className="mr-3" size={18} />
                   Light
                 </button>
                 <button
                   onClick={() => themeChangeHandle('dark')}
-                  className="flex items-center w-full px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                  className="flex items-center w-full px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200"
                 >
                   <GiNightSleep className="mr-3" size={18} />
                   Dark
                 </button>
                 <button
                   onClick={() => themeChangeHandle('system')}
-                  className="flex items-center w-full px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200"
+                  className="flex items-center w-full px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200"
                 >
                   <RiComputerLine className="mr-3" size={18} />
                   System
@@ -229,7 +230,7 @@ const ArticlesSidebar = () => {
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-6 flex items-center gap-2">
           <MdArticle size={24} />
           Articles
         </h2>
@@ -246,7 +247,7 @@ const ArticlesSidebar = () => {
                   onClick={() => hasArticles && toggleCategory(category.id)}
                   className={`w-full flex items-center justify-between p-3 rounded-lg transition-colors ${
                     hasArticles
-                      ? 'hover:bg-gray-100 dark:hover:bg-slate-700 cursor-pointer'
+                      ? 'hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer'
                       : 'opacity-50 cursor-not-allowed'
                   }`}
                   disabled={!hasArticles}
@@ -254,16 +255,16 @@ const ArticlesSidebar = () => {
                   <div className="flex items-center gap-3">
                     <CategoryIcon
                       size={20}
-                      className="text-gray-600 dark:text-gray-400"
+                      className="text-slate-600 dark:text-slate-400"
                     />
-                    <span className="font-semibold text-gray-700 dark:text-gray-300">
+                    <span className="font-semibold text-slate-700 dark:text-slate-300">
                       {category.title}
                     </span>
                   </div>
                   {hasArticles && (
                     isExpanded
-                      ? <MdExpandMore size={20} className="text-gray-500" />
-                      : <MdChevronRight size={20} className="text-gray-500" />
+                      ? <MdExpandMore size={20} className="text-slate-500" />
+                      : <MdChevronRight size={20} className="text-slate-500" />
                   )}
                 </button>
 
@@ -279,8 +280,8 @@ const ArticlesSidebar = () => {
                           href={`/${locale}/articles/${article.slug}`}
                           className={`flex items-center gap-3 p-2 pl-4 rounded-lg transition-all ${
                             active
-                              ? 'bg-pink-500 text-white font-semibold shadow-md'
-                              : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-slate-700'
+                              ? 'bg-cyan-500 text-white font-semibold shadow-md'
+                              : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
                           }`}
                         >
                           <ArticleIcon size={16} />
@@ -292,7 +293,7 @@ const ArticlesSidebar = () => {
                 )}
 
                 {!hasArticles && (
-                  <div className="ml-11 text-xs text-gray-400 dark:text-gray-600 italic">
+                  <div className="ml-11 text-xs text-slate-400 dark:text-slate-600 italic">
                     Coming soon...
                   </div>
                 )}
@@ -309,13 +310,13 @@ const ArticlesSidebar = () => {
       {/* Mobile Menu Button */}
       <button
         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-pink-500 text-white rounded-lg shadow-lg"
+        className="lg:hidden fixed top-4 left-4 z-50 p-2 bg-cyan-500 text-white rounded-lg shadow-lg"
       >
         {isMobileMenuOpen ? <MdClose size={24} /> : <MdMenu size={24} />}
       </button>
 
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:block w-64 bg-white dark:bg-slate-800 border-r border-gray-200 dark:border-gray-700 h-screen sticky top-0 overflow-y-auto">
+      <aside className="hidden lg:block w-64 bg-white dark:bg-slate-800 border-r border-slate-200 dark:border-slate-700 h-screen sticky top-0 overflow-y-auto">
         <SidebarContent />
       </aside>
 

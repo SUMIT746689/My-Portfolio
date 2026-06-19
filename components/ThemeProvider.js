@@ -1,10 +1,11 @@
 'use client';
 
 import { useEffect } from 'react';
+import { readTheme } from '../utilities/theme';
 
 export default function ThemeProvider({ children }) {
   useEffect(() => {
-    const theme = JSON.parse(localStorage.getItem('theme'));
+    const theme = readTheme();
 
     const applyTheme = (isDark) => {
       if (isDark) {

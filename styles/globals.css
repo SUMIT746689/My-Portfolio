@@ -4,13 +4,13 @@
 /* globals.css */
 :root {
   --bg-color: #ffffff;
-  --text-color: #000000;
+  --text-color: #0f172a; /* slate-900 — softer than pure black */
   /* other light theme variables */
 }
 
 .dark {
-  --bg-color: #1a202c;
-  --text-color: #ffffff;
+  --bg-color: #0a192f; /* navy — unified with html dark bg */
+  --text-color: #cbd5e1; /* slate-300 — softer than pure white */
   /* other dark theme variables */
 }
 
@@ -43,7 +43,7 @@ body {
 
 /* Custom gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #ec4899, #0ea5e9);
+  background: linear-gradient(135deg, #3b82f6, #22d3ee);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -61,7 +61,7 @@ body {
 
 /* Dark mode improvements */
 .dark .dark\:shadow-glow {
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.15);
 }
 
 * { -webkit-tap-highlight-color: rgba(0,0,0,0); }

@@ -19,7 +19,7 @@ function Footer({ setShowClientForm }) {
     <footer className='relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 py-20 overflow-hidden'>
       {/* Animated Background Elements */}
       <div className='absolute inset-0 opacity-10'>
-        <div className='absolute inset-0 bg-gradient-to-r from-pink-500 to-sky-500 animate-gradient-shift'></div>
+        <div className='absolute inset-0 bg-gradient-to-r from-cyan-500 to-sky-500 animate-gradient-shift'></div>
       </div>
       <div className='absolute inset-0' style={{
         backgroundImage: `radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px)`,
@@ -35,7 +35,7 @@ function Footer({ setShowClientForm }) {
         className='relative -top-16 z-10'
       >
         <div className='max-w-4xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='relative bg-gradient-to-r from-pink-600 via-purple-600 to-sky-600 p-1 rounded-2xl shadow-2xl hover:shadow-3xl transition-shadow duration-500'>
+          <div className='relative bg-gradient-to-r from-cyan-600 via-purple-600 to-sky-600 p-1 rounded-2xl shadow-2xl hover:shadow-3xl transition-shadow duration-500'>
             <div className='bg-white/90 dark:bg-slate-900/90 backdrop-blur-sm rounded-xl p-8 sm:p-12 text-center'>
               <motion.div
                 initial={{ opacity: 0 }}
@@ -44,7 +44,7 @@ function Footer({ setShowClientForm }) {
                 viewport={{ once: true }}
                 className='mb-6'
               >
-                <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-pink-600 to-sky-600 bg-clip-text text-transparent mb-4'>
+                <h2 className='text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-cyan-600 to-sky-600 bg-clip-text text-transparent mb-4'>
                   {t('footer.title')}
                 </h2>
                 <p className='text-slate-600 dark:text-slate-400 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed'>
@@ -57,7 +57,7 @@ function Footer({ setShowClientForm }) {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setShowClientForm((value) => !value)}
-                  className='group relative px-8 py-4 bg-gradient-to-r from-pink-600 to-sky-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden'
+                  className='group relative px-8 py-4 bg-gradient-to-r from-cyan-600 to-sky-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden'
                 >
                   <span className='relative z-10 flex items-center gap-2'>
                     <span>{t('footer.startProject')}</span>
@@ -72,14 +72,14 @@ function Footer({ setShowClientForm }) {
                       <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M17 8l4 4m0 0l-4 4m4-4H3' />
                     </motion.svg>
                   </span>
-                  <div className='absolute inset-0 bg-gradient-to-r from-sky-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
+                  <div className='absolute inset-0 bg-gradient-to-r from-sky-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                 </motion.button>
 
                 <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   href='mailto:mehedihasansumit@gmail.com'
-                  className='px-8 py-4 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-semibold rounded-xl hover:border-pink-500 dark:hover:border-sky-400 hover:text-pink-600 dark:hover:text-sky-400 transition-all duration-300 flex items-center gap-2'
+                  className='px-8 py-4 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 font-semibold rounded-xl hover:border-cyan-500 dark:hover:border-sky-400 hover:text-cyan-600 dark:hover:text-sky-400 transition-all duration-300 flex items-center gap-2'
                 >
                   <FiMail className='w-5 h-5' />
                   {t('footer.sendEmail')}
@@ -111,7 +111,7 @@ function Footer({ setShowClientForm }) {
                 href={social.href}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='group p-3 bg-slate-800/50 dark:bg-slate-700/50 backdrop-blur-sm rounded-full hover:bg-gradient-to-r hover:from-pink-600 hover:to-sky-600 transition-all duration-300 hover:shadow-lg hover:shadow-pink-500/20'
+                className='group p-3 bg-slate-800/50 dark:bg-slate-700/50 backdrop-blur-sm rounded-full hover:bg-gradient-to-r hover:from-cyan-600 hover:to-sky-600 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/20'
                 aria-label={social.label}
               >
                 <social.icon className='w-6 h-6 text-slate-300 group-hover:text-white transition-colors duration-300' />

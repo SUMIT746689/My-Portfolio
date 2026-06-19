@@ -58,12 +58,12 @@ function ClientForm({ setShowClientForm }) {
           className='relative w-full max-w-lg max-h-[90vh] overflow-hidden'
         >
           {/* Background Gradient Card */}
-          <div className='absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-cyan-500/20 rounded-2xl blur-xl'></div>
+          <div className='absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-purple-500/20 to-cyan-500/20 rounded-2xl blur-xl'></div>
 
           {/* Main Container */}
           <div className='relative bg-white dark:bg-slate-900 rounded-2xl shadow-2xl overflow-hidden'>
             {/* Header with Gradient */}
-            <div className='relative bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 px-5 py-4 sm:px-6 sm:py-5'>
+            <div className='relative bg-gradient-to-r from-cyan-600 via-purple-600 to-cyan-600 px-5 py-4 sm:px-6 sm:py-5'>
               <motion.button
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
@@ -118,7 +118,7 @@ function ClientForm({ setShowClientForm }) {
                   <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4'>
                     <div>
                       <label className='block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5'>
-                        Name <span className='text-pink-500'>*</span>
+                        Name <span className='text-cyan-500'>*</span>
                       </label>
                       <input
                         type='text'
@@ -126,14 +126,14 @@ function ClientForm({ setShowClientForm }) {
                         value={formData.name}
                         onChange={handleChange}
                         required
-                        className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100 placeholder-slate-400'
+                        className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100 placeholder-slate-400'
                         placeholder='John Doe'
                       />
                     </div>
 
                     <div>
                       <label className='block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5'>
-                        Email <span className='text-pink-500'>*</span>
+                        Email <span className='text-cyan-500'>*</span>
                       </label>
                       <input
                         type='email'
@@ -141,7 +141,7 @@ function ClientForm({ setShowClientForm }) {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100 placeholder-slate-400'
+                        className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100 placeholder-slate-400'
                         placeholder='john@example.com'
                       />
                     </div>
@@ -151,14 +151,14 @@ function ClientForm({ setShowClientForm }) {
                   <div className='grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4'>
                     <div>
                       <label className='block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5'>
-                        Project Type <span className='text-pink-500'>*</span>
+                        Project Type <span className='text-cyan-500'>*</span>
                       </label>
                       <select
                         name='projectType'
                         value={formData.projectType}
                         onChange={handleChange}
                         required
-                        className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100'
+                        className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100'
                       >
                         <option value=''>Select type</option>
                         <option value='frontend'>Frontend Development</option>
@@ -180,7 +180,7 @@ function ClientForm({ setShowClientForm }) {
                         name='budget'
                         value={formData.budget}
                         onChange={handleChange}
-                        className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100'
+                        className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100'
                       >
                         <option value=''>Select range</option>
                         <option value='1000-5000'>$1K - $5K</option>
@@ -195,7 +195,7 @@ function ClientForm({ setShowClientForm }) {
                   {/* Project Details */}
                   <div>
                     <label className='block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5'>
-                      Project Details <span className='text-pink-500'>*</span>
+                      Project Details <span className='text-cyan-500'>*</span>
                     </label>
                     <textarea
                       name='details'
@@ -203,7 +203,7 @@ function ClientForm({ setShowClientForm }) {
                       onChange={handleChange}
                       rows={3}
                       required
-                      className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-pink-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100 placeholder-slate-400 resize-none'
+                      className='w-full px-3.5 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400 focus:border-transparent outline-none transition-all duration-200 text-slate-900 dark:text-slate-100 placeholder-slate-400 resize-none'
                       placeholder='Tell me about your project, timeline, and requirements...'
                     />
                   </div>
@@ -214,7 +214,7 @@ function ClientForm({ setShowClientForm }) {
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     disabled={isSubmitting}
-                    className={`w-full bg-gradient-to-r from-pink-600 via-purple-600 to-cyan-600 text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm ${
+                    className={`w-full bg-gradient-to-r from-cyan-600 via-purple-600 to-cyan-600 text-white font-semibold py-3 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 text-sm ${
                       isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
                     }`}
                   >
@@ -240,7 +240,7 @@ function ClientForm({ setShowClientForm }) {
                     <span>Or email:</span>
                     <a
                       href='mailto:mehedihasansumit@gmail.com'
-                      className='text-pink-600 dark:text-cyan-400 hover:underline font-medium transition-colors'
+                      className='text-cyan-600 dark:text-cyan-400 hover:underline font-medium transition-colors'
                     >
                       mehedihasansumit@gmail.com
                     </a>

@@ -23,15 +23,15 @@
   "main": {
     "greeting": "Hi, my name is",
     "name": "Mehedi Hasan.",
-    "profession": "I'm a software engineer",
+    "profession": "I'm a senior software engineer",
     "currentRole": "Current Role:",
-    "currentRoleTitle": "Software Engineer at V2 Technologies Limited",
+    "currentRoleTitle": "Senior Software Engineer at V2 Technologies Limited",
     "description": "Experienced in building scalable SaaS applications, enterprise systems including school management platforms, CRM solutions, and multi-vendor web applications. Skilled in backend architecture, API design, database modeling, and frontend performance optimization.",
     "sendEmail": "Send Email",
     "resume": "Resume"
   },
   "skills": {
-    "title": "3+ Years of Professional Experience",
+    "title": "10+ Years of Professional Experience",
     "description": "Proven track record in full-cycle development of enterprise systems including school management platforms, CRM solutions, and multi-vendor web applications. Experienced in Docker-based deployments and collaborating with product teams to deliver scalable SaaS applications.",
     "frontEnd": "Front End",
     "frontEndDescription": "I like to code things from scratch and enjoy bringing ideas to life in the browser.",

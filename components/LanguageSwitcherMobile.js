@@ -24,24 +24,24 @@ function LanguageSwitcherMobile({ showLanguageMenu, setShowLanguageMenu }) {
   return (
     <div
       onClick={() => setShowLanguageMenu((v) => !v)}
-      className="flex items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-700 dark:text-gray-300 relative"
+      className="flex items-center p-3 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-300 relative"
     >
       <MdLanguage className="mr-2" />
       <span>Language</span>
       {showLanguageMenu && (
-        <div className="absolute bottom-full left-4 right-4 mb-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-2 z-50">
+        <div className="absolute bottom-full left-4 right-4 mb-2 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-2 z-50">
           <div
             onClick={() => handleLanguageChange('en')}
-            className={`flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded ${
-              locale === 'en' ? 'bg-blue-50 dark:bg-gray-600' : ''
+            className={`flex items-center p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded ${
+              locale === 'en' ? 'bg-blue-50 dark:bg-slate-600' : ''
             }`}
           >
             {languages.en}
           </div>
           <div
             onClick={() => handleLanguageChange('bn')}
-            className={`flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded ${
-              locale === 'bn' ? 'bg-blue-50 dark:bg-gray-600' : ''
+            className={`flex items-center p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded ${
+              locale === 'bn' ? 'bg-blue-50 dark:bg-slate-600' : ''
             }`}
           >
             {languages.bn}

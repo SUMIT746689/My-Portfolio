@@ -19,7 +19,7 @@ function Main() {
     return (
       <motion.p
         key={index}
-        className={`${value === '-' ? 'opacity-0' : ''} ${styles.name} text-pink-700 dark:text-cyan-400`}
+        className={`${value === '-' ? 'opacity-0' : ''} ${styles.name} text-cyan-700 dark:text-cyan-400`}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: index * 0.05, duration: 0.5 }}
@@ -36,7 +36,7 @@ function Main() {
   return (
     <div className='relative overflow-hidden'>
       {/* Decorative background elements */}
-      <div className='absolute -top-20 -left-20 w-64 h-64 rounded-full bg-pink-500/10 dark:bg-pink-400/10 blur-3xl'></div>
+      <div className='absolute -top-20 -left-20 w-64 h-64 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 blur-3xl'></div>
       <div className='absolute bottom-0 -right-20 w-64 h-64 rounded-full bg-cyan-500/10 dark:bg-cyan-400/10 blur-3xl'></div>
 
       <main
@@ -45,7 +45,7 @@ function Main() {
       >
         {/* Greeting */}
         <motion.div
-          className='text-sm sm:text-lg text-pink-600 dark:text-cyan-300 font-bold mb-2'
+          className='text-sm sm:text-lg text-cyan-600 dark:text-cyan-300 font-bold mb-2'
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -76,7 +76,7 @@ function Main() {
           transition={{ delay: 1, duration: 0.5 }}
         >
           <div className='mb-3'>
-            <span className='text-pink-700 dark:text-cyan-400 font-bold'>{t('main.currentRole')}</span> {t('main.currentRoleTitle')}
+            <span className='text-cyan-700 dark:text-cyan-400 font-bold'>{t('main.currentRole')}</span> {t('main.currentRoleTitle')}
           </div>
           <div className='text-xs xs:text-sm sm:text-base lg:text-lg leading-relaxed'>
             {t('main.description')}
@@ -94,7 +94,7 @@ function Main() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             href='mailto:mehedihasansumit@gmail.com'
-            className='flex gap-2 justify-center align-middle py-1 px-4 cursor-pointer border-2 text-pink-700 dark:text-cyan-400 border-pink-700 dark:border-cyan-400 font-semibold rounded-lg hover:bg-pink-700/10 dark:hover:bg-cyan-400/10 transition-all duration-300'
+            className='flex gap-2 justify-center align-middle py-1 px-4 cursor-pointer border-2 text-cyan-700 dark:text-cyan-400 border-cyan-700 dark:border-cyan-400 font-semibold rounded-lg hover:bg-cyan-700/10 dark:hover:bg-cyan-400/10 transition-all duration-300'
           >
             <FiMail className='w-5 h-5 my-auto' />
             {t('main.sendEmail')}
@@ -102,7 +102,7 @@ function Main() {
 
           <a
             href='/Mehedi-Hasan-Resume.pdf'
-            className='sm:hidden py-1 px-4 cursor-pointer border-2 text-pink-700 dark:text-cyan-400 border-pink-700 dark:border-cyan-400 font-semibold rounded-lg hover:bg-pink-700/10 dark:hover:bg-cyan-400/10 transition-all duration-300'
+            className='sm:hidden py-1 px-4 cursor-pointer border-2 text-cyan-700 dark:text-cyan-400 border-cyan-700 dark:border-cyan-400 font-semibold rounded-lg hover:bg-cyan-700/10 dark:hover:bg-cyan-400/10 transition-all duration-300'
           >
             {t('main.resume')}
           </a>

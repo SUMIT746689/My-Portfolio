@@ -26,7 +26,7 @@ export default function ArticlesPage() {
       description: 'Explore database internals, optimization techniques, and data modeling strategies across different database systems.',
       icon: MdStorage,
       articleCount: 0,
-      color: 'from-purple-500 to-pink-500'
+      color: 'from-purple-500 to-cyan-500'
     },
     {
       id: 'backend',
@@ -60,20 +60,20 @@ export default function ArticlesPage() {
         {/* Hero Section */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
-            <MdArticle size={48} className="text-pink-500" />
-            <h1 className="text-5xl font-bold text-gray-800 dark:text-white">
+            <MdArticle size={48} className="text-cyan-500" />
+            <h1 className="text-5xl font-bold text-slate-800 dark:text-white">
               Technical Articles
             </h1>
           </div>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
             In-depth technical articles covering system architecture, databases, backend development, and more.
             Dive deep into the internals and learn how things work under the hood.
           </p>
-          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-            <div className="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 rounded-full">
-              <span className="font-semibold text-pink-600 dark:text-pink-400">1 Published</span>
+          <div className="mt-6 flex items-center justify-center gap-2 text-sm text-slate-500 dark:text-slate-400">
+            <div className="px-3 py-1 bg-cyan-100 dark:bg-cyan-900/30 rounded-full">
+              <span className="font-semibold text-cyan-600 dark:text-cyan-400">1 Published</span>
             </div>
-            <div className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded-full">
+            <div className="px-3 py-1 bg-slate-200 dark:bg-slate-700 rounded-full">
               <span className="font-semibold">More Coming Soon</span>
             </div>
           </div>
@@ -108,27 +108,27 @@ export default function ArticlesPage() {
                         {category.articleCount} Article{category.articleCount !== 1 ? 's' : ''}
                       </span>
                     ) : (
-                      <span className="px-2 py-1 text-xs font-semibold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 rounded-full">
+                      <span className="px-2 py-1 text-xs font-semibold text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 rounded-full">
                         Coming Soon
                       </span>
                     )}
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">
+                  <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2">
                     {category.title}
                   </h3>
-                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+                  <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
                     {category.description}
                   </p>
 
                   {/* Featured Article */}
                   {category.featured && (
-                    <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-                      <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1">
+                    <div className="mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
+                      <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 mb-1">
                         FEATURED
                       </p>
-                      <p className="text-sm font-medium text-pink-600 dark:text-pink-400">
+                      <p className="text-sm font-medium text-cyan-600 dark:text-cyan-400">
                         {category.featured}
                       </p>
                     </div>
@@ -136,7 +136,7 @@ export default function ArticlesPage() {
 
                   {/* Call to Action */}
                   {hasArticles && (
-                    <div className="mt-4 flex items-center text-pink-500 dark:text-pink-400 font-semibold text-sm group-hover:translate-x-1 transition-transform">
+                    <div className="mt-4 flex items-center text-cyan-500 dark:text-cyan-400 font-semibold text-sm group-hover:translate-x-1 transition-transform">
                       <span>Explore Articles</span>
                       <MdArrowForward className="ml-2" />
                     </div>
@@ -148,7 +148,7 @@ export default function ArticlesPage() {
         </div>
 
         {/* Getting Started Section */}
-        <div className="bg-gradient-to-r from-pink-500 to-purple-500 rounded-xl shadow-xl p-8 text-white text-center">
+        <div className="bg-gradient-to-r from-cyan-500 to-purple-500 rounded-xl shadow-xl p-8 text-white text-center">
           <h2 className="text-3xl font-bold mb-4">Start Exploring</h2>
           <p className="text-lg mb-6 opacity-90">
             Select a category from the sidebar or click on a category card above to dive into the articles

@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
+import { readTheme } from '../../utilities/theme';
 import {
   AiOutlineHome,
   AiOutlineProject,
@@ -66,7 +67,7 @@ function Nav() {
   }, []);
 
   useEffect(() => {
-    const theme = JSON.parse(localStorage.getItem('theme'));
+    const theme = readTheme();
     if (theme === 'light') setCurrentThemeIcon(themeIcons.light);
     else if (theme === 'dark') setCurrentThemeIcon(themeIcons.dark);
     else setCurrentThemeIcon(themeIcons.system);
@@ -125,12 +126,12 @@ function Nav() {
               {link.type === 'route' ? (
                 <Link
                   href={link.href}
-                  className={`group relative block p-2 mr-2 md:mx-2 my-1 cursor-pointer rounded-full shadow transition-all duration-200 bg-white/90 dark:bg-gray-800/90 text-blue-900 dark:text-cyan-300 shadow-gray-900/10 dark:shadow-gray-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]`}
+                  className={`group relative block p-2 mr-2 md:mx-2 my-1 cursor-pointer rounded-full shadow transition-all duration-200 bg-white/90 dark:bg-slate-800/90 text-blue-900 dark:text-cyan-300 shadow-slate-900/10 dark:shadow-slate-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]`}
                 >
                   <span className="flex items-center justify-center">
                     {link.icon}
                   </span>
-                  <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded text-blue-900 dark:text-cyan-300 bg-white/90 dark:bg-gray-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
+                  <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded text-blue-900 dark:text-cyan-300 bg-white/90 dark:bg-slate-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
                     {t(link.labelKey)}
                   </span>
                 </Link>
@@ -141,13 +142,13 @@ function Nav() {
                   className={`group relative block p-2 mr-2 md:mx-2 my-1 cursor-pointer rounded-full shadow transition-all duration-200
                     ${activeLink === link.href
                       ? 'bg-blue-600 dark:bg-cyan-700 text-white shadow-blue-900/50 scale-105'
-                      : 'bg-white/90 dark:bg-gray-800/90 text-blue-900 dark:text-cyan-300 shadow-gray-900/10 dark:shadow-gray-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]'
+                      : 'bg-white/90 dark:bg-slate-800/90 text-blue-900 dark:text-cyan-300 shadow-slate-900/10 dark:shadow-slate-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]'
                     }`}
                 >
                   <span className="flex items-center justify-center">
                     {link.icon}
                   </span>
-                  <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded text-blue-900 dark:text-cyan-300 bg-white/90 dark:bg-gray-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
+                  <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded text-blue-900 dark:text-cyan-300 bg-white/90 dark:bg-slate-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
                     {t(link.labelKey)}
                   </span>
                 </a>
@@ -158,35 +159,34 @@ function Nav() {
           {/* Theme selector */}
           <div
             onClick={() => setShowThemeCard((v) => !v)}
-            className="relative group p-2 mr-2 md:mx-2 my-1 cursor-pointer rounded-full shadow transition-all duration-200 bg-white/90 dark:bg-gray-800/90 text-blue-900 dark:text-cyan-300 shadow-gray-900/10 dark:shadow-gray-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]"
+            className="relative group p-2 mr-2 md:mx-2 my-1 cursor-pointer rounded-full shadow transition-all duration-200 bg-white/90 dark:bg-slate-800/90 text-blue-900 dark:text-cyan-300 shadow-slate-900/10 dark:shadow-slate-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]"
             ref={themeCardRef}
           >
             <div>{currentThemeIcon}</div>
-            <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded bg-white/90 dark:bg-gray-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
+            <span className="absolute left-full ml-2 px-2 py-1 text-xs font-normal rounded bg-white/90 dark:bg-slate-800/90 shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
               {t('nav.theme')}
             </span>
             <div
-              className={`${
-                showThemeCard ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
-              } bg-white dark:bg-gray-800 text-xs text-slate-900 dark:text-slate-300 z-50 absolute top-12 md:top-0 right-0 md:left-12 w-28 rounded-lg overflow-hidden shadow transition-all duration-150 origin-top`}
+              className={`${showThemeCard ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+                } bg-white dark:bg-slate-800 text-xs text-slate-900 dark:text-slate-300 z-50 absolute top-12 md:top-0 right-0 md:left-12 w-28 rounded-lg overflow-hidden shadow transition-all duration-150 origin-top`}
             >
               <div
                 onClick={() => themeChangeHandle('light')}
-                className="flex items-center hover:bg-blue-100 dark:hover:bg-gray-700 cursor-pointer px-3 py-1.5 font-medium transition-colors duration-150"
+                className="flex items-center hover:bg-blue-100 dark:hover:bg-slate-700 cursor-pointer px-3 py-1.5 font-medium transition-colors duration-150"
               >
                 <MdOutlineLightMode className="mr-2 text-sm" />
                 {t('nav.themeLight')}
               </div>
               <div
                 onClick={() => themeChangeHandle('dark')}
-                className="flex items-center hover:bg-blue-100 dark:hover:bg-gray-700 cursor-pointer px-3 py-1.5 font-medium transition-colors duration-150"
+                className="flex items-center hover:bg-blue-100 dark:hover:bg-slate-700 cursor-pointer px-3 py-1.5 font-medium transition-colors duration-150"
               >
                 <GiNightSleep className="mr-2 text-sm" />
                 {t('nav.themeDark')}
               </div>
               <div
                 onClick={() => themeChangeHandle('system')}
-                className="flex items-center hover:bg-blue-100 dark:hover:bg-gray-700 cursor-pointer px-3 py-1.5 font-medium transition-colors duration-150"
+                className="flex items-center hover:bg-blue-100 dark:hover:bg-slate-700 cursor-pointer px-3 py-1.5 font-medium transition-colors duration-150"
               >
                 <RiComputerLine className="mr-2 text-sm" />
                 {t('nav.themeSystem')}
@@ -200,14 +200,14 @@ function Nav() {
       </div>
 
       {/* Mobile View */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm border-t border-slate-200 dark:border-slate-700">
         <div className="flex justify-around py-2">
           {navLinks.slice(0, 3).map((link) => (
             link.type === 'route' ? (
               <Link
                 key={link.href}
                 href={link.href}
-                className="flex flex-col items-center p-2 rounded-lg transition-all duration-200 text-gray-700 dark:text-gray-300"
+                className="flex flex-col items-center p-2 rounded-lg transition-all duration-200 text-slate-700 dark:text-slate-300"
               >
                 <span className="text-xl">{link.icon}</span>
                 <span className="text-xs mt-1">{t(link.labelKey)}</span>
@@ -220,7 +220,7 @@ function Nav() {
                 className={`flex flex-col items-center p-2 rounded-lg transition-all duration-200
                   ${activeLink === link.href
                     ? 'text-blue-600 dark:text-cyan-400'
-                    : 'text-gray-700 dark:text-gray-300'
+                    : 'text-slate-700 dark:text-slate-300'
                   }`}
               >
                 <span className="text-xl">{link.icon}</span>
@@ -231,7 +231,7 @@ function Nav() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`flex flex-col items-center p-2 rounded-lg transition-all duration-200
-              ${mobileMenuOpen ? 'text-blue-600 dark:text-cyan-400' : 'text-gray-700 dark:text-gray-300'}`}
+              ${mobileMenuOpen ? 'text-blue-600 dark:text-cyan-400' : 'text-slate-700 dark:text-slate-300'}`}
           >
             <span className="text-xl">
               {mobileMenuOpen ? (
@@ -250,14 +250,14 @@ function Nav() {
 
         {/* Expanded Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="absolute bottom-full left-0 right-0 bg-white dark:bg-gray-800 p-4 border-t border-gray-200 dark:border-gray-700 shadow-lg rounded-t-lg">
+          <div className="absolute bottom-full left-0 right-0 bg-white dark:bg-slate-800 p-4 border-t border-slate-200 dark:border-slate-700 shadow-lg rounded-t-lg">
             <div className="grid grid-cols-2 gap-3">
               {navLinks.slice(3).map((link) => (
                 link.type === 'route' ? (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="flex items-center p-3 rounded-lg transition-all duration-200 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                    className="flex items-center p-3 rounded-lg transition-all duration-200 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300"
                   >
                     <span className="mr-2">{link.icon}</span>
                     <span>{t(link.labelKey)}</span>
@@ -270,7 +270,7 @@ function Nav() {
                     className={`flex items-center p-3 rounded-lg transition-all duration-200
                       ${activeLink === link.href
                         ? 'bg-blue-600 dark:bg-cyan-700 text-white'
-                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300'
+                        : 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
                       }`}
                   >
                     <span className="mr-2">{link.icon}</span>
@@ -278,34 +278,34 @@ function Nav() {
                   </a>
                 )
               ))}
-              
+
               {/* Theme Selector */}
               <div
                 onClick={() => setShowThemeCard((v) => !v)}
-                className="flex items-center p-3 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-700 dark:text-gray-300"
+                className="flex items-center p-3 bg-slate-100 dark:bg-slate-700 rounded-lg text-slate-700 dark:text-slate-300"
                 ref={themeCardRef}
               >
                 <span className="mr-2">{currentThemeIcon}</span>
                 <span>{t('nav.theme')}</span>
                 {showThemeCard && (
-                  <div className="absolute bottom-full left-4 right-4 mb-2 bg-white dark:bg-gray-800 rounded-lg shadow-lg p-2 z-50">
+                  <div className="absolute bottom-full left-4 right-4 mb-2 bg-white dark:bg-slate-800 rounded-lg shadow-lg p-2 z-50">
                     <div
                       onClick={() => themeChangeHandle('light')}
-                      className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                      className="flex items-center p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded"
                     >
                       <MdOutlineLightMode className="mr-2" />
                       {t('nav.themeLight')}
                     </div>
                     <div
                       onClick={() => themeChangeHandle('dark')}
-                      className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                      className="flex items-center p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded"
                     >
                       <GiNightSleep className="mr-2" />
                       {t('nav.themeDark')}
                     </div>
                     <div
                       onClick={() => themeChangeHandle('system')}
-                      className="flex items-center p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
+                      className="flex items-center p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded"
                     >
                       <RiComputerLine className="mr-2" />
                       {t('nav.themeSystem')}
@@ -330,14 +330,14 @@ function Nav() {
             </div>
 
             {/* Social Links */}
-            <div className="flex justify-center space-x-4 mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex justify-center space-x-4 mt-4 pt-4 border-t border-slate-200 dark:border-slate-700">
               {socialLinks.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-cyan-400"
+                  className="p-2 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400"
                 >
                   {link.icon}
                 </a>
@@ -358,7 +358,7 @@ function Nav() {
               rel="noopener noreferrer"
               className="group relative"
             >
-              <span className="hover:text-blue-900 dark:hover:text-cyan-400 m-2 p-2 cursor-pointer rounded-full shadow transition-all duration-200 shadow-gray-900/10 dark:shadow-gray-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]">
+              <span className="hover:text-blue-900 dark:hover:text-cyan-400 m-2 p-2 cursor-pointer rounded-full shadow transition-all duration-200 shadow-slate-900/10 dark:shadow-slate-600/10 hover:shadow-blue-700/30 hover:scale-[1.03]">
                 {link.icon}
                 <span className="absolute right-full mr-2 px-2 py-1 text-xs font-normal rounded shadow opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap">
                   {t(link.labelKey)}
@@ -370,7 +370,7 @@ function Nav() {
       </div>
 
       {/* Resume button */}
-      <div className="hidden sm:block sm:fixed right-0 top-4 z-50">
+      {/* <div className="hidden sm:block sm:fixed right-0 top-4 z-50">
         <a
           onClick={() => setShowThemeCard(false)}
           href="/Mehedi-Hasan-Resume.pdf"
@@ -378,7 +378,7 @@ function Nav() {
         >
           {t('nav.resume')}
         </a>
-      </div>
+      </div> */}
     </>
   );
 }

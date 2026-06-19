@@ -13,13 +13,13 @@ export async function generateMetadata({ params }) {
 
   const metadata = {
     en: {
-      title: 'Mehedi Hasan - Software Engineer | Full Stack Developer',
-      description: 'Experienced Software Engineer specializing in Full Stack Development with 3+ years of experience. Expert in React, Next.js, Node.js, Express, and scalable SaaS applications. Based in Dhaka, Bangladesh.',
-      keywords: 'Mehedi Hasan, Software Engineer, Full Stack Developer, React Developer, Next.js, Node.js, JavaScript, TypeScript, Bangladesh Developer, Web Developer Dhaka, MERN Stack Developer',
+      title: 'Mehedi Hasan - Senior Software Engineer | Full Stack Developer',
+      description: 'Senior Software Engineer specializing in Full Stack Development with 10+ years of experience. Expert in React, Next.js, Node.js, Express, and scalable SaaS applications. Based in Dhaka, Bangladesh.',
+      keywords: 'Mehedi Hasan, Senior Software Engineer, Full Stack Developer, React Developer, Next.js, Node.js, JavaScript, TypeScript, Bangladesh Developer, Web Developer Dhaka, MERN Stack Developer',
     },
     bn: {
-      title: 'মেহেদী হাসান - সফটওয়্যার ইঞ্জিনিয়ার | ফুল স্ট্যাক ডেভেলপার',
-      description: '৩+ বছরের অভিজ্ঞতা সহ ফুল স্ট্যাক ডেভেলপমেন্টে বিশেষজ্ঞ অভিজ্ঞ সফটওয়্যার ইঞ্জিনিয়ার। React, Next.js, Node.js, Express এবং স্কেলেবল SaaS অ্যাপ্লিকেশনে দক্ষ। ঢাকা, বাংলাদেশে অবস্থিত।',
+      title: 'মেহেদী হাসান - সিনিয়র সফটওয়্যার ইঞ্জিনিয়ার | ফুল স্ট্যাক ডেভেলপার',
+      description: '১০+ বছরের অভিজ্ঞতা সহ ফুল স্ট্যাক ডেভেলপমেন্টে বিশেষজ্ঞ অভিজ্ঞ সফটওয়্যার ইঞ্জিনিয়ার। React, Next.js, Node.js, Express এবং স্কেলেবল SaaS অ্যাপ্লিকেশনে দক্ষ। ঢাকা, বাংলাদেশে অবস্থিত।',
       keywords: 'মেহেদী হাসান, সফটওয়্যার ইঞ্জিনিয়ার, ফুল স্ট্যাক ডেভেলপার, React ডেভেলপার, Next.js, Node.js, JavaScript, TypeScript, বাংলাদেশ ডেভেলপার, ওয়েব ডেভেলপার ঢাকা',
     }
   };
@@ -56,7 +56,7 @@ export async function generateMetadata({ params }) {
           url: 'https://mehedihasansumit.com/og-image.png',
           width: 1200,
           height: 630,
-          alt: 'Mehedi Hasan - Software Engineer Portfolio',
+          alt: 'Mehedi Hasan - Senior Software Engineer Portfolio',
         },
       ],
     },
@@ -95,8 +95,8 @@ export default async function LocaleLayout({ children, params }) {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Mehedi Hasan',
-    jobTitle: 'Software Engineer (Team Lead)',
-    description: 'Experienced Software Engineer specializing in Full Stack Development',
+    jobTitle: 'Senior Software Engineer (Team Lead)',
+    description: 'Senior Software Engineer specializing in Full Stack Development',
     url: 'https://mehedihasansumit.com',
     image: 'https://mehedihasansumit.com/profile.jpg',
     email: 'mehedihasansumit@gmail.com',
@@ -107,10 +107,6 @@ export default async function LocaleLayout({ children, params }) {
       addressLocality: 'Dhaka',
       postalCode: '1214',
       addressCountry: 'BD',
-    },
-    alumniOf: {
-      '@type': 'EducationalOrganization',
-      name: 'Green University of Bangladesh',
     },
     worksFor: {
       '@type': 'Organization',
@@ -145,7 +141,7 @@ export default async function LocaleLayout({ children, params }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
-        <meta name="theme-color" content="#ec4899" />
+        <meta name="theme-color" content="#0a192f" />
 
         {/* Structured Data */}
         <script
