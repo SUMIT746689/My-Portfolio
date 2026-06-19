@@ -321,12 +321,12 @@ function Nav() {
               />
 
               {/* Resume Button */}
-              <a
+              {/* <a
                 href="/Mehedi-Hasan-Resume.pdf"
                 className="flex items-center justify-center p-3 border:bg-blue-600 border dark:border-cyan-500 dark:text-cyan-500 text-blue-700 border-blue-700 rounded-lg hover:bg-blue-300 dark:hover:bg-cyan-800"
               >
                 {t('nav.resume')}
-              </a>
+              </a> */}
             </div>
 
             {/* Social Links */}
